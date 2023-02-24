@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Products</title>
+	<!-- Add your CSS stylesheet here -->
+	<link rel="stylesheet" type="text/css" href="search.css">
+</head>
+<body>
+	<header>
+		<h1>Guitar Shop</h1>
+		
+		<nav>
+		  <ul class="menu">
+			<li><a href="home.html">Home</a></li>
+			<li><a href="Guitar.html">Guitars</a></li>
+			  <ul >
+				<li ><a href="LesPaul.html" class="sub-menu">Les Paul</a></li>
+				<li ><a href="Strat.html" class="sub-menu">Strato</a></li>
+			  </ul>
+			<li><a href="#">Basses</a></li>
+			<li><a href="#">Accessories</a></li>
+		  </ul>
+		</nav>
+		
+		<!-- searchBar -->
+		<div id="searchBar">
+		  <input type""text" id="txtSearch" placeholder="Search"><br>
+		  <a href="Login_signup.html">Login</a>
+		</div>
+	  </header>
+
+	<div class="container">
+		<h1>Search Products</h1>
+		<form action="" method="GET">
+			<label for="search-box">Search:</label>
+			<input type="text" id="search-box" name="search-box">
+			<label for="criteria">Search by:</label>
+			<select id="criteria" name="criteria">
+				<option value="product-name">Product Name</option>
+				<option value="product-type">Product Type</option>
+				<option value="rating">Rating</option>
+			</select>
+			<button type="submit">Search</button>
+		</form>
+		<table>
+			<thead>
+				<tr>
+					<th>Product Name</th>
+					<th>Product Type</th>
+					<th>Rating</th>
+					<th>Price</th>
+					<th>Add to Cart</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="product-detail.html">Product 1</a></td>
+					<td>Type 1</td>
+					<td>4.5</td>
+					<td>$10.00</td>
+					<td><button>Add to Cart</button></td>
+				</tr>
+				<tr>
+					<td><a href="product-detail.html">Product 2</a></td>
+					<td>Type 2</td>
+					<td>4.2</td>
+					<td>$20.00</td>
+					<td><button>Add to Cart</button></td>
+				</tr>
+				<tr>
+					<td><a href="product-detail.html">Product 3</a></td>
+					<td>Type 1</td>
+					<td>4.9</td>
+					<td>$15.00</td>
+					<td><button>Add to Cart</button></td>
+				</tr>
+				<tr>
+					<td><a href="product-detail.html">Product 4</a></td>
+					<td>Type 3</td>
+					<td>3.5</td>
+					<td>$5.00</td>
+					<td><button>Add to Cart</button></td>
+				</tr>
+				<tr>
+					<td><a href="product-detail.html">Product 5</a></td>
+					<td>Type 2</td>
+					<td>4.8</td>
+					<td>$25.00</td>
+					<td><button>Add to Cart</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer>
+		<p>&copy; 2023 Guitar Shop</p>
+		<a href="About_Us.html">About Us</a>
+	</footer >
+</body>
+</html>
+
+
