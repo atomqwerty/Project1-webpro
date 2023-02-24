@@ -32,6 +32,44 @@ nav ul {
 nav li {
   margin: 0 20px;
 }
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav form {
+  display: flex;
+}
+
+nav label {
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 2;
+}
+
+nav input[type="text"] {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+nav button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #ccc;
+  color: #333;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: #666;
+  color: #fff;
+}
 main {
   max-width: 800px;
   margin: 0 auto;
