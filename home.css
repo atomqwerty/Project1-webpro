@@ -70,12 +70,3 @@ body {
     display: list-item;
     text-align: -webkit-match-parent;
   }
-
-  /* div{
-    background-color: #f9f9f9;
-    padding: auto;
-    display: none;
-  }
-  .sub menu:hover + div{
-    display: block;
-  } */
