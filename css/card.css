@@ -1,0 +1,32 @@
+body{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+section{
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+.card{
+    align-self: center;
+    display: inline-grid;
+    padding: auto;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text";
+
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px black;
+    text-align: center;
+}
+.card-img{
+    grid-area: image;
+}
+.card-txt{
+    grid-area: text;
+}
