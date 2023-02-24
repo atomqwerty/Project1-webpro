@@ -33,7 +33,7 @@ nav li {
   margin: 0 20px;
 }
 nav a {
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 
@@ -46,7 +46,7 @@ nav form {
 }
 
 nav label {
-  color: #fff;
+  color: black;
   font-size: 0.8rem;
   line-height: 2;
 }
