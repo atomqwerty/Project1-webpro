@@ -1,18 +1,9 @@
-body{
-	margin: 0;
-	padding: 0px;
-	display: flex;
-	justify-content: center;
-	min-height: 200vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to top, purple, white);
-
-}	
 .boxpage{
-	width:350px;
 	height: 500px;
 	background: black;
 	overflow: hidden;
+	margin: 0 auto;
+	margin-top: 0;
 	background: linear-gradient(to top, white, purple);
 	border-radius: 0px;
 	box-shadow: 10px 20px 30px #000;
@@ -33,7 +24,7 @@ label{
 	display: flex;
 	margin: 60px;
 }
-input{
+.in{
 	width: 70%;
     border-radius: 15px;
 	height: 30px;
@@ -44,7 +35,7 @@ input{
 	padding: 10px;
 	border: none;
 }
-button{
+.sing{
 	width: 70%;
 	height: 30px;
 	margin: 20px auto;
