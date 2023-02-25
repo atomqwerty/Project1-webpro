@@ -5,7 +5,7 @@ body {
   line-height: 1.5;
   background-image: url("https://images4.alphacoders.com/551/thumb-1920-551125.jpg");
   backdrop-filter: blur(12px);
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   margin-bottom: 0;
   min-height: 100vh;
@@ -85,11 +85,6 @@ nav button {
 nav button:hover {
   background-color: #666;
   color: #fff;
-}
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
 section {
