@@ -32,6 +32,9 @@ nav ul {
 nav li {
   margin: 0 20px;
 }
+label{
+  margin: 0 20px;
+}
 nav a {
   color: #fff;
   text-decoration: none;
