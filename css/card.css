@@ -41,12 +41,22 @@
     grid-area: img;
     overflow: hidden;
   }
+  .card-img img {
+    transition: transform 0.5s ease;
+  }
+
   .card-txt{
     grid-area: text;
   }
   img {
     max-width: 100%;
     max-height: 100%;
+}
+.card:hover {
+  background-color: #d3d3d3;
+}
+.card-img:hover img {
+  transform: scale(1.1);
 }
   
   @media screen and (max-width: 600px) {
