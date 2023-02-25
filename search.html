@@ -8,29 +8,22 @@
 <body>
 	<header>
 		<h1>Guitar Shop</h1>
-		
 		<nav>
 			<ul>
 			  <li><a href="home.html">Home</a></li>
 			  <li><a href="About_Us.html">About Us</a></li>
 			  <li><a href="Login_signup.html">Login</a></li>
 			</ul>
-		  </nav>
-		
+			<form action="search.html">
+				<input type="text" id="search-box"placeholder="Search.." name="search-box">
+				<button type="submit">Go</button>
+			</form>
+		</nav>
 	  </header>
 
+	<main>
 	<div class="container">
 		<h1>Search Products</h1>
-		<form action="" method="GET">
-			<label for="search-box">Search:</label>
-			<input type="text" id="search-box"placeholder="Search.." name="search-box">
-			<select id="criteria" name="criteria">
-				<option value="product-name">Product Name</option>
-				<option value="product-type">Product Type</option>
-				<option value="rating">Rating</option>
-			</select>
-			<button type="submit">Search</button>
-		</form>
 		<table>
 			<thead>
 				<tr>
@@ -80,6 +73,7 @@
 			</tbody>
 		</table>
 	</div>
+	</main>
 	<footer>
 		<p>&copy; 2023 Guitar Shop</p>
 		<a href="About_Us.html">About Us</a>
