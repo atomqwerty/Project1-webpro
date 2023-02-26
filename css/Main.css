@@ -12,7 +12,9 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-
+main{
+  min-height: 78vh;
+}
 header,footer {
   background-color: #333;
   color: #fff;
@@ -96,8 +98,17 @@ h2 {
   margin-bottom: 20px;
   text-align: center;
 }
-
-
+button[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+button[type="submit"]:hover {
+	background-color: #3e8e41;
+}
 
 ol {
   margin: 0;
