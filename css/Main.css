@@ -75,6 +75,12 @@ nav input[type="text"] {
   padding: 0.5rem;
   margin-right: 0.5rem;
 }
+nav select {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
 nav button {
   border: none;
   border-radius: 0.5rem;

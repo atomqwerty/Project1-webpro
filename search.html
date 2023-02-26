@@ -14,9 +14,14 @@
 			  <li><a href="About_Us.html">About Us</a></li>
 			  <li><a href="Login_signup.html">Login</a></li>
 			</ul>
-			<form action="search.html">
+			<form action="search.html" method="GET">
 				<input type="text" id="search-box"placeholder="Search.." name="search-box">
-				<button type="submit">Go</button>
+				<select id="criteria" name="criteria">
+					<option value="product-name">Product Name</option>
+					<option value="product-type">Product Type</option>
+					<option value="rating">Rating</option>
+				</select>
+				<button type="submit">Search</button>
 			</form>
 		</nav>
 	  </header>
