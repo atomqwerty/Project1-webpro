@@ -2,11 +2,8 @@
 	height: 500px;
 	background: black;
 	overflow: hidden;
-	margin: 0 auto;
-	margin-top: 0;
-	background: linear-gradient(to top, white, purple);
+	background: linear-gradient(to top, white, black);
 	border-radius: 0px;
-	box-shadow: 10px 20px 30px #000;
 	transform: translateY(100px);
 }
 #chk{
@@ -40,28 +37,27 @@ label{
 	height: 30px;
 	margin: 20px auto;
 	justify-content: center;
-	display: block;
+	display: flex;
 	color: white;
-	background: #573b8a;
     border:none;
 	font-size: 20px;
 	border-radius: 5px;
+	
 }
-button:hover{
-	background: #a08ec2;
-}
+
 .login{
 	height: 460px;
 	background: white;
-	border-radius: 20px;
+	border-radius: 0px;
 	transform: translateY(-200px);
 	transition: .5s ease-in-out;
 }
 .login label{
-	color: purple;
+	text-align: center;
+	color: black;
 }
 
 #chk:checked ~ .login{
-	transform: translateY(-500px);
+	transform: translateY(-600px);
 }
 
