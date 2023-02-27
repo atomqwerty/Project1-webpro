@@ -54,12 +54,15 @@ section h2 {
     grid-template-areas: "img""text";
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
-    background: rgba(150, 111, 51 , 0.6)
+    background: rgba(150, 111, 51 , 0.6);
   }
 .product img {
+	border-radius: 25px;
 	max-width: 40%;
+	height: 600px;
 	margin-bottom: 20px;
 	transition: transform 0.5s ease;
+	
 }
 .product img:hover {
   transform: scale(1.1);
