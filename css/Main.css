@@ -1,14 +1,29 @@
+html { height: 100%; }
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  background-image: url("https://images4.alphacoders.com/551/thumb-1920-551125.jpg");
+  backdrop-filter: blur(12px);
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
-
+main{
+  min-height: 78vh;
+}
 header,footer {
   background-color: #333;
   color: #fff;
   text-align: center;
   padding: 20px;
+}
+.footer {
+  vertical-align: bottom;
+  margin-top: 0px;
 }
 
 h1 {
@@ -30,6 +45,9 @@ nav ul {
   display: flex;
 }
 nav li {
+  margin: 0 20px;
+}
+label{
   margin: 0 20px;
 }
 nav a {
@@ -57,6 +75,12 @@ nav input[type="text"] {
   padding: 0.5rem;
   margin-right: 0.5rem;
 }
+nav select {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
 nav button {
   border: none;
   border-radius: 0.5rem;
@@ -70,11 +94,6 @@ nav button:hover {
   background-color: #666;
   color: #fff;
 }
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
 section {
   margin-bottom: 40px;
@@ -85,6 +104,18 @@ h2 {
   margin-bottom: 20px;
   text-align: center;
 }
+button[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+button[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+
 ol {
   margin: 0;
   padding: 0;

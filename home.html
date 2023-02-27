@@ -2,61 +2,68 @@
 <html>
   <head>
     <title>Guitar Shop</title>
-    <link rel="stylesheet" type="text/css" href="Main.css">
+    <link rel="stylesheet" type="text/css" href="css/Main.css">
+    <link rel="stylesheet" type="text/css" href="css/card.css">
   </head>
   <body>
 
-    <!-- Head Section -->
     <header>
       <h1>Guitar Shop</h1>
       <nav>
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="Guitar.html">Guitars</a></li>
-          <li><a href="Bass.html">Basses</a></li>
-          <li><a href="">Accessories</a></li>
-          <li><a href="About_Us.html">About Us</a></li>
+        <li><a href="home.html">Home</a></li>
+			  <li><a href="About_Us.html">About Us</a></li>
+			  <li><a href="Login_signup.html">Login</a></li>
         </ul>
-        <form>
-          <label for="search">Search:</label>
-          <input type="text" id="search" name="search">
-          <button type="submit">Go</button>
+        <form action="search.html" method="GET">
+          <input type="text" id="search-box"placeholder="Search.." name="search-box">
+          <select id="criteria" name="criteria">
+            <option value="product-name">Product Name</option>
+            <option value="product-type">Product Type</option>
+            <option value="rating">Rating</option>
+          </select>
+          <button type="submit">Search</button>
         </form>
       </nav>
     </header>
 
 
     <main>
-      <section>
-        <h2>Welcome to Guitar Shop</h2>
-        <p>We offer a wide range of guitars, basses, and accessories from top brands.</p>
-        <button>Shop Now</button>
-      </section>
-      <section>
-        <h2>Featured Products</h2>
-        <ul>
-          <li>
-            <img src="guitar1.jpg" alt="Electric Guitar">
-            <h3>Electric Guitar</h3>
-            <p>$999.99</p>
-          </li>
-          <li>
-            <img src="guitar2.jpg" alt="Acoustic Guitar">
-            <h3>Acoustic Guitar</h3>
-            <p>$799.99</p>
-          </li>
-          <li>
-            <img src="bass1.jpg" alt="Bass Guitar">
-            <h3>Bass Guitar</h3>
-            <p>$899.99</p>
-          </li>
-        </ul>
-      </section>
+      <div class="container">
+        <div class="column">
+          <div class="card">
+            <div class="card-img">
+              <a href="Guitar.html"><img src="https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Music-PNG/Black_and_White_Guitar_PNG_Clipart.png?m=1434276803" alt="Guitar"></a>
+            </div>
+            <div class="card-txt">
+              <h2>Guitar</h2>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-img">
+              <a href="Bass.html"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Fender_Jaguar_Bass_front.png" alt="Guitar"></a>
+            </div>
+            <div class="card-txt">
+              <h2>Bass</h2>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-img">
+              <a href="Acoustic.html"><img src="https://pngimg.com/uploads/guitar/guitar_PNG3371.png" alt="Guitar"></a>
+            </div>
+            <div class="card-txt">
+              <h2>Acoustic</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
       <p>&copy; 2023 Guitar Shop</p>
-      <a href="About_Us.html">About Us</a>
     </footer >
-    <script src="script.js"></script>
   </body>
 </html>

@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Guitar Shop - Product</title>
-    <link rel="stylesheet" href="Main.css">
-    <link rel="stylesheet" href="product.css">
-  </head>
-  <body>
-    <header>
-      <h1>Guitar Shop</h1>
-      <nav>
-        <ul>
+<head>
+	<title>Product Showroom</title>
+  <link rel="stylesheet" type="text/css" href="css/Main.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Acoustic Guitar</h1>
+    <nav>
+      <ul>
           <li><a href="home.html">Home</a></li>
-          <li><a href="Guitar.html">Guitars</a></li>
-          <li><a href="Bass.html">Basses</a></li>
-          <li><a href="">Accessories</a></li>
           <li><a href="About_Us.html">About Us</a></li>
-        </ul>
-        <form>
-          <label for="search">Search:</label>
-          <input type="text" id="search" name="search">
-          <button type="submit">Go</button>
-        </form>
-      </nav>
-    </header>
-    <main>
-      <div class="product">
-        <div class="image-container">
-          <img src="guitar.jpg" alt="Guitar">
-          <div class="overlay">
-            <button class="add-to-cart">Add to cart</button>
-          </div>
-        </div>
-        <h2>Gibson Les Paul</h2>
-        <p>The Gibson Les Paul is a solid body electric guitar that was first sold by the Gibson Guitar Corporation in 1952. The Les Paul was designed by Gibson president Ted McCarty, factory manager John Huis and their team, along with guitarist/inventor Les Paul.</p>
-        <p>Price: $1,999</p>
-      </div>
-    </main>
-  </body>
+          <li><a href="Login_signup.html">Login</a></li>
+      </ul>
+      <form action="search.html" method="GET">
+				<input type="text" id="search-box"placeholder="Search.." name="search-box">
+				<select id="criteria" name="criteria">
+					<option value="product-name">Product Name</option>
+					<option value="product-type">Product Type</option>
+					<option value="rating">Rating</option>
+				</select>
+				<button type="submit">Search</button>
+			</form>
+    </nav>
+	</header>
+
+	<main>
+		<section>
+
+			<div class="product-container">
+				<div class="product">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Fender_Jaguar_Bass_front.png" alt="Product Image">
+					<h3>Product 1</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+
+				<div class="product">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Fender_Jaguar_Bass_front.png" alt="Product Image">
+					<h3>Product 2</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+
+				<div class="product">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Fender_Jaguar_Bass_front.png" alt="Product Image">
+					<h3>Product 3</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2023 Product Showroom. All rights reserved.</p>
+	</footer>
+</body>
 </html>

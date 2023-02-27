@@ -9,7 +9,7 @@
   }
   
   .product img {
-    width: 100%;
+    width: 25%;
     filter: brightness(100%);
     transition: all 0.3s ease;
   }
@@ -49,4 +49,10 @@
   .add-to-cart:hover {
     background-color: #2E8B57;
   }
-  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: rgba(150, 111, 51 , 0.8);
+}
