@@ -1,4 +1,5 @@
-.boxpage{
+
+.boxpage{/*input field*/
 	height: 500px;
 	background: black;
 	overflow: hidden;
@@ -7,32 +8,32 @@
 	transform: translateY(100px);
 }
 #chk{
-    display: none;
+    display: none; /*hide the element with id<chk>*/
 }
 .signup{
-	position:relative;
+	position:relative;/*all element with div class = "signup" can be adjusable*/
 	width:100%;
 	height: 100%;
 }
-label{
+label{ /*select all label element*/
 	color: white;
 	font-size: 40px;
-	justify-content: center;
+	justify-content: center;/*adjust sign up and login label to center*/
 	display: flex;
-	margin: 60px;
+	margin: 60px;/*margin all foursides of label to 35 pixeld*/
 }
-.in{
-	width: 70%;
+.in{/*input*/
+	width: 70%;/*adust imput field to 70% percentage from whole page*/
     border-radius: 15px;
-	height: 30px;
+	height: 30px;/*height of field*/
 	background: #e0dede;
-	justify-content: center;
+	justify-content: center;/* set input field to center*/
 	display: flex;
 	margin: 20px auto;
 	padding: 10px;
 	border: none;
 }
-.sing{
+.sing{/*button*/
 	width: 70%;
 	height: 30px;
 	margin: 20px auto;
@@ -46,18 +47,18 @@ label{
 }
 
 .login{
-	height: 460px;
+	height: 500px;
 	background: white;
 	border-radius: 0px;
-	transform: translateY(-200px);
-	transition: .5s ease-in-out;
+	transform: translate(0px,-200px);/*move login field up 200 pixels in order to be visible by users*/
+	transition: 1s ease-in-out;/*1 seconds transition for slow start and end*/
 }
 .login label{
 	text-align: center;
 	color: black;
 }
 
-#chk:checked ~ .login{
-	transform: translateY(-600px);
+#chk:checked ~ .login{/*if checkbox is clicked by all element of log-in*/
+	transform: translateY(-600px);/*move log in field up 600 pixels*/
 }
 
