@@ -3,7 +3,7 @@
 	height: 500px;
 	background: black;
 	overflow: hidden;
-	background: linear-gradient(to top, white, black);
+	background: linear-gradient(to top, rgb(0, 0, 0), rgba(150, 111, 51));
 	border-radius: 0px;
 	transform: translateY(100px);
 }
