@@ -5,6 +5,7 @@
   main {
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 100px;
     padding: 20px;
   }
   .column {
@@ -13,7 +14,8 @@
     padding: 0 10px;
   }
   
-  .container {
+  .homebox {
+
     margin: 0 -5px;
     display: flex;
     justify-content: center;
@@ -22,7 +24,7 @@
 
 }
   
-  .container:after {
+  .homebox:after {
     content: "";
     display: table;
     clear: both;
