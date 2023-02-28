@@ -35,7 +35,7 @@ label{ /*select all label element*/
 }
 .sing{/*button*/
 	width: 70%;
-	height: 30px;
+	height: 10%;
 	margin: 20px auto;
 	justify-content: center;
 	display: flex;
