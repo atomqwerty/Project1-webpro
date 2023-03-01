@@ -39,7 +39,7 @@ label{ /*select all label element*/
 }
 .sing{/*button*/
 	width: 70%;
-	min-height: fit-content;
+	height: 30px;
 	margin: 20px auto;
 	justify-content: center;
 	display: flex;
