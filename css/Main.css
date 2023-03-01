@@ -1,4 +1,5 @@
 html { height: 100%; }
+
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -8,28 +9,43 @@ body {
   margin: 0 auto;
   padding: 0;
   margin-bottom: 0;
-  min-height: 100vh;
+  min-height: 100vw;
   width: 100vw;
   overflow-x: hidden;
 }
-main{
-  min-height: 78vh;
+
+main {
+  min-height: 100%;
 }
-header,footer {
+
+header {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 0px;
+  min-height: 150px;
 }
-.footer {
-  vertical-align: bottom;
-  margin-top: 0px;
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  position:absolute;
+  bottom:0;
+  margin-bottom: 0px;
+}
+
+footer p {
+  font-size: 1rem;
 }
 
 h1 {
   margin: 0;
   font-size: 36px;
 }
+
 nav {
   background-color: rgb(204, 197, 197);
   color: #fff;
@@ -37,19 +53,26 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  border-radius: 5mm;
+  margin-left: 50px;
+  margin-right: 50px;
 }
+
 nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
 }
+
 nav li {
   margin: 0 20px;
 }
-label{
+
+label {
   margin: 0 20px;
 }
+
 nav a {
   color: black;
   text-decoration: none;
@@ -75,12 +98,14 @@ nav input[type="text"] {
   padding: 0.5rem;
   margin-right: 0.5rem;
 }
+
 nav select {
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin-right: 0.5rem;
 }
+
 nav button {
   border: none;
   border-radius: 0.5rem;
@@ -104,16 +129,18 @@ h2 {
   margin-bottom: 20px;
   text-align: center;
 }
+
 button[type="submit"] {
-	background-color: #4CAF50;
-	color: white;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 button[type="submit"]:hover {
-	background-color: #3e8e41;
+  background-color: #3e8e41;
 }
 
 ol {
@@ -121,6 +148,7 @@ ol {
   padding: 0;
   list-style-position: inside;
 }
+
 ul {
   margin: 0;
   padding: 0;
@@ -137,4 +165,16 @@ li {
 p {
   margin: 0;
   text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: rgba(150, 111, 51, 0.8);
+  border-radius: 0.5rem;
+  border-radius: 5mm;
 }

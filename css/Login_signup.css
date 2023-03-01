@@ -1,30 +1,46 @@
+.boxpage {
+    /*input field*/
+    height: 500px;
+    background: black;
+    overflow: hidden;
+    background: linear-gradient(to top, rgb(255, 255, 255), rgba(150, 111, 51));
+    border-radius: 0px;
+    transform: translateY(100px);
+    max-width: 800px;
+    margin: auto;
+    border: 5px solid #555555;
+    border-radius: 5mm;
+}
 
-.boxpage{/*input field*/
-	height: 500px;
-	background: black;
-	overflow: hidden;
-	background: linear-gradient(to top, rgb(0, 0, 0), rgba(150, 111, 51));
-	border-radius: 0px;
-	transform: translateY(100px);
+#chk {
+    display: none;
+    /*hide the element with id<chk>*/
 }
-#chk{
-    display: none; /*hide the element with id<chk>*/
+
+.signup {
+    position: relative;
+    /*all element with div class = "signup" can be adjusable*/
+    width: 100%;
+    height: 100%;
 }
-.signup{
-	position:relative;/*all element with div class = "signup" can be adjusable*/
-	width:100%;
-	height: 100%;
+
+label {
+    /*select all label element*/
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+    /*adjust sign up and login label to center*/
+    display: flex;
+    margin: 60px;
+    /*margin all foursides of label to 35 pixeld*/
 }
-label{ /*select all label element*/
-	color: white;
-	font-size: 40px;
-	justify-content: center;/*adjust sign up and login label to center*/
-	display: flex;
-	margin: 60px;/*margin all foursides of label to 35 pixeld*/
-}
-.in{/*input*/
-	width: 70%;/*adust imput field to 70% percentage from whole page*/
+
+.in {
+    /*input*/
+    width: 70%;
+    /*adust imput field to 70% percentage from whole page*/
     border-radius: 15px;
+<<<<<<< HEAD
 	height: 30px;/*height of field*/
 	background: #e0dede;
 	justify-content: center;/* set input field to center*/
@@ -43,21 +59,50 @@ label{ /*select all label element*/
 	font-size: 20px;
 	border-radius: 5px;
 	
+=======
+    height: 30px;
+    /*height of field*/
+    background: #e0dede;
+    justify-content: center;
+    /* set input field to center*/
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+>>>>>>> fb992ef5e7844f0ce9792f3f5650e3016336f002
 }
 
-.login{
-	height: 500px;
-	background: white;
-	border-radius: 0px;
-	transform: translate(0px,-200px);/*move login field up 200 pixels in order to be visible by users*/
-	transition: 1s ease-in-out;/*1 seconds transition for slow start and end*/
-}
-.login label{
-	text-align: center;
-	color: black;
+.sing {
+    /*button*/
+    width: 70%;
+    min-height: fit-content;
+    margin: 20px auto;
+    justify-content: center;
+    display: flex;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+
 }
 
-#chk:checked ~ .login{/*if checkbox is clicked by all element of log-in*/
-	transform: translateY(-600px);/*move log in field up 600 pixels*/
+.login {
+    height: 500px;
+    background: linear-gradient(to top, rgba(150, 111, 51), rgb(255, 255, 255));
+    border-radius: 0px;
+    transform: translate(0px, -200px);
+    /*move login field up 200 pixels in order to be visible by users*/
+    transition: 1s ease-in-out;
+    /*1 seconds transition for slow start and end*/
 }
 
+.login label {
+    text-align: center;
+    color: black;
+}
+
+#chk:checked~.login {
+    /*if checkbox is clicked by all element of log-in*/
+    transform: translateY(-600px);
+    /*move log in field up 600 pixels*/
+}

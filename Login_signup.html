@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>
-        Sign up
-    </title>
-	<link rel="stylesheet" href="css/Main.css">
-	<link rel="stylesheet" href="css/Login_signup.css">
-</head>
-    <body>
+	<head>
+		<title>
+			Sign up
+		</title>
+		<link rel="stylesheet" href="css/Main.css">
+		<link rel="stylesheet" href="css/Login_signup.css">
+	</head>
+	<body>
 		<header>
 			<h1>Guitar Shop</h1>
 			<nav>
-			  <ul>
-				<li><a href="home.html">Home</a></li>
+				<ul>
+					<li><a href="home.html">Home</a></li>
 					<li><a href="About_Us.html">About Us</a></li>
 					<li><a href="Login_signup.html">Login</a></li>
-			  </ul>
-			  <form action="search.html" method="GET">
-				<input type="text" id="search-box"placeholder="Search.." name="search-box">
-				<select id="criteria" name="criteria">
-					<option value="product-name">Product Name</option>
-					<option value="product-type">Product Type</option>
-					<option value="rating">Rating</option>
-				</select>
-				<button type="submit">Search</button>
-			</form>
+				</ul>
+				<form action="search.html" method="GET">
+					<input type="text" id="search-box" placeholder="Search.."
+						name="search-box">
+					<select id="criteria" name="criteria">
+						<option value="product-name">Product Name</option>
+						<option value="product-type">Product Type</option>
+						<option value="rating">Rating</option>
+					</select>
+					<button type="submit">Search</button>
+				</form>
 			</nav>
-		  </header>
+		</header>
 		<main>
 			<!--Create two form one for sign up and the other for log in-->
-		<div class="boxpage">  
-			<!--Toggling between sign-up and Log-in-->>
-			<input type="checkbox" id="chk" aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->>
+			<div class="boxpage">
+				<!--Toggling between sign-up and Log-in-->
+				<input type="checkbox" id="chk" aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
 				<div class="signup">
 					<form>
 						<!--The sign up form includes a text input field for username, Email and Password -->
 						<label for="chk" aria-hidden="true">Sign up</label>
 						<!--input field for Username ,Email and password and it must have filled before submit this form-->
-						<input class="in" type="text" name="txt" placeholder="Username" required="">
-						<input class="in" type="email" name="email" placeholder="Email" required="">
-						<input class="in"type="password" name="pswd" placeholder="Password" required="">
-						<button class="sing"type="submit" formaction="home.html">Sign up</button><!--After click Sign up button the page will redirect to homwpage -->>
+						<input class="in" type="text" name="txt" placeholder="Username"
+							required="">
+						<input class="in" type="email" name="email" placeholder="Email"
+							required="">
+						<input class="in" type="password" name="pswd" placeholder="Password"
+							required="">
+						<button class="sing" type="submit" formaction="home.html">Sign up</button><!--After click Sign up button the page will redirect to homwpage -->>
 					</form>
 				</div>
-	
+
 				<div class="login">
 					<form>
 						<!--The sign up form includes a text input field for Email and Password -->
 						<label for="chk" aria-hidden="true">Login</label>
 						<!--input field for Username ,Email and password and it must have filled before submit this form-->
-						<input class="in" type="email" name="email" placeholder="Email" required="">
-						<input class="in"type="password" name="pswd" placeholder="Password" required="">
-						<button class="sing"type="submit" formaction="home.html">Log in</button>
+						<input class="in" type="email" name="email" placeholder="Email"
+							required="">
+						<input class="in" type="password" name="pswd" placeholder="Password"
+							required="">
+						<button class="sing" type="submit" formaction="home.html">Log in</button>
 					</form>
 				</div>
-		</div>
+			</div>
 		</main>
 		<footer>
-			<p>&copy; 2023 Guitar Shop *** This "About Us" webpage is for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+			<p>&copy; 2023 Guitar Shop *** This "About Us" webpage is for the used of
+				"Educational Purposes", is part of the learning courses in the<br> ITCS212
+				Web Programming class of ICT student at Mahidol University. ***</p>
 		</footer>
 	</body>
-    </html>
+</html>
