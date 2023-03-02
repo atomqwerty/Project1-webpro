@@ -48,9 +48,6 @@ a {
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
-form {
-	margin-bottom: 20px;
-}
 
 label {
 	display: block;
@@ -79,12 +76,6 @@ label {
 }
 #search-box {
 	width: 60%;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-}
-
-#criteria {
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
