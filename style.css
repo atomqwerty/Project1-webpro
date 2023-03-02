@@ -12,16 +12,7 @@ body {
 }
 
 /* Header styles */
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-	text-align: center;
-}
 
-header h1 {
-	font-size: 2.5rem;
-}
 
 /* Main styles */
 main {
