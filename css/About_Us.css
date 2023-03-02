@@ -5,3 +5,24 @@ li{
 .members{
     display: flex;
 }
+
+img{
+    height: 100px;
+}
+
+#Pan{
+    animation-name:Rotate ;
+    animation-duration: 5s;
+    animation-delay: 0.1s;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+
+@keyframes Rotate{
+    0% {transform: rotate(0deg);}
+    
+    100% {transform: rotate(360deg);}
+}
