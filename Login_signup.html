@@ -16,7 +16,6 @@
 				<li><a href="home.html">Home</a></li>
 					<li><a href="About_Us.html">About Us</a></li>
 					<li><a href="Login_signup.html">Login</a></li>
-					<li><a href="search.html">Search</a></li>
 			  </ul>
 			  <form action="search.html" method="GET">
 				<input type="text" id="search-box"placeholder="Search.." name="search-box">
@@ -34,17 +33,6 @@
 		<div class="boxpage">  
 			<!--Toggling between sign-up and Log-in-->
 			<input type="checkbox" id="chk" aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
-				<div class="signup">
-					<form>
-						<!--The sign up form includes a text input field for username, Email and Password -->
-						<label for="chk" aria-hidden="true">Sign up</label>
-						<!--input field for Username ,Email and password and it must have filled before submit this form-->
-						<input class="in" type="text" name="txt" placeholder="Username" required="">
-						<input class="in" type="email" name="email" placeholder="Email" required="">
-						<input class="in"type="password" name="pswd" placeholder="Password" required="">
-						<button class="sing"type="submit" formaction="home.html">Sign up</button><!--After click Sign up button the page will redirect to homwpage -->>
-					</form>
-				</div><br>
 	
 				<div class="login">
 					<form>
@@ -56,6 +44,17 @@
 						<button class="sing"type="submit" formaction="home.html">Log in</button>
 					</form>
 				</div>
+				<div class="signup">
+					<form>
+						<!--The sign up form includes a text input field for username, Email and Password -->
+						<label for="chk" aria-hidden="true">Sign up</label>
+						<!--input field for Username ,Email and password and it must have filled before submit this form-->
+						<input class="in" type="text" name="txt" placeholder="Username" required="">
+						<input class="in" type="email" name="email" placeholder="Email" required="">
+						<input class="in"type="password" name="pswd" placeholder="Password" required="">
+						<button class="sing"type="submit" formaction="home.html">Sign up</button><!--After click Sign up button the page will redirect to homwpage -->>
+					</form>
+				</div><br>
 		</div>
 		</main>
 		<footer>

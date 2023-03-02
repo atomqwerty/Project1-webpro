@@ -11,7 +11,7 @@
 #chk{
     display: none; /*hide the element with id<chk>*/
 }
-.signup{
+.login{
 	position:relative;/*all element with div class = "signup" can be adjusable*/
 	width:100%;
 	height: 100%;
@@ -21,7 +21,7 @@ label{ /*select all label element*/
 	font-size: 40px;
 	justify-content: center;/*adjust sign up and login label to center*/
 	display: flex;
-	margin: 60px;/*margin all foursides of label to 35 pixeld*/
+	margin: 0px;/*margin all foursides of label to 35 pixeld*/
 }
 .in{/*input*/
 	width: 70%;/*adust imput field to 70% percentage from whole page*/
@@ -36,30 +36,50 @@ label{ /*select all label element*/
 }
 .sing{/*button*/
 	width: 70%;
-	height: 10%;
 	margin: 20px auto;
 	justify-content: center;
 	display: flex;
-	color: white;
-    border:none;
 	font-size: 20px;
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
 	border-radius: 5px;
-	
+	cursor: pointer;
 }
-
-.login{
+.sing:hover {
+	background-color: #3e8e41;
+  }
+.signup{
 	height: 500px;
 	background: white;
 	border-radius: 0px;
-	transform: translate(0px,-200px);/*move login field up 200 pixels in order to be visible by users*/
+	transform: translate(0px,-80px);/*move login field up 200 pixels in order to be visible by users*/
 	transition: 1s ease-in-out;/*1 seconds transition for slow start and end*/
 }
-.login label{
+.signup label{
 	text-align: center;
 	color: black;
 }
 
-#chk:checked ~ .login{/*if checkbox is clicked by all element of log-in*/
-	transform: translateY(-600px);/*move log in field up 600 pixels*/
+#chk:checked ~ .signup{/*if checkbox is clicked by all element of log-in*/
+	transform: translateY(-500px);/*move log in field up 600 pixels*/
+}
+.select{
+	margin: 20px auto;
+	width: 50%;
+	justify-content: center;
+	display: flex;
+	font-size: 20px;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 0ch;
+}
+.selectbox{
+	margin: 20px auto;
+	width: 25%;
+	justify-content: center;
+	display: flex;
 }
 
