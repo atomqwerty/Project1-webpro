@@ -3,9 +3,8 @@
 	height: 500px;
 	background: black;
 	overflow: hidden;
-	background: linear-gradient(to top, rgb(0, 0, 0,0.8), rgba(150, 111, 51,0.8));
+	background: linear-gradient(to top, rgb(0, 0, 0), rgba(150, 111, 51));
 	border-radius: 0px;
-	filter: 20%;
 	transform: translateY(100px);
 }
 #chk{
