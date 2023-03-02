@@ -7,6 +7,16 @@
 	<link rel="stylesheet" href="css/Main.css">
 	<link rel="stylesheet" href="css/Login_signup.css">
 	<link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
+	<style>
+		#Admin{
+			color: white;
+			background-color: #4CAF50;
+		}
+		#User{
+			color: #4CAF50;
+			background-color: white;
+		}
+	</style>
 </head>
     <body>
 		<header>
@@ -33,8 +43,11 @@
 		<div class="boxpage">  
 			<!--Toggling between sign-up and Log-in-->
 			<input type="checkbox" id="chk" aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
-	
 				<div class="login">
+					<form class="selectbox">
+						<button class="select" type="submit" id="User" formaction="Login_signup.html">User</button>
+						<button class="select" type="submit" id= "Admin" formaction="Adminlogin.html">Admin</button>
+					</form>
 					<form>
 						<!--The sign up form includes a text input field for Email and Password -->
 						<label for="chk" aria-hidden="true">Login</label>
