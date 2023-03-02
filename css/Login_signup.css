@@ -53,7 +53,7 @@ label{ /*select all label element*/
 	height: 500px;
 	background: white;
 	border-radius: 0px;
-	transform: translate(0px,-100px);/*move login field up 200 pixels in order to be visible by users*/
+	transform: translate(0px,-80px);/*move login field up 200 pixels in order to be visible by users*/
 	transition: 1s ease-in-out;/*1 seconds transition for slow start and end*/
 }
 .signup label{
@@ -62,7 +62,7 @@ label{ /*select all label element*/
 }
 
 #chk:checked ~ .signup{/*if checkbox is clicked by all element of log-in*/
-	transform: translateY(-520px);/*move log in field up 600 pixels*/
+	transform: translateY(-500px);/*move log in field up 600 pixels*/
 }
 .select{
 	margin: 20px auto;
