@@ -130,7 +130,7 @@ h2 {
   text-align: center;
 }
 
-button[type="submit"] {
+nav button[type="submit"] {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
@@ -139,7 +139,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+nav button[type="submit"]:hover {
   background-color: #3e8e41;
 }
 
