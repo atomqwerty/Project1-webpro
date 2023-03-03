@@ -1,71 +1,69 @@
+<!-- The doctype declaration specifies the version of HTML being used -->
 <!DOCTYPE html>
+
+<!-- The html tag defines the root of an HTML document -->
 <html>
+
 <head>
-	<title>Product Showroom</title>
+  <!-- The title element specifies the title of the document, which is displayed in the browser's title bar or tab -->
+  <title>Product Showroom</title>
+
+  <!-- The link element specifies the external CSS stylesheets used by the document -->
   <link rel="stylesheet" type="text/css" href="css/Main.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
-	<link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- The link element specifies the external font used by the document -->
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
+
+  <!-- The link element specifies the icon used by the document -->
+  <link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
 </head>
+
 <body>
-	<header>
-		<h1>Acoustic Guitar</h1>
+  <!-- The header element represents a container for introductory content or a set of navigational links -->
+  <header>
+    <!-- The h1 element specifies the heading for the page -->
+    <h1>Acoustic Guitar</h1>
+
+    <!-- The nav element represents a section of a page that links to other pages or to parts within the page -->
     <nav>
+      <!-- The ul element creates an unordered list of links -->
       <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="About_Us.html">About Us</a></li>
-          <li><a href="Login_signup.html">Login</a></li>
-		  <li><a href="search.html">Search</a></li>
-			</ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="About_Us.html">About Us</a></li>
+        <li><a href="Login_signup.html">Login</a></li>
+        <li><a href="search.html">Search</a></li>
       </ul>
+
+      <!-- The form element creates an HTML form for user input -->
       <form action="search.html" method="GET">
-		<input type="text" id="search-box"placeholder="Search.." name="search-box">
-		<select id="criteria" name="criteria">
-			<option value="product-name">Product Name</option>
-			<option value="product-type">Product Type</option>
-			<option value="rating">Rating</option>
-		</select>
-		<button type="submit">Search</button>
-	</form>
+        <!-- The input element creates a text box for user input -->
+        <input type="text" id="search-box" placeholder="Search.." name="search-box">
+
+        <!-- The select element creates a drop-down list of options -->
+        <select id="criteria" name="criteria">
+          <option value="product-name">Product Name</option>
+          <option value="product-type">Product Type</option>
+          <option value="rating">Rating</option>
+        </select>
+
+        <!-- The button element creates a clickable button -->
+        <button type="submit">Search</button>
+      </form>
     </nav>
-	</header>
+  </header>
 
-	<main>
-		<section>
+  <main>
+    <!-- The section element represents a standalone section of content -->
+    <section>
+      <!-- The div element creates a container for a group of related elements -->
+      <div class="product-container">
+        <div class="product">
+          <!-- The a element creates a hyperlink to another web page or a specific anchor within a page -->
+          <a href="acous1.html"><img src="https://media.music.co.th/media/products/70bf134d043f4de8a2a12e16e5adcf79.jpg" alt="Product Image"></a>
+          <h3>CRAFTER HD-200 S.NT</h3>
 
-			<div class="product-container">
-				<div class="product">
-					<a href="acous1.html"><img src="https://media.music.co.th/media/products/70bf134d043f4de8a2a12e16e5adcf79.jpg" alt="Product Image"></a>
-					<h3>CRAFTER HD-200 S.NT</h3>
-					
-					<form class="selectbox">
-						<button class="detail" type="submit" formaction="acous1.html">More details</button>
-					</form>
-				</div>
-
-				<div class="product">
-					<a href="acous2.html"><img src="https://media.music.co.th/media/products/57d3691791d64000a394d93895248902.jpg" alt="Product Image"></a>
-					<h3> MARTIN DJR10-BURST</h3>
-					
-					<form class="selectbox">
-						<button class="detail" type="submit" formaction="acous2.html">More details</button>
-					</form>
-				</div>
-
-				<div class="product">
-					<a href="acous3.html"><img src="https://media.music.co.th/media/products/5a094991c29249a190ffd8e7bd4b79a0.jpg" alt="Product Image"></a>
-					<h3>MARTIN D JR. A</h3>
-					
-					<form class="selectbox">
-						<button class="detail" type="submit"formaction="acous3.html">More details</button>
-					</form>
-				</div>
-			</div>
-		</section>
-	</main>
-
-	<footer>
-		<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
-	</footer>
-</body>
-</html>
+          <!-- The form element creates an HTML form for user input -->
+          <form class="selectbox">
+            <!-- The button element creates a clickable button that links to another web page -->
+            <button class="detail" type="submit" formaction="acous
