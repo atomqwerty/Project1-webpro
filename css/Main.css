@@ -1,8 +1,9 @@
-html, body, #wrapper {
+html, body {
   width:fit-content; 
   height:fit-content;
   }
 body {
+  overflow-x: hidden;
   font-family: "Ubuntu";
   font-size: 16px;
   line-height: 1.5;
@@ -12,7 +13,6 @@ body {
   padding: 0;
   min-height: 50vw;
   width: 100vw;
-  overflow-x: hidden;
 }
 
 main {
@@ -35,7 +35,7 @@ footer {
   text-align: center;
   margin-bottom: 0px;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 4%;
   position:absolute
 }
 
