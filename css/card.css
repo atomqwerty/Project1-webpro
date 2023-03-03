@@ -8,13 +8,6 @@ main {
   margin-top: 5%;
   padding: 20px;
 }
-.column {
-  float: left;
-  width: 100%;
-  padding: 0 10px;
-  
-}
-
 .container {
   margin: 0 -5px;
   display: flex;
