@@ -35,7 +35,23 @@ img{
     animation-timing-function: linear;
 
 }
+#atom{
+    animation-name:Flip ;
+    animation-duration: 5s;
+    animation-delay: 0.1s;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 
+}
+@keyframes Flip{
+    0% {transform: scaleX(1);}
+    
+    50% {transform: scaleX(-1);}
+
+    100% {transform: scaleX(1);}
+}
 
 @keyframes Rotate{
     0% {transform: rotate(0deg);}
