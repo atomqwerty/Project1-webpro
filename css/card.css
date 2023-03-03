@@ -8,13 +8,6 @@ main {
   margin-top: 5%;
   padding: 20px;
 }
-.column {
-  float: left;
-  width: 100%;
-  padding: 0 10px;
-  
-}
-
 .container {
   margin: 0 -5px;
   display: flex;
@@ -32,7 +25,6 @@ main {
 }
 
 .homebox {
-
   margin: 0 -5px;
   display: flex;
   justify-content: center;
@@ -49,12 +41,15 @@ main {
 
 .card {
   display: grid;
+  width: fit-content;
   border-radius: 25px;
+  margin: 0%;
   border: 5px solid #ccc;
   grid-template-columns: 400px;
   grid-template-rows: 600px 100px;
   grid-template-areas: "img""text";
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  align-self: center;
   text-align: center;
   background: rgba(150, 111, 51, 0.6)
 
@@ -88,12 +83,4 @@ img {
 
 .card-img:hover img {
   transform: scale(1.1);
-}
-
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
 }

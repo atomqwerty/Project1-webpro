@@ -1,7 +1,6 @@
 
 .boxpage{/*input field*/
 	height: 700px;
-	
 	background: black;
 	overflow: hidden;
 	background: linear-gradient(to top, rgb(0, 0, 0), rgba(150, 111, 51));
@@ -55,7 +54,7 @@ label{ /*select all label element*/
 	height: 100%;
 	background: white;
 	border-radius: 0px;
-	transform: translate(0%,-12%);/*move login field up 12% pixels in order to be visible by users*/
+	transform: translate(0%,-25%);/*move login field up 12% pixels in order to be visible by users*/
 	transition: 1s ease-in-out;/*1 seconds transition for slow start and end*/
 }
 .signup label{
