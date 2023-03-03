@@ -115,3 +115,8 @@ main{
     align-items: center;
     
 }
+
+ul{
+    color: #fff;
+    text-align: left;
+}
