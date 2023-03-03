@@ -36,8 +36,7 @@ footer {
   margin-bottom: 0px;
   width: 100%;
   margin-top: 10%;
-  position:relative;
-  bottom: 0;
+  position:absolute
 }
 
 footer p {
