@@ -38,7 +38,7 @@ main{
 
 .container .imgBx img {
     position: relative;
-    width: 100%;
+    width: fit-content;
     height: 100%;
     transition: .9s linear;
     margin-left: 100px;
