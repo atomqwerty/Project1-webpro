@@ -1,5 +1,7 @@
-html { height: 100%; }
-
+html, body, #wrapper {
+  width:fit-content; 
+  height:fit-content;
+  }
 body {
   font-family: "Ubuntu";
   font-size: 16px;
@@ -8,7 +10,6 @@ body {
   backdrop-filter: blur(12px);
   margin: 0 auto;
   padding: 0;
-  
   min-height: 50vw;
   width: 100vw;
   overflow-x: hidden;
@@ -16,7 +17,6 @@ body {
 
 main {
   min-height: 100%;
-  
 }
 
 
@@ -33,12 +33,10 @@ footer {
   color: #fff;
   padding: 20px;
   text-align: center;
-  width: 100%;
-  position:relative;
-  bottom:0;
   margin-bottom: 0px;
+  width: 100%;
   margin-top: 10%;
-  
+  position:absolute
 }
 
 footer p {
@@ -172,8 +170,9 @@ p {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 75%;
   margin-top: 5%;
+  margin-bottom: 10%;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
