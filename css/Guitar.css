@@ -21,6 +21,7 @@ main{
     height: 600px;
     background: #fff;
     margin: 20px;
+    overflow: hidden;
 }
 
 .container .imgBx {
