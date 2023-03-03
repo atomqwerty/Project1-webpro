@@ -4,14 +4,25 @@ li{
 
 .members{
     display: flex;
+    flex-wrap: wrap;
+    
+    align-items: right;
+    
+    justify-content: center;
 }
 
+
 img{
+    
     height: 100px;
+}
+.im{
+    text-align: center;
+    margin: 10px;
 }
 
 .goal{
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 }
 
 #Pan{
@@ -25,8 +36,12 @@ img{
 
 }
 
+
 @keyframes Rotate{
     0% {transform: rotate(0deg);}
     
     100% {transform: rotate(360deg);}
+}
+.container{
+    margin-bottom: 10px;
 }
