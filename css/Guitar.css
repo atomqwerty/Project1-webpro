@@ -29,6 +29,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 300px;
+    border: 5px;
     height: 100%;
     /* background: #212121; */
     transition: .3s linear;
@@ -72,7 +73,7 @@ main{
 
 .container .details p {
     max-width: 85%;
-    margin-left: 15%;
+    margin: auto;
     color:white;
     font-size: 15px;
     margin-bottom: 36px;
