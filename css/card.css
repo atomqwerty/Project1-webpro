@@ -5,12 +5,14 @@
 main {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 5%;
   padding: 20px;
 }
 .column {
   float: left;
   width: 100%;
   padding: 0 10px;
+  
 }
 
 .container {
@@ -21,12 +23,7 @@ main {
   height: 100%;
 }
 
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 100px;
-  padding: 20px;
-}
+
 
 .column {
   float: left;
@@ -62,8 +59,12 @@ main {
   background: rgba(150, 111, 51, 0.6)
 }
 
+
+
 .card-img {
   grid-area: img;
+  margin: 7%;
+  
 }
 
 .card-img img {

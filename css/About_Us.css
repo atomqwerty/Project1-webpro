@@ -10,6 +10,10 @@ img{
     height: 100px;
 }
 
+.goal{
+    margin-bottom: 20%;
+}
+
 #Pan{
     animation-name:Rotate ;
     animation-duration: 5s;

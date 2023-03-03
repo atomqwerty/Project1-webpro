@@ -1,6 +1,7 @@
 
 .boxpage{/*input field*/
 	height: 500px;
+	
 	background: black;
 	overflow: hidden;
 	background: linear-gradient(to top, rgb(0, 0, 0), rgba(150, 111, 51));
@@ -14,6 +15,7 @@
 	position:relative;/*all element with div class = "signup" can be adjusable*/
 	width:100%;
 	height: 100%;
+	
 }
 label{ /*select all label element*/
 	color: white;
