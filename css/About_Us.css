@@ -26,7 +26,6 @@ img{
 }
 
 #Pan{
-    animation-name:Rotate ;
     animation-duration: 5s;
     animation-delay: 0.1s;
     animation-direction: normal;
