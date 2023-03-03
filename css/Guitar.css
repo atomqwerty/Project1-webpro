@@ -28,19 +28,23 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 300px;
     height: 100%;
-    background: #212121;
+    /* background: #212121; */
     transition: .3s linear;
 }
 
 .container .imgBx img {
     position: relative;
-    width: 700px;
+    width: 225px;
+    height: 625px;
     transition: .9s linear;
+    margin-left: 100px;
 }
 
 .container .details {
+    background-color: black;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +52,7 @@ main{
     height: 100%;
     box-sizing: border-box;
     padding: 40px;
+    border-radius: 15px;
 }
 
 .container .details h2{
@@ -55,7 +60,7 @@ main{
     padding: 0;
     font-size: 2.4em;
     line-height: 1em;
-    color: #444;
+    color: white;
 }
 
 .container .details h2 span {
@@ -68,29 +73,31 @@ main{
 .container .details p {
     max-width: 85%;
     margin-left: 15%;
-    color: #333;
+    color:white;
     font-size: 15px;
     margin-bottom: 36px;
+
 }
 
 .container .details h3 {
-    margin: 0;
+    margin-left: 80px;
     padding: 0;
     font-size: 2.5em;
-    color: #a2a2a2;
+    color: white;
     float: left;
 }
 .container .details button {
-    background: #000;
+    background: green;
     color: #fff;
     border: none;
     outline: none;
     padding: 15px 20px;
-    margin-top: 5px;
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 40px;
-    float: right;
+    text-align: center;
+    float: center;
+    margin-left: 115px;
 }
