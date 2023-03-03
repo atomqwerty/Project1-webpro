@@ -55,7 +55,7 @@ label{ /*select all label element*/
 	height: 100%;
 	background: white;
 	border-radius: 0px;
-	transform: translate(0%,-12%);/*move login field up 200 pixels in order to be visible by users*/
+	transform: translate(0%,-12%);/*move login field up 12% pixels in order to be visible by users*/
 	transition: 1s ease-in-out;/*1 seconds transition for slow start and end*/
 }
 .signup label{
