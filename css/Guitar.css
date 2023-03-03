@@ -28,17 +28,18 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 38%;
     border: 5px;
     height: 100%;
     /* background: #212121; */
     transition: .3s linear;
+    overflow: hidden;
 }
 
 .container .imgBx img {
     position: relative;
-    width: fit-content;
-    height: 625px;
+    width: 100%;
+    height: 100%;
     transition: .9s linear;
     margin-left: 100px;
 }
