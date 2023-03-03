@@ -40,10 +40,10 @@ footer {
   padding: 20px;
   min-height: 20px;
   text-align: center;
-  margin-top: 10px;
   margin-bottom: 0px;
   width: 100%;
-  position:absolute;
+  margin-top: 10%;
+  position:absolute
 }
 
 footer p {
