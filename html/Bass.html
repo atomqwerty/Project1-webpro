@@ -7,6 +7,16 @@
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
 	<link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+	<script type="text/javascript">
+			let rooturl ="http://localhost:3030/product/1"
+			fetch(rooturl)  
+			.then((res) => res.json()) // Get JSON from the response
+			.then((data) => {
+				console.log(data.data)
+				document.querySelector("#name").innerHTML="";
+				document.querySelector("#name").innerHTML += "<h3>"+data.data.product_name+"</h3>"	
+				})   
+	</script>
 </head>
 <body>
 	<header>
@@ -37,8 +47,8 @@
 			<div class="product-container">
 				<div class="product">
 					<a href="Bass1.html"><img src="https://cdn.shopify.com/s/files/1/2800/5736/products/esp-ltd-b-205sm-fretless-bass-guitar-natural-satin-37476970430703_1200x.png?v=1660257145" alt="Product Image"></a>
-					<h3>Fret-less Bass</h3>
 					
+					<div id="name"></div>
 					<form class="selectbox">
 						<button class="detail" type="submit" formaction="Bass1.html">More details</button>
 					</form>

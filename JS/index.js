@@ -95,6 +95,21 @@ app.post('/authen', jsonParser, function (req, res, next) {
     const decoded = jwt.verify(token, sec);
     res.json({status: 'authen',decoded})
 });
+
+app.get('/product/:id', function(req, res) {
+    const product_id = req.params.id;
+    if (!product_id) {
+        return res.status(400).send({ error: true, message: 'Please provide product id' });
+    }
+    connection.query('SELECT * FROM products WHERE id = ?', product_id, function(error, results) {
+        if (error) throw error;
+        if (results.length === 0) {
+            return res.status(404).send({ error: true, message: 'product not found' });
+        }
+        return res.send({data: results[0]});
+    });
+});
+
 app.listen(port, function () {
     console.log('CORS-enabled web server listening on port ' + port)
 })
