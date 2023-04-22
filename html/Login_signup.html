@@ -18,6 +18,23 @@
 			background-color: white;
 		}
 	</style>
+	<script type="text/javascript">
+		function getConferenceResponses(){
+			let rooturl ="http://localhost:3030/login"
+			fetch(rooturl)  
+			.then((res) => res.json()) // Get JSON from the response
+			.then((data) => {
+				console.log(data);
+				document.querySelector("#output").innerHTML="";
+				for (let i=0; i < 3 ; i++){
+					temp=data.results[i]
+					document.querySelector("#output").innerHTML += "<p>" + temp.title+"<br><img src="+temp.image+">"+"</p>";
+				}
+				
+				})
+			.catch((err) => console.log(err))
+			}   
+	</script>
 </head>
     <body>
 		<header>
@@ -49,8 +66,8 @@
 			<input type="checkbox" id="chk" aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
 				<div class="login">
 					<form class="selectbox">
-						<button class="select" type="submit" id="User" formaction="Login_signup.html">User</button>
-						<button class="select" type="submit" id= "Admin" formaction="Adminlogin.html">Admin</button>
+						<button class="select" type="submit" id="User" formaction="/Login_signup">User</button>
+						<button class="select" type="submit" id= "Admin" formaction="/Adminlogin">Admin</button>
 					</form>
 					<form>
 						<!--The sign up form includes a text input field for Email and Password -->

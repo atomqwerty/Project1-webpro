@@ -28,17 +28,30 @@ connection.connect(function (err) {
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/home.html'));
 })
-
 router.get('/about_us', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/About_Us.html'));
 })
-
 router.get('/Login_signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Login_signup.html'));
 })
-
 router.get('/search', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/search.html'));
+})
+
+router.get('/Add_product', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Add_product.html'));
+})
+router.get('/Admin_home', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Admin_home.html'));
+})
+router.get('/Admin_Product', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Admin_Product.html'));
+})
+router.get('/Admin_profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Admin_profile.html'));
+})
+router.get('/Adminlogin', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Adminlogin.html'));
 })
 
 router.get('/Bass', (req, res) => {
@@ -48,6 +61,12 @@ router.get('/Bass', (req, res) => {
 router.get('/Acoustic', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Acoustic.html'));
 })
+
+router.get('/Guitar', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar.html'));
+})
+
+
 //log
 app.listen(port, () => {
     console.log(`Server listening on port: ${port}`)
