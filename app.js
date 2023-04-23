@@ -65,6 +65,9 @@ router.get('/Acoustic', (req, res) => {
 router.get('/Guitar', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar.html'));
 })
+router.get('/Guitar1', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar1.html'));
+})
 
 
 //log
