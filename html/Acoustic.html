@@ -57,36 +57,51 @@
     <!-- The section element represents a standalone section of content -->
     <section>
       <!-- The div element creates a container for a group of related elements -->
+
       <div class="product-container">
-				<div class="product">
-					<a href="acous1.html"><img src="https://media.music.co.th/media/products/70bf134d043f4de8a2a12e16e5adcf79.jpg" alt="Product Image"></a>
-          <h3>CRAFTER HD-200 S.NT</h3>
-					<div id="name"></div>
-					<form class="selectbox">
-						<button class="detail" type="submit" formaction="acous1.html">More details</button>
-					</form>
-				
+				<div id="Acoustic1" class="product">
+					<script type="text/javascript">
+						let rooturl7 ="http://localhost:3030/product/7"
+						fetch(rooturl7)  
+						.then((res) => res.json()) // Get JSON from the response
+						.then((data) => {
+							console.log(data.data)
+							document.querySelector("#Acoustic1").innerHTML = '<a href="/Acoustic1"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
+							"<h3>"+data.data.product_name+"</h3>"
+							+'<form class="selectbox"> <button class="detail" type="submit" formaction="acous1.html">More details</button></form>'	
+							})   
+					</script>
 				</div>
 
-				<div class="product">
-					<a href="acous2.html"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Fender_Jaguar_Bass_front.png" alt="Product Image"></a>
-					<h3>4-Strings Bass</h3>
-					
-					<form class="selectbox">
-						<button class="detail" type="submit" formaction="acous2.html">More details</button>
-					</form>
+				<div id="Acoustic2" class="product">
+					<script type="text/javascript">
+						let rooturl8 ="http://localhost:3030/product/8"
+						fetch(rooturl8)  
+						.then((res) => res.json()) // Get JSON from the response
+						.then((data) => {
+							console.log(data.data)
+							document.querySelector("#Guitar2").innerHTML = '<a href="/Guitar2"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
+							"<h3>"+data.data.product_name+"</h3>"
+							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/acous2.html">More details</button></form>'	
+							})   
+					</script>
 				</div>
 
-				<div class="product">
-					<a href="acous3.html"><img src="http://cdn.shopify.com/s/files/1/0984/4742/products/1568013335179_grande.png?v=1568988390" alt="Product Image"></a>
-					<h3>5-Srings Bass</h3>
-					
-					<form class="selectbox">
-						<button class="detail" type="submit" formaction="acous3.html">More details</button>
-					</form>
+				<div id="Acoustic3" class="product">
+					<script type="text/javascript">
+						let rooturl9 ="http://localhost:3030/product/9"
+						fetch(rooturl9)  
+						.then((res) => res.json()) // Get JSON from the response
+						.then((data) => {
+							console.log(data.data)
+							document.querySelector("#Guitar3").innerHTML = '<a href="/Guitar3"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
+							"<h3>"+data.data.product_name+"</h3>"
+							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/acous3.html">More details</button></form>'	
+							})   
+					</script>
 				</div>
 			</div>
-      <div class="product-container">
+      
 
 
         
