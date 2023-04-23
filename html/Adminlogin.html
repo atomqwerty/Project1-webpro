@@ -21,29 +21,28 @@
 		}
 	</style>
 	<script type="text/javascript">
-		document.getElementById('login-btn').addEventListener('click', function () {
-			const email = document.getElementsByName('email')[0].value;
-			const password = document.getElementsByName('pswd')[0].value;
+		const loginForm = document.querySelector('form');
 
-			const data = {
-				email: email,
-				password: password
-			};
+		loginForm.addEventListener('submit', async (e) => {
+			e.preventDefault();
 
-			fetch('http://localhost:3030/login-admin', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(data)
-			})
-				.then(response => response.json())
-				.then(data => {
-					// handle the response data here
-				})
-				.catch(error => {
-					console.error('Error:', error);
+			const email = document.querySelector('input[name="email"]').value;
+			const password = document.querySelector('input[name="pswd"]').value;
+
+			try {
+				const response = await fetch('http://localhost:3030/login-admin', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ email, password })
 				});
+
+				const data = await response.json();
+				console.log(data); // do something with the response data
+			} catch (error) {
+				console.error(error);
+			}
 		});
 	</script>
 </head>
@@ -82,11 +81,11 @@
 					<button class="select" type="submit" id="User" formaction="/Login_signup">User</button>
 					<button class="select" type="submit" id="Admin" formaction="/Adminlogin">Admin</button>
 				</form>
-				<form id="login-form" method="POST">
+				<form id="login-form" method="POST" action="http://localhost:3030/login-admin">
 					<!--The sign up form includes a text input field for Email and Password -->
 					<label for="chk" aria-hidden="true">Login</label>
 					<!--input field for Username ,Email and password and it must have filled before submit this form-->
-					<input class="in" type="email" name="email" placeholder="Email" required="">
+					<input class="in" type="text" name="text" placeholder="Username" required="">
 					<input class="in" type="password" name="pswd" placeholder="Password" required="">
 					<button class="sing" type="button" id="login-btn">Log in</button>
 				</form>
