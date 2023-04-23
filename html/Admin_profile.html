@@ -61,6 +61,7 @@
                 console.log(data.data[i])
                 document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].username+'</td>'+'<td>'+data.data[i].password+'</td>'+'<td>'+data.data[i].role+'</td>'+'<td>'+data.data[i].login_log+'</td>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
             }
+            i++;
             document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="New-user"></td><td><input type="text" id="search-box" placeholder="Password"></td><td><input type="text" id="search-box" placeholder="Type"></td><td>today</td><td> <button type="submit"class="add">Add</button></td></tr>'
             })  
     </script>

@@ -18,10 +18,10 @@
             document.querySelector("#admin").innerHTML =''
             for(i=0;i<data.data.length;i++){
                 console.log(data.data[i])
-                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].product_name+'</td>'+'<td>'+data.data[i].product_type+'</td>'+'<td>'+data.data[i].rating+'</td>'+'<td>'+data.data[i].price+'</td>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
+                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].product_name+'</td>'+'<td>'+data.data[i].product_type+'</td>'+'<td>'+data.data[i].rating+'</td>'+'<td>'+data.data[i].price+'</td>'+'<th>'+data.data[i].picture+'</th>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
             }
             i++;
-            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="product_name"></td><td><input type="text" id="search-box" placeholder="product_type"></td><td><input type="text" id="search-box" placeholder="rating"></td><td><input type="text" id="search-box" placeholder="price"></td><td> <button type="submit"class="add">Add</button></td></tr>'
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="product_name"required=""></td><td><input type="text" id="search-box" placeholder="product_type"required=""></td><td><input type="text" id="search-box" placeholder="rating"required=""></td><td><input type="text" id="search-box" placeholder="price"required=""></td><td><input type="text" id="search-box" placeholder="Picture_URL"required=""></td><td> <button type="submit"formaction="Admin_Product"class="add">Add</button></td></tr>'
             })  
     </script>
 <header>
@@ -48,6 +48,7 @@
             <th>Product Type</th>
             <th>Rating</th>
             <th>Price</th>
+            <th>URL</th>
             <th>Edit</th>
         </tr>
     </thead>
@@ -55,9 +56,6 @@
         
     </tbody>
 </table>
-<form action="Add_product" class="add_bar" method="GET">
-    <button type="submit"class="add">Add</button>
-</form>
 
 </div>
 </main>
