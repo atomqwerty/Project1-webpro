@@ -32,29 +32,25 @@
       </nav>
 </header>
 <main>
-<div class="container">
-    <div class="imgBx">
-        <img src="https://cdn.shopify.com/s/files/1/2800/5736/products/esp-ltd-b-205sm-fretless-bass-guitar-natural-satin-37476970430703_1200x.png?v=1660257145" alt="Guitar 1"  height="400">
-    </div>
-    <div class="details">
-        <div class="content">
-            <h2>B-205SM FRETLESS <br>
-                <span>Guitar Collection</span>
-            </h2>
-            <ul>
-                <li>Body: Ash NECK: 5Pc Maple/Jatoba</li>
-                <li>FINISH: NATURAL SATIN</li>
-                <li>NUT TYPE: Molded</li>
-                <li>NECK CONTOUR: Thin U</li>
-                <li>ELECTRONICS: Passive P.U. w/ Active EQ<br>ELECTRONICS LAYOUT: Vol/Bal/ABQ-3 3-Band EQ
-                </li>
-                <li>NECK PU: ESP Designed SB-5N<br>BRIDGE PU: ESP Designed SB-5B</li>                <li></li>
-               
-            </ul>
-            <h3>12,800 Baht</h3>
-            <button>Add to Cart</button>
-        </div>
-    </div>
+<div class="container" id="Bass">
+    <script type="text/javascript">
+        let rooturl5 ="http://localhost:3030/product/4"
+        fetch(rooturl5)  
+        .then((res) => res.json()) // Get JSON from the response
+        .then((data) => {
+            console.log(data.data)
+            document.querySelector("#Bass").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'alt="Bass 1" width="200" height="400"></div>'+
+    '<div class="details">'+
+        '<div class="content" >'
+            +'<h2>'+data.data.product_name+'<br>'
+                +'<span>Guitar Collection</span>'
+            +'</h2><ul><li>'+data.data.product_description+'</li>'
+            +'<li> rating: '+data.data.rating+'</li>'
+            +'<li>'+data.data.product_type+'</li></ul>'
+            +'<h3>'+data.data.price +'Bath</h3>'
+        +'</div>'
+            })   
+    </script>
 </div>
 </main>
 <footer>

@@ -30,34 +30,25 @@
       </nav>
 </header>
 <main>
-<div class="container">
-    <div class="imgBx">
-        <img src="https://media.music.co.th/media/products/5a094991c29249a190ffd8e7bd4b79a0.jpg" alt="Acoustic3" width="200" height="400">
-    </div>
-    <div class="details">
-        <div class="content">
-            <h2>MARTIN D JR. A <br>
-                <span>Acoustic Collection</span>
-            </h2>
-            <p>
-                Series : Alvarez Artist
-                Top Wood : Solid A+ Sitka Spruce
-                Back & Sides : Mahogany
-                Shape : Dreadnought 
-                Neck : Mahogany, 50/50 Semi gloss finish
-               Nut Width : FST2M - Forward Shifted, Scalloped X
-               Scale Length : Bi-Level Rosewood
-              Inlays : Rosewood
-              Bridge : Rosewood
-             Bridge Pin : Real Bone
-              Fingerboard : Premium Die Cast
-             Purlfing : Ivory ABS
-             Hard Case : No
-            </p>
-            <h3>19,900.00 Bath</h3>
-            <button>Add to Cart</button>
-        </div>
-    </div>
+<div class="container" id="Acoustic">
+    <script type="text/javascript">
+        let rooturl5 ="http://localhost:3030/product/9"
+        fetch(rooturl5)  
+        .then((res) => res.json()) // Get JSON from the response
+        .then((data) => {
+            console.log(data.data)
+            document.querySelector("#Acoustic").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'alt="Acoustic 3" width="200" height="400"></div>'+
+    '<div class="details">'+
+        '<div class="content" >'
+            +'<h2>'+data.data.product_name+'<br>'
+                +'<span>Guitar Collection</span>'
+            +'</h2><ul><li>'+data.data.product_description+'</li>'
+            +'<li> rating: '+data.data.rating+'</li>'
+            +'<li>'+data.data.product_type+'</li></ul>'
+            +'<h3>'+data.data.price +'Bath</h3>'
+        +'</div>'
+            })   
+    </script>
 </div>
 </div>
 </main>
