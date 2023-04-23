@@ -30,36 +30,25 @@
       </nav>
 </header>
 <main>
-<div class="container">
-    <div class="imgBx">
-        <img src="https://media.music.co.th/media/products/70bf134d043f4de8a2a12e16e5adcf79.jpg" alt="Acoustic1" width="100" height="150">
-    </div>
-    <div class="details">
-        <div class="content">
-            <h2>CRAFTER HD-200 S.NT<br>
-                <span>Acoustic Collection</span>
-            </h2>
-            <p>
-                <!-- Add information about the guitar -->
-                Guitar Shape	Dreadnought
-                Top Wood:Solid Engelmann Spruce
-                Body Wood:	Gloss Natural
-                Back&side:	Mahogany / Mahogany
-                Scale Length:	647.7 mm / 25.5 inches
-                Tuners:	Black Chrome
-                Electric: Preamps	
-                Brand of Strings:	D'addario
-                Neck	Mahogany:
-                Fingerboard	Rosewood
-                Inlay	DOT
-                Gigbag/case	Gigbag
-                Nut & Saddle	Bone
-                Number of Frets	20
-            </p>
-            <h3>7,200 Bath</h3>
-            <button>Add to Cart</button>
-        </div>
-    </div>
+<div class="container" id="Acoustic">
+    <script type="text/javascript">
+                let rooturl5 ="http://localhost:3030/product/7"
+                fetch(rooturl5)  
+                .then((res) => res.json()) // Get JSON from the response
+                .then((data) => {
+                    console.log(data.data)
+                    document.querySelector("#Acoustic").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'alt="Acoustic 1" width="200" height="400"></div>'+
+            '<div class="details">'+
+                '<div class="content" >'
+                    +'<h2>'+data.data.product_name+'<br>'
+                        +'<span>Guitar Collection</span>'
+                    +'</h2><ul><li>'+data.data.product_description+'</li>'
+                    +'<li> rating: '+data.data.rating+'</li>'
+                    +'<li>'+data.data.product_type+'</li></ul>'
+                    +'<h3>'+data.data.price +'Bath</h3>'
+                +'</div>'
+                    })   
+            </script>
 </div>
 </div> <!-- Remove the extra closing div tag -->
 </main>

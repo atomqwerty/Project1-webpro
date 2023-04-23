@@ -32,26 +32,25 @@
       </nav>
 </header>
 <main>
-<div class="container">
-    <div class="imgBx">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Fender_Jaguar_Bass_front.png" alt="Guitar 1" width="200" height="400">
-    </div>
-    <div class="details">
-        <div class="content">
-            <h2>Fender Bass Jaguar<br>
-                <span>Guitar Collection</span>
-            </h2>
-            <ul>
-                <li>Alder body with gloss finish</li>
-                <li>One Player Series single-coil J Bass® bridge pickup; one Player Series split-coil P Bass® middle pickup</li>
-                <li>Two volume controls; master tone control</li>
-                <li>“Modern C"-shaped neck profile</li>
-                <li>9.5"-radius fingerboard</li>
-            </ul>
-            <h3>12,800 Bath</h3>
-            <button>Add to Cart</button>
-        </div>
-    </div>
+<div class="container" id="Bass">
+    <script type="text/javascript">
+        let rooturl5 ="http://localhost:3030/product/5"
+        fetch(rooturl5)  
+        .then((res) => res.json()) // Get JSON from the response
+        .then((data) => {
+            console.log(data.data)
+            document.querySelector("#Bass").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'alt="Bass 2" width="200" height="400"></div>'+
+    '<div class="details">'+
+        '<div class="content" >'
+            +'<h2>'+data.data.product_name+'<br>'
+                +'<span>Guitar Collection</span>'
+            +'</h2><ul><li>'+data.data.product_description+'</li>'
+            +'<li> rating: '+data.data.rating+'</li>'
+            +'<li>'+data.data.product_type+'</li></ul>'
+            +'<h3>'+data.data.price +'Bath</h3>'
+        +'</div>'
+            })   
+    </script>
 </div>
 </main>
 <footer>
