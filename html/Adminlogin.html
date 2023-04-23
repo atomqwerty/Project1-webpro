@@ -1,81 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>
-			Sign up
-		</title>
-		<link rel="stylesheet" href="/Main.css">
-		<link rel="stylesheet" href="/Login_signup.css">
-		<link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
-        <style>
-            #User{
-                color: white;
-                background-color: #4CAF50;
-            }
-            #Admin{
-                color: #4CAF50;
-                background-color: white;
-            }
-        </style>
-	</head>
-	<body>
-		<header>
-			<h1>Guitar Shop</h1>
-			<nav>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/AboutUs">About Us</a></li>
-					<li><a href="/Login_signup">Login</a></li>
-					<li><a href="/search">Search</a></li>
-			</ul>
-				</ul>
-				<form action="/search" method="GET">
-					<input type="text" id="search-box" placeholder="Search.."
-						name="search-box">
-					<select id="criteria" name="criteria">
-						<option value="product-name">Product Name</option>
-						<option value="product-type">Product Type</option>
-						<option value="rating">Rating</option>
-					</select>
-					<button type="submit">Search</button>
-				</form>
-			</nav>
-		</header>
-		<main>
-			<!--Create two form one for sign up and the other for log in-->
-			<div class="boxpage">
-				<!--Toggling between sign-up and Log-in-->
-				<input type="checkbox" id="chk" aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
-                <div class="login">
-                    <form class="selectbox">
-						<!--Toggling between User and Admin-->
-                        <button class="select" type="submit" id="User" formaction="/Login_signup">User</button>
-                        <button class="select" type="submit" id= "Admin" formaction="/Adminlogin">Admin</button>
-                    </form>
-					<form>
-						<!--The sign up form includes a text input field for Email and Password -->
-						<label for="chk" aria-hidden="true">Login</label>
-						<!--input field for Username ,Email and password and it must have filled before submit this form-->
-						<input class="in" type="email" name="email" placeholder="Email"
-							required="">
-						<input class="in" type="password" name="pswd" placeholder="Password"
-							required="">
-						<button class="sing" type="submit" formaction="/Admin_home">Log in</button>
-					</form>
-                   
-				</div>
-				<div >
-						<button class="sing" type="submit"  formaction="/home">Sign up</button><!--After click Sign up button the page will redirect to homwpage -->>
-				</div>
 
+<head>
+	<title>
+		Sign up
+	</title>
+	<link rel="stylesheet" href="/Main.css">
+	<link rel="stylesheet" href="/Login_signup.css">
+	<link rel="icon" type="image/x-icon"
+		href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+	<style>
+		#User {
+			color: white;
+			background-color: #4CAF50;
+		}
+
+		#Admin {
+			color: #4CAF50;
+			background-color: white;
+		}
+	</style>
+	<script type="text/javascript">
+		document.getElementById('login-btn').addEventListener('click', function () {
+			const email = document.getElementsByName('email')[0].value;
+			const password = document.getElementsByName('pswd')[0].value;
+
+			const data = {
+				email: email,
+				password: password
+			};
+
+			fetch('http://localhost:3030/login-admin', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			})
+				.then(response => response.json())
+				.then(data => {
+					// handle the response data here
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		});
+	</script>
+</head>
+
+<body>
+	<header>
+		<h1>Guitar Shop</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/AboutUs">About Us</a></li>
+				<li><a href="/Login_signup">Login</a></li>
+				<li><a href="/search">Search</a></li>
+			</ul>
+			</ul>
+			<form action="/search" method="GET">
+				<input type="text" id="search-box" placeholder="Search.." name="search-box">
+				<select id="criteria" name="criteria">
+					<option value="product-name">Product Name</option>
+					<option value="product-type">Product Type</option>
+					<option value="rating">Rating</option>
+				</select>
+				<button type="submit">Search</button>
+			</form>
+		</nav>
+	</header>
+	<main>
+		<!--Create two form one for sign up and the other for log in-->
+		<div class="boxpage">
+			<!--Toggling between sign-up and Log-in-->
+			<input type="checkbox" id="chk"
+				aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
+			<div class="login">
+				<form class="selectbox">
+					<!--Toggling between User and Admin-->
+					<button class="select" type="submit" id="User" formaction="/Login_signup">User</button>
+					<button class="select" type="submit" id="Admin" formaction="/Adminlogin">Admin</button>
+				</form>
+				<form id="login-form" method="POST">
+					<!--The sign up form includes a text input field for Email and Password -->
+					<label for="chk" aria-hidden="true">Login</label>
+					<!--input field for Username ,Email and password and it must have filled before submit this form-->
+					<input class="in" type="email" name="email" placeholder="Email" required="">
+					<input class="in" type="password" name="pswd" placeholder="Password" required="">
+					<button class="sing" type="button" id="login-btn">Log in</button>
+				</form>
 
 			</div>
-            <div>
-                
-            </div>
-		</main>
-		<footer>
-			<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
-		</footer>
-	</body>
+			<div>
+				<button class="sing" type="submit" formaction="/home">Sign
+					up</button><!--After click Sign up button the page will redirect to homwpage -->>
+			</div>
+
+
+		</div>
+		<div>
+
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+			courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+	</footer>
+</body>
+
 </html>
