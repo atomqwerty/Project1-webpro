@@ -110,6 +110,19 @@ app.get('/product/:id', function(req, res) {
     });
 });
 
+// app.get('/product', function(req, res) {
+//         const searchVal = req.body.search-box;
+//         connection.query(`SELECT * FROM products WHERE product_name like ?"%"`, [searchVal], (err,rows,field)=>{
+//         if(rows.length > 0){
+//             console.log(`Search by Name\n${rows.length} rows returned`);
+//             return res.send(rows)
+//         }
+//     console.log(`Search by Name\n${rows.length} rows returned`);    
+//     return res.sendFile('notfound.html', {root: __dirname})
+        
+//     }); 
+    
+// });
 app.listen(port, function () {
     console.log('CORS-enabled web server listening on port ' + port)
 })

@@ -1,6 +1,7 @@
 <!-- product format same as acous1-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Semi Hollow</title>
     <link rel="stylesheet" type="text/css" href="/Main.css">
@@ -8,60 +9,58 @@
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
     <link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
 </head>
-    
+
 <body>
-<header>
-    <h1>Semi Hollow</h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/About_Us">About Us</a></li>
-            <li><a href="/Login_signup">Login</a></li>
-            <li><a href="/search">Search</a></li>
-              </ul>
-        </ul>
-        <form action="/search" method="GET">
-            <input type="text" id="search-box"placeholder="Search.." name="search-box">
-            <select id="criteria" name="criteria">
-                <option value="product-name">Product Name</option>
-                <option value="product-type">Product Type</option>
-                <option value="rating">Rating</option>
-            </select>
-            <button type="submit">Search</button>
-        </form>
-      </nav>
-</header>
-<main>
-<div class="container">
-    <div class="imgBx">
-        <img src="https://th.yamaha.com/en/files/SA2200_VS_f_0001_964b0ed08a7ef504359789ab68a98dec.jpg?impolicy=resize&imwid=1147&imhei=3000" alt="Guitar 1" width="200" height="400">
-    </div>
-    <div class="details">
-        <div class="content">
-            <h2>Yamaha Semi hollow body<br>
-                <span>Guitar Collection</span>
-            </h2>
-            <ul>
-                <li>Laminated Sycamore Body / Soft Maple Center Block</li>
-                <li>Yamaha Humbucking Pickups/Alnico V</li>
-                <li>Mahogany Neck</li>
-                <li>Ebony Fingerboard</li>
-                <li>Gotoh SG30 Tuning Machines</li>
-                <li>Gotoh GE103B Bridge</li>
-                <li>Gotoh GE101Z Tailpiece</li>
-                <li>Made in Japan</li>
-
-            </ul>
-            <h3>12,800 Bath</h3>
-        </div>
-    </div>
-</div>
-</div>
-</main>
-<footer>
-    <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
-</footer>
-
     
+    <header>
+        <h1>Semi Hollow</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/About_Us">About Us</a></li>
+                <li><a href="/Login_signup">Login</a></li>
+                <li><a href="/search">Search</a></li>
+            </ul>
+            </ul>
+            <form action="/search" method="GET">
+                <input type="text" id="search-box" placeholder="Search.." name="search-box">
+                <select id="criteria" name="criteria">
+                    <option value="product-name">Product Name</option>
+                    <option value="product-type">Product Type</option>
+                    <option value="rating">Rating</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <div class="container" id="Guitar">
+            <script type="text/javascript">
+                let rooturl5 ="http://localhost:3030/product/1"
+                fetch(rooturl5)  
+                .then((res) => res.json()) // Get JSON from the response
+                .then((data) => {
+                    console.log(data.data)
+                    document.querySelector("#Guitar").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'alt="Guitar 1" width="200" height="400"></div>'+
+            '<div class="details">'+
+                '<div class="content" >'
+                    +'<h2>'+data.data.product_name+'<br>'
+                        +'<span>Guitar Collection</span>'
+                    +'</h2><ul><li>'+data.data.product_description+'</li>'
+                    +'<li> rating: '+data.data.rating+'</li>'
+                    +'<li>'+data.data.product_type+'</li></ul>'
+                    +'<h3>'+data.data.price +'Bath</h3>'
+                +'</div>'
+                    })   
+            </script>
+        </div> 
+    </main>
+    <footer>
+        <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+            courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+    </footer>
+
+
 </body>
+
 </html>

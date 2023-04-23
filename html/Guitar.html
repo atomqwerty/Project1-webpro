@@ -42,8 +42,7 @@
 						.then((res) => res.json()) // Get JSON from the response
 						.then((data) => {
 							console.log(data.data)
-							document.querySelector("#Guitar1").innerHTML="";
-							document.querySelector("#Guitar1").innerHTML += '<a href="/Guitar1"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
+							document.querySelector("#Guitar1").innerHTML = '<a href="/Guitar1"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
 							"<h3>"+data.data.product_name+"</h3>"
 							+'<form class="selectbox"> <button class="detail" type="submit" formaction="Guitar1.html">More details</button></form>'	
 							})   
@@ -57,8 +56,7 @@
 						.then((res) => res.json()) // Get JSON from the response
 						.then((data) => {
 							console.log(data.data)
-							document.querySelector("#Guitar2").innerHTML="";
-							document.querySelector("#Guitar2").innerHTML += '<a href="/Guitar2"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
+							document.querySelector("#Guitar2").innerHTML = '<a href="/Guitar2"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
 							"<h3>"+data.data.product_name+"</h3>"
 							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/Guitar2">More details</button></form>'	
 							})   
@@ -72,8 +70,7 @@
 						.then((res) => res.json()) // Get JSON from the response
 						.then((data) => {
 							console.log(data.data)
-							document.querySelector("#Guitar3").innerHTML="";
-							document.querySelector("#Guitar3").innerHTML += '<a href="/Guitar3"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
+							document.querySelector("#Guitar3").innerHTML = '<a href="/Guitar3"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
 							"<h3>"+data.data.product_name+"</h3>"
 							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/Guitar3">More details</button></form>'	
 							})   
