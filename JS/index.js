@@ -109,7 +109,34 @@ app.get('/product/:id', function(req, res) {
         return res.send({data: results[0]});
     });
 });
-
+app.get('/products', function(req, res) {
+    connection.query('SELECT * FROM project.products', function(error, results) {
+        if (error) throw error;
+        if (results.length === 0) {
+            return res.status(404).send({ error: true, message: 'products not found' });
+        }
+        return res.send({data: results});
+    });
+});
+app.get('/admin', function(req, res) {
+    connection.query('SELECT * FROM project.admin_login', function(error, results) {
+        if (error) throw error;
+        if (results.length === 0) {
+            return res.status(404).send({ error: true, message: 'user not found' });
+        }
+        return res.send({data: results});
+    });
+});
+app.delete('/admin/:id', function(req, res) {
+    const ID = req.params.id;
+    if (!ID) {
+        return res.status(400).send({ error: true, message: 'Please provide student id' });
+    }
+    connection.query('DELETE FROM admin_login WHERE ID = ?', ID, function(error, results) {
+        if (error) throw error;
+        return res.send({ error: false, data: results.affectedRows, message: 'Student has been deleted successfully.' });
+    });
+});
 // app.get('/product', function(req, res) {
 //         const searchVal = req.body.search-box;
 //         connection.query(`SELECT * FROM products WHERE product_name like ?"%"`, [searchVal], (err,rows,field)=>{

@@ -10,14 +10,28 @@
 </head>
     
 <body>
+    <script type="text/javascript">
+        let rooturl ="http://localhost:3030/products"
+        fetch(rooturl)  
+        .then((res) => res.json()) // Get JSON from the response
+        .then((data) => {
+            document.querySelector("#admin").innerHTML =''
+            for(i=0;i<data.data.length;i++){
+                console.log(data.data[i])
+                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].product_name+'</td>'+'<td>'+data.data[i].product_type+'</td>'+'<td>'+data.data[i].rating+'</td>'+'<td>'+data.data[i].price+'</td>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
+            }
+            i++;
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="product_name"></td><td><input type="text" id="search-box" placeholder="product_type"></td><td><input type="text" id="search-box" placeholder="rating"></td><td><input type="text" id="search-box" placeholder="price"></td><td> <button type="submit"class="add">Add</button></td></tr>'
+            })  
+    </script>
 <header>
     <h1>Guitar Shop (for Admin)</h1>
     <nav>
         <ul>
-            <li><a href="Admin_home.html">Home</a></li>
-            <li><a href="Admin_Product.html">Product</a></li>
-            <li><a href="Admin_profile.html">User manage</a></li>
-            <li><a href="home.html">User</a></li>
+            <li><a href="Admin_home">Home</a></li>
+            <li><a href="Admin_Product">Product</a></li>
+            <li><a href="Admin_profile">User manage</a></li>
+            <li><a href="/">User</a></li>
 			</ul>
     </nav>
 </header>
@@ -29,6 +43,7 @@
 <table>
     <thead>
         <tr>
+            <th>id</th>
             <th>Product Name</th>
             <th>Product Type</th>
             <th>Rating</th>
@@ -36,73 +51,11 @@
             <th>Edit</th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td><a href="Guitar1.html">Semi Hollow Guitar</a></td>
-            <td>Electric guitar</td>
-            <td>4.5</td>
-            <td>12,800 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="Guitar2.html">Stratocaster</a></td>
-            <td>Electric guitar</td>
-            <td>4.2</td>
-            <td>12,800 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="Guitar3.html">Les Paul</a></td>
-            <td>Electric guitar</td>
-            <td>4.9</td>
-            <td>12,800 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="Bass1.html">Fret-less Bass</a></td>
-            <td>Bass guitar</td>
-            <td>3.5</td>
-            <td>12,800 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="Bass2.html">4-Strings Bass</a></td>
-            <td>Bass guitar</td>
-            <td>4.8</td>
-            <td>12,800 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="Bass3.html">5-Srings Bass</a></td>
-            <td>Bass guitar</td>
-            <td>4.8</td>
-            <td>12,800 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="acous1.html">CRAFTER HD-200 S.NT</a></td>
-            <td>Acoustic guitar</td>
-            <td>3.5</td>
-            <td>8,100 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="acous2.html">MARTIN DJR10-BURST</a></td>
-            <td>Acoustic guitar</td>
-            <td>4.8</td>
-            <td>7,200 Bath</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><a href="acous3.html">MARTIN D JR. A</a></td>
-            <td>Acoustic guitar</td>
-            <td>4.8</td>
-            <td>7,200 Bath</td>
-            <td><button  type="button">Delete</button></td>
-        </tr>
+    <tbody id="admin">
+        
     </tbody>
 </table>
-<form action="Add_product.html" class="add_bar" method="GET">
+<form action="Add_product" class="add_bar" method="GET">
     <button type="submit"class="add">Add</button>
 </form>
 

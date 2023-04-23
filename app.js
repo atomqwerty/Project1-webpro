@@ -57,16 +57,38 @@ router.get('/Adminlogin', (req, res) => {
 router.get('/Bass', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Bass.html'));
 })
-
+router.get('/Bass1', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Bass1.html'));
+})
+router.get('/Bass2', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Bass2.html'));
+})
+router.get('/Bass3', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Bass3.html'));
+})
 router.get('/Acoustic', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Acoustic.html'));
 })
-
+router.get('/Acoustic1', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/acous1.html'));
+})
+router.get('/Acoustic2', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/acous2.html'));
+})
+router.get('/Acoustic3', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/acous3.html'));
+})
 router.get('/Guitar', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar.html'));
 })
 router.get('/Guitar1', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar1.html'));
+})
+router.get('/Guitar2', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar2.html'));
+})
+router.get('/Guitar3', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Guitar3.html'));
 })
 
 

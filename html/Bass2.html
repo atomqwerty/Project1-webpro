@@ -39,7 +39,7 @@
         .then((res) => res.json()) // Get JSON from the response
         .then((data) => {
             console.log(data.data)
-            document.querySelector("#Bass").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'alt="Bass 2" width="200" height="400"></div>'+
+            document.querySelector("#Bass").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'"alt="Bass 2" width="200" height="400"></div>'+
     '<div class="details">'+
         '<div class="content" >'
             +'<h2>'+data.data.product_name+'<br>'

@@ -8,9 +8,20 @@
     <link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
     
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
+    
 </head>
     
 <body>
+    <script type="text/javascript">
+        function del(i) {
+            let rooturl1 ="http://localhost:3030/admin/"+i.toString()
+        fetch(rooturl1)  
+        .then((res) => res.json()) // Get JSON from the response
+        .then((data) => {
+            console.log(data) 
+        })
+    }
+    </script>
 <header>
     <h1>Guitar Shop (for Admin)</h1>
     <nav>
@@ -31,57 +42,30 @@
     <!-- table header  -->
     <thead>
         <tr>
+            <th>ID</th>
             <th>UserName</th>
             <th>Password</th>
             <th>User type</th>
-            <th>Email</th>
+            <th>Login_log</th>
             <th>Edit</th>
             
         </tr>
     </thead>
-    <tbody>
+    <script type="text/javascript">
+        let rooturl ="http://localhost:3030/admin"
+        fetch(rooturl)  
+        .then((res) => res.json()) // Get JSON from the response
+        .then((data) => {
+            document.querySelector("#admin").innerHTML =''
+            for(i=0;i<data.data.length;i++){
+                console.log(data.data[i])
+                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].username+'</td>'+'<td>'+data.data[i].password+'</td>'+'<td>'+data.data[i].role+'</td>'+'<td>'+data.data[i].login_log+'</td>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
+            }
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="New-user"></td><td><input type="text" id="search-box" placeholder="Password"></td><td><input type="text" id="search-box" placeholder="Type"></td><td>today</td><td> <button type="submit"class="add">Add</button></td></tr>'
+            })  
+    </script>
+    <tbody id="admin">
         <!-- table content  -->
-        <tr>
-            <td>Atom</td>
-            <td>atom1234</td>
-            <td>Admin</td>
-            <td>Atom@gmail.com</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td>Pan</td>
-            <td>pan1234</td>
-            <td>Admin</td>
-            <td>Ppaan@gmail.com</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td>Zil</td>
-            <td>Zolosalo</td>
-            <td>Admin</td>
-            <td>godzilla@gmail.com</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td>Pun</td>
-            <td>ddasdas</td>
-            <td>Admin</td>
-            <td>punpora@gmail.com</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td>Kong</td>
-            <td>Kingkong951</td>
-            <td>Admin</td>
-            <td>kingkoda@gmail.com</td>
-            <td><button type="button">Delete</button></td>
-        </tr>
-        <tr>
-            <td><input type="text" id="search-box" placeholder="New-user"></td>
-            <td><input type="text" id="search-box" placeholder="Password"></td>
-            <td><input type="text" id="search-box" placeholder="Type"></td>
-            <td> <button type="submit"class="add">Add</button></td>
-        </tr>
     </tbody>
 </table>
 </div>
