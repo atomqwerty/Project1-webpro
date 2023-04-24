@@ -55,10 +55,10 @@
     <h1>Guitar Shop (for Admin)</h1>
     <nav>
         <ul>
-            <li><a href="Admin_home">Home</a></li>
-            <li><a href="Admin_Product">Product</a></li>
-            <li><a href="Admin_profile">User manage</a></li>
-            <li><a href="/">Log out</a></li>
+            <li><a href="html\Admin_home.html">Home</a></li>
+            <li><a href="html\Admin_Product.html">Product</a></li>
+            <li><a href="html\Admin_profile.html">User manage</a></li>
+            <li><a href="/html\home.html">Log out</a></li>
       </ul>
     </nav>
 </header>
@@ -92,8 +92,7 @@
                     +'<td><button onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
             }
             i++;
-            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="username" placeholder="New-user"></td><td><input type="text" id="password" placeholder="Password"></td><td><input type="text" id="type" placeholder="Type"></td><td>today</td><td> '
-                +'<button onclick = addprofile() type="click">ADD</button></td></tr>'
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="username" placeholder="New-user"></td><td><input type="text" id="password" placeholder="Password"></td><td><input type="text" id="type" placeholder="Type"></td><td>today</td><td> <button onclick = addprofile() type="click"></td></tr>'
             })  
     </script>
     <tbody id="admin">
