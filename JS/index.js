@@ -217,7 +217,7 @@ app.post('/form', function (req, res) {
                 return res.send(rows)
             }
             console.log(`Search by ID\n${rows.length} rows returned`);
-            return res.send("NOT FOUND")
+            return res.json({err:"NOT FOUND"})
 
         });
     }
@@ -231,7 +231,7 @@ app.post('/form', function (req, res) {
                 return res.send(rows)
             }
             console.log(`Search by Type\n${rows.length} rows returned`);
-            return res.send("NOT FOUND")
+            return res.json({err:"NOT FOUND"})
 
         });
     }
@@ -243,7 +243,7 @@ app.post('/form', function (req, res) {
                 return res.send(rows)
             }
             console.log(`Search by Name\n${rows.length} rows returned`);
-            return res.send("NOT FOUND")
+            return res.json({err:"NOT FOUND"})
 
         });
     }

@@ -78,11 +78,11 @@
 							})
 					})
 					.then(response => response.json())
-					.then(data =>console.log(data))
 					.then(data =>{
 						console.log(data)
 						document.querySelector("#admin").innerHTML = ''
-						for (i = 0; i < data.length; i++) {
+						if(data.length>1){
+							for (i = 0; i < data.length; i++) {
 							// console.log(data.data[i])
 							document.querySelector("#admin").innerHTML += '<tr>' 
 								+ '<td>' + data[i].product_name + '</td>' 
@@ -96,6 +96,9 @@
 								+ '<td>' + data[i].fingerboard_material + '</td>'
 								+ '<td>' + data[i].num_of_frets + '</td>'
 								+ '</tr>'
+						}
+						}else{
+							document.querySelector("#admin").innerHTML += '<tr>Not found</tr>'
 						}
 					})
 					.catch(error =>console.error())
