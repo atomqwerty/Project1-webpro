@@ -27,14 +27,14 @@ connection.connect(function (err) {
 });
 app.use(express.json());
 app.use(cors())
-
+//add admin
 app.post('/register', jsonParser, function (req, res, next) {
     // execute will internally call prepare and query
     const now  =  new Date();
     const value = date.format(now,'YYYY-MM-DD HH:mm:ss');
     connection.execute(
-        'INSERT INTO admin_login (username,password,login_log,role) VALUES( ?, ?, ?, "user")'  ,
-        [req.body.username,req.body.password,value],
+        'INSERT INTO admin_login (username,password,login_log,role) VALUES( ?, ?, ?, ?)'  ,
+        [req.body.username,req.body.password,value,req.body.type],
         function (err, results, fields) {
             if(err){
                 res.json({status: 'error', message: err})
@@ -45,27 +45,27 @@ app.post('/register', jsonParser, function (req, res, next) {
     );
 })
 
-app.post('/login', jsonParser, function (req, res, next) {
-    // execute will internally call prepare and query
-    const now  =  new Date();
-    const value = date.format(now,'YYYY-MM-DD HH:mm:ss');
-    connection.execute(
-        'SELECT * FROM admin_login WHERE username=?'  ,
-        [req.body.username],
-        function (err, results, fields) {
-            if(err||results.length==0){res.json({status: 'error', message: 'no user'});return}
-            if(req.body.password==results[0].password){
+// app.post('/login', jsonParser, function (req, res, next) {
+//     // execute will internally call prepare and query
+//     const now  =  new Date();
+//     const value = date.format(now,'YYYY-MM-DD HH:mm:ss');
+//     connection.execute(
+//         'SELECT * FROM admin_login WHERE username=?'  ,
+//         [req.body.username],
+//         function (err, results, fields) {
+//             if(err||results.length==0){res.json({status: 'error', message: 'no user'});return}
+//             if(req.body.password==results[0].password){
                 
-                const token = jwt.sign({ username: results[0].username }, sec, { expiresIn: '10h' });
-                res.json({status: 'login',token})
-                connection.query("UPDATE admin_login SET login_log= ? WHERE ID = ?", [value, results[0].id], function(error, results) {
-                    if (error) throw error;
-                });
-            }
-            else{res.json({status: 'Login-Failed'})}  
-        }
-    );
-})
+//                 const token = jwt.sign({ username: results[0].username }, sec, { expiresIn: '10h' });
+//                 res.json({status: 'login',token})
+//                 connection.query("UPDATE admin_login SET login_log= ? WHERE ID = ?", [value, results[0].id], function(error, results) {
+//                     if (error) throw error;
+//                 });
+//             }
+//             else{res.json({status: 'Login-Failed'})}  
+//         }
+//     );
+// })
 
 app.post('/login-admin', jsonParser, function (req, res, next) {
     // execute will internally call prepare and query
@@ -148,6 +148,17 @@ app.post('/add_products', jsonParser, function (req, res, next) {
         }
     );
 })
+//delete admin
+app.delete('/products/:id', function(req, res) {
+    const ID = req.params.id;
+    if (!ID) {
+        return res.status(400).send({ error: true, message: 'Wrong admin id' });
+    }
+    connection.query('DELETE FROM products WHERE ID = ?', ID, function(error, results) {
+        if (error) throw error;
+        return res.send({ error: false, data: results.affectedRows, message: 'admin has been deleted successfully.' });
+    });
+});
 //get admin
 app.get('/admin', function(req, res) {
     connection.query('SELECT * FROM project.admin_login', function(error, results) {
@@ -172,15 +183,15 @@ app.post('/add_admin', jsonParser, function (req, res, next) {
         }
     );
 })
-//delete
+//delete admin
 app.delete('/admin/:id', function(req, res) {
     const ID = req.params.id;
     if (!ID) {
-        return res.status(400).send({ error: true, message: 'Please provide student id' });
+        return res.status(400).send({ error: true, message: 'Wrong admin id' });
     }
     connection.query('DELETE FROM admin_login WHERE ID = ?', ID, function(error, results) {
         if (error) throw error;
-        return res.send({ error: false, data: results.affectedRows, message: 'Student has been deleted successfully.' });
+        return res.send({ error: false, data: results.affectedRows, message: 'admin has been deleted successfully.' });
     });
 });
 //serch

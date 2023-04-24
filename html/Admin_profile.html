@@ -13,14 +13,43 @@
     
 <body>
     <script type="text/javascript">
-        function del(i) {
-            let rooturl1 ="http://localhost:3030/admin/"+i.toString()
-        fetch(rooturl1)  
-        .then((res) => res.json()) // Get JSON from the response
-        .then((data) => {
-            console.log(data) 
-        })
-    }
+		function addprofile(){
+			const username = document.querySelector('#username').value;
+			const password = document.querySelector('#password').value;
+            const type = document.querySelector('#type').value;
+			let rooturl='http://localhost:3030/register'
+			fetch(rooturl,{
+				method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ 
+						"username":  username,
+						"password": password,
+                        "type": type
+					})
+			})
+			.then(response => response.json())
+			.then(data => {
+				location.replace("/Admin_profile")
+			})
+			.catch(error =>console.error())
+			
+		}
+	</script>
+    <script type="text/javascript">
+        function del(i){
+			let rooturl1='http://localhost:3030/admin/'+i
+                fetch(rooturl1,{
+                    method: 'DELETE'
+                    
+                })  
+                .then((res) => res.json())
+                .then(data => {
+                    location.replace("/Admin_profile")
+			})
+			.catch(error =>console.error())
+		}
     </script>
 <header>
     <h1>Guitar Shop (for Admin)</h1>
@@ -59,10 +88,11 @@
             document.querySelector("#admin").innerHTML =''
             for(i=0;i<data.data.length;i++){
                 console.log(data.data[i])
-                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].username+'</td>'+'<td>'+data.data[i].password+'</td>'+'<td>'+data.data[i].role+'</td>'+'<td>'+data.data[i].login_log+'</td>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
+                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].username+'</td>'+'<td>'+data.data[i].password+'</td>'+'<td>'+data.data[i].role+'</td>'+'<td>'+data.data[i].login_log+'</td>'
+                    +'<td><button onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
             }
             i++;
-            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="New-user"></td><td><input type="text" id="search-box" placeholder="Password"></td><td><input type="text" id="search-box" placeholder="Type"></td><td>today</td><td> <button type="submit"class="add">Add</button></td></tr>'
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="username" placeholder="New-user"></td><td><input type="text" id="password" placeholder="Password"></td><td><input type="text" id="type" placeholder="Type"></td><td>today</td><td> <button onclick = addprofile() type="click"></td></tr>'
             })  
     </script>
     <tbody id="admin">
