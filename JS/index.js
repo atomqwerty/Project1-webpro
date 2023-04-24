@@ -89,13 +89,13 @@ app.post('/login-admin', jsonParser, function (req, res, next) {
         }
     );
 })
-
+//token check
 app.post('/authen', jsonParser, function (req, res, next) {
     const token =req.headers.authorization.split(' ')[1]
     const decoded = jwt.verify(token, sec);
     res.json({status: 'authen',decoded})
 });
-
+//get product by id
 app.get('/product/:id', function(req, res) {
     const product_id = req.params.id;
     if (!product_id) {
@@ -109,6 +109,7 @@ app.get('/product/:id', function(req, res) {
         return res.send({data: results[0]});
     });
 });
+//get products
 app.get('/products', function(req, res) {
     connection.query('SELECT * FROM project.products', function(error, results) {
         if (error) throw error;
@@ -118,6 +119,22 @@ app.get('/products', function(req, res) {
         return res.send({data: results});
     });
 });
+//add product
+app.post('/add_products', jsonParser, function (req, res, next) {
+    // execute will internally call prepare and query
+    connection.execute(
+        'INSERT INTO products (product_name,product_type,rating,price,product_description,product_series,product_shape,neck_type,fingerboard_material,num_of_frets,picture) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'  ,
+        [req.body.name,req.body.type,req.body.rating,req.body.price,req.body.description,req.body.product_series,req.body.product_shape,req.body.neck_type,req.body.fingerboard_material,req.body.num_of_frets,req.body.picture],
+        function (err, results, fields) {
+            if(err){
+                res.json({status: 'error', message: err})
+                return
+            }
+            res.json({status: 'added complete'})    
+        }
+    );
+})
+//get admin
 app.get('/admin', function(req, res) {
     connection.query('SELECT * FROM project.admin_login', function(error, results) {
         if (error) throw error;
@@ -127,6 +144,21 @@ app.get('/admin', function(req, res) {
         return res.send({data: results});
     });
 });
+//add admin
+app.post('/add_products', jsonParser, function (req, res, next) {
+    connection.execute(
+        'INSERT INTO admin_login (username,password,role,admin_id)'  ,
+        [req.body.name,req.body.type,req.body.rating,req.body.price,req.body.description,req.body.product_series,req.body.product_shape,req.body.neck_type,req.body.fingerboard_material,req.body.num_of_frets,req.body.picture],
+        function (err, results, fields) {
+            if(err){
+                res.json({status: 'error', message: err})
+                return
+            }
+            res.json({status: 'added complete'})    
+        }
+    );
+})
+//delete
 app.delete('/admin/:id', function(req, res) {
     const ID = req.params.id;
     if (!ID) {
@@ -137,6 +169,7 @@ app.delete('/admin/:id', function(req, res) {
         return res.send({ error: false, data: results.affectedRows, message: 'Student has been deleted successfully.' });
     });
 });
+//serch
 app.post('/form', function(req, res){
     if (req.body.search_choice === 'ID') {
         const searchVal = req.body.search_value;
