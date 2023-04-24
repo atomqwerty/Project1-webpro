@@ -86,20 +86,7 @@
                         + '<td><button action=del(i) type="onclick">Delete</button></td></tr>'
                 }
                 i++;
-                document.querySelector("#admin").innerHTML += '<tr><td>' + i + '</td>'
-                    +'<td><input type="text" id="product_name" placeholder="product_name"required=""></td>'
-                    +'<td><input type="text" id="product_type" placeholder="product_type"required=""></td>'
-                    +'<td><input type="text" id="rating" placeholder="rating"required=""></td>'
-                    +'<td><input type="text" id="price" placeholder="price"required=""></td>'
-                    +'<td><input type="text" id="Description" placeholder="Description"required=""></td>'
-                    +'<td><input type="text" id="series" placeholder="Product series"required=""></td>'
-                    +'<td><input type="text" id="shape" placeholder="Product shape"required=""></td>'
-                    +'<td><input type="text" id="Neck" placeholder="Neck type"required=""></td>'
-                    +'<td><input type="text" id="Fingerboard" placeholder="Fingerboard material"required=""></td>'
-                    +'<td><input type="text" id="Number" placeholder="Number of frets"required=""></td>'
-                    +'<td><input type="text" id="URL" placeholder="URL"required=""></td>'
-                    // +'<td> <button type="submit"class="add">Add</button></td></tr>'
-                    +'<td> <button class="sing" type="button" id="login-btn" onclick="getinfo()">Log in</button> </td></tr>'
+                document.querySelector("#admin").innerHTML += '<tr><td> <a href="Add_product">Product</a> </td></tr>'
             })  
     </script>
     <header>

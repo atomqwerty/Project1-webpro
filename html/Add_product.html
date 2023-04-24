@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Add product</title>
     <link rel="stylesheet" type="text/css" href="/Main.css">
     <link rel="stylesheet" type="text/css" href="/Guitar.css">
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
-    <link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+    <link rel="icon" type="image/x-icon"
+        href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
 </head>
-    
-<body>
-<header>
-    <h1>Add product</h1>
-    <nav>
-        <ul>
-            <li><a href="Admin_home">Home</a></li>
-            <li><a href="Admin_Product">Product</a></li>
-            <li><a href="Admin_profile">User manage</a></li>
-            <li><a href="/">Log out</a></li>
-      </ul>
-    </nav>
-</header>
-<main>
-    <!-- same structor as product details  -->
-<div class="container">
-    <div class="imgBx">
-        <!-- blank box for adding information -->
-        <td><input type="text" id="search-box" placeholder="Image link"></td>
-    </div>
-    <div class="details">
-        <div class="content">
-            <h2><input type="text" id="search-box" placeholder="New-product"> <br>
-                <span>Guitar Collection</span>
-            </h2>
-            <p>
-                <textarea placeholder="Product details.." rows="10" cols="40"></textarea>
-            </p>
-            <h3><input type="text" id="search-box" placeholder="Price"></h3>
-            <button>Save</button>
-        </div>
-    </div>
-</div>
-</div>
-</main>
-<footer>
-    <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
-</footer>
 
-    
+<body>
+    <header>
+        <h1>Add product</h1>
+        <nav>
+            <ul>
+                <li><a href="Admin_home">Home</a></li>
+                <li><a href="Admin_Product">Product</a></li>
+                <li><a href="Admin_profile">User manage</a></li>
+                <li><a href="/">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- same structor as product details  -->
+        <div class="container">
+            <div class="imgBx">
+                <!-- blank box for adding information -->
+                
+                    <input type="text" id="product_name" placeholder="product_name" required=""> <br>
+                    <input type="text" id="product_type" placeholder="product_type" required=""> <br>
+                    <input type="text" id="rating" placeholder="rating" required=""> <br>
+                    <input type="text" id="price" placeholder="price" required=""> <br>
+                    <input type="text" id="Description" placeholder="Description" required=""> <br>
+                    <input type="text" id="series" placeholder="Product series" required=""> <br>
+                    <input type="text" id="shape" placeholder="Product shape" required=""> <br>
+                    <input type="text" id="Neck" placeholder="Neck type" required=""> <br>
+                    <input type="text" id="Fingerboard" placeholder="Fingerboard material" required=""> <br>
+                    <input type="text" id="Number" placeholder="Number of frets" required=""> <br>
+                    <input type="text" id="URL" placeholder="URL" required=""> <br>
+                    <button class="sing" type="button" id="login-btn" onclick="getinfo()">Log in</button> 
+                
+            </div>
+            <div class="details">
+                <div class="content">
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+            courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+    </footer>
+
+
 </body>
+
 </html>
