@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add product</title>
+    <link rel="stylesheet" type="text/css" href="/public\Main.css">
+    <link rel="stylesheet" type="text/css" href="/public\Guitar.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
+    <link rel="icon" type="image/x-icon"
+        href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+</head>
+
+<body>
+    <script type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    
+		function getinfo(i){
+            console.log("start")
+			const name = document.querySelector('#product_name').value;
+            console.log(name)
+            const type = document.querySelector('#product_type').value;
+            const rating = document.querySelector('#rating').value;
+            const price = document.querySelector('#price').value;
+            const description = document.querySelector('#Description').value;
+            const product_series = document.querySelector('#series').value;
+            const product_shape = document.querySelector('#shape').value;
+            const neck_type = document.querySelector('#Neck').value;
+            const fingerboard_material = document.querySelector('#Fingerboard').value;
+            const num_of_frets = document.querySelector('#Number').value;
+            const picture = document.querySelector('#URL').value;
+			let rooturl='http://localhost:3030//products/'+i
+			fetch(rooturl, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "name": name,
+                    "type": type,
+                    "rating": rating,
+                    "price": price,
+                    "description": description,
+                    "product_series": product_series,
+                    "product_shape": product_shape,
+                    "neck_type": neck_type,
+                    "fingerboard_material": fingerboard_material,
+                    "num_of_frets": num_of_frets,
+                    "picture": picture
+                })
+                
+            })
+		}
+        function createSelectBox() {
+        fetch("http://localhost:3030/products")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.data);
+                const SelecterList = document.querySelector("#selecter-box");
+                SelecterList.innerHTML = `<option>Select User</option>`
+                data.data.forEach((product) => {
+                    const card = `<option value="${product.product_name}">${product.product_name}</option>`;
+                    SelecterList.innerHTML += card;
+                    getinfo(product.id)
+                });
+            })
+            .catch((err) => console.log(err));
+    }
+    createSelectBox();
+	</script>
+    <header>
+        <h1>Add product</h1>
+        <nav>
+            <ul>
+                <li><a href="/html\home.html">Home</a></li>
+                <li><a href="/html\About_Us.html">About Us</a></li>
+                <li><a href="/html\search.html">Search</a></li>
+                <li><a href="/html\Adminlogin.html">Admin login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- same structor as product details  -->
+        <div class="container">
+            <div class="imgBx">
+                <!-- blank box for adding information -->
+                <select id="selecter-box">
+                    
+                </select>
+                <form>
+                    <input type="text" id="product_name" placeholder="product_name" required> <br>
+                    <input type="text" id="product_type" placeholder="product_type" required> <br>
+                    <input type="text" id="rating" placeholder="rating" required=""> <br>
+                    <input type="text" id="price" placeholder="price" required=""> <br>
+                    <input type="text" id="Description" placeholder="Description" required=""> <br>
+                    <input type="text" id="series" placeholder="Product series" required=""> <br>
+                    <input type="text" id="shape" placeholder="Product shape" required=""> <br>
+                    <input type="text" id="Neck" placeholder="Neck type" required=""> <br>
+                    <input type="text" id="Fingerboard" placeholder="Fingerboard material" required=""> <br>
+                    <input type="text" id="Number" placeholder="Number of frets" required=""> <br>
+                    <input type="text" id="URL" placeholder="URL" required=""> <br>
+                    <button onclick=getinfo() type="click">ADD</button> 
+                </form>
+                
+            </div>
+            <div class="details">
+                <div class="content">
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+            courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+    </footer>
+
+
+</body>
+
+</html>

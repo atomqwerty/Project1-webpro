@@ -13,26 +13,6 @@
 </head>
 
 <body>
-	<script type="text/javascript">
-		function getForm() {
-			const search_choice = document.querySelector('#criteria').value;
-			const search_value = document.querySelector('#search-box').value;
-			let rooturl = 'http://localhost:3030/form'
-			fetch(rooturl, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					"username": username,
-					"password": password
-				})
-			})
-				.then(response => response.json())
-				.then(data => console.log(data))
-				.catch(error => console.error())
-		}
-	</script>
 	<header>
 		<h1>Guitar Shop</h1>
 		<nav>
@@ -117,7 +97,7 @@
                         <th>Product shape</th>
                         <th>Neck type</th>
                         <th>Fingerboard material</th>
-                        <th>Number of frets</th>
+                        <th>Frets</th>
                     </tr>
                 </thead>
                 <tbody id="admin">

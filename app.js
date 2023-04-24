@@ -45,6 +45,9 @@ router.get('/search', (req, res) => {
 router.get('/Add_product', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Add_product.html'));
 })
+router.get('/Edit_product', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Edit_product.html'));
+})
 router.get('/Admin_home', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Admin_home.html'));
 })

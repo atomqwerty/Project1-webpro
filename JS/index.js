@@ -109,6 +109,7 @@ app.get('/product/:id', function (req, res) {
         return res.send({ data: results[0] });
     });
 });
+//get product by type
 app.get('/product_t/:type', function (req, res) {
     const product_type = req.params.type;
     if (!product_type) {
@@ -148,6 +149,18 @@ app.post('/addproducts', jsonParser, function (req, res, next) {
         }
     );
 })
+//edit products
+app.put('/products/:id', function(req, res) {
+    const ID = req.params.id;
+    if (!ID) {
+        return res.status(400).send({ error: true, message: 'Please provide student information' });
+    }
+    connection.query("UPDATE products SET product_name=?,product_type=?,rating=?,price=?,product_description=?,product_series=?,product_shape=?,neck_type=?,fingerboard_material=?,num_of_frets=?,picture=?  WHERE ID = ?", [req.body.name, req.body.type, req.body.rating, req.body.price, req.body.description, req.body.product_series, req.body.product_shape, req.body.neck_type, req.body.fingerboard_material, req.body.num_of_frets, req.body.picture, ID], function(error, results) {
+        if (error) throw error;
+        return res.send({ error: false, data: results.affectedRows, message: 'Student has been updated successfully.' });
+    });
+});
+
 //delete products
 app.delete('/products/:id', function (req, res) {
     const ID = req.params.id;
