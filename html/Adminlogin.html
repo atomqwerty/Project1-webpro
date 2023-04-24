@@ -42,7 +42,10 @@
 				if(data.status =='login'){
 				console.log('get in')
 				location.replace("/Admin_home")
-			}
+				}
+				else{
+					window.alert("Wrong username or Password");
+				}
 			})
 			.catch(error =>console.error())
 			
@@ -56,10 +59,9 @@
 		<nav>
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="/AboutUs">About Us</a></li>
-				<li><a href="/Login_signup">Login</a></li>
+				<li><a href="/About_Us">About Us</a></li>
 				<li><a href="/search">Search</a></li>
-			</ul>
+				<li><a href="/Adminlogin">Admin login</a></li>
 			</ul>
 			<form action="/search" method="GET">
 				<input type="text" id="search-box" placeholder="Search.." name="search-box">
@@ -79,11 +81,10 @@
 			<input type="checkbox" id="chk"
 				aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->
 			<div class="login">
-				<form class="selectbox">
-					<!--Toggling between User and Admin-->
+				<!-- <form class="selectbox">
 					<button class="select" type="submit" id="User" formaction="/Login_signup">User</button>
 					<button class="select" type="submit" id="Admin" formaction="/Adminlogin">Admin</button>
-				</form>
+				</form> -->
 				<form id="login-form" method="POST" action="http://localhost:3030/login-admin">
 					<!--The sign up form includes a text input field for Email and Password -->
 					<label for="chk" aria-hidden="true">Login</label>

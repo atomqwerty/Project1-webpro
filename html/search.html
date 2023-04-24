@@ -13,45 +13,47 @@
 </head>
 
 <body>
+	<script type="text/javascript">
+		function getForm() {
+			const search_choice = document.querySelector('#criteria').value;
+			const search_value = document.querySelector('#search-box').value;
+			let rooturl = 'http://localhost:3030/form'
+			fetch(rooturl, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					"username": username,
+					"password": password
+				})
+			})
+				.then(response => response.json())
+				.then(data => console.log(data))
+				.catch(error => console.error())
+		}
+	</script>
 	<header>
 		<h1>Guitar Shop</h1>
 		<nav>
 			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/About_Us">About Us</a></li>
-				<li><a href="/Login_signup">Login</a></li>
-				<li><a href="/search">Search</a></li>
-			</ul>
-			<script type="text/javascript">
-				function getForm() {
-					const search_choice = document.querySelector('#criteria').value;
-					const search_value = document.querySelector('#search-box').value;
-					let rooturl = 'http://localhost:3030/form'
-					fetch(rooturl, {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						body: JSON.stringify({
-							"username": username,
-							"password": password
-						})
-					})
-						.then(response => response.json())
-						.then(data => console.log(data))
-						.catch(error => console.error())
-				}
-			</script>
-			<form>
-				<input type="text" id="search-box" placeholder="Search.." name="search_choice">
-				<select id="criteria" name="criteria">
-					<option value="name">Product Name</option>
-					<option value="type">Product Type</option>
-					<option value="ID">ID</option>
-				</select>
-				<button class="search" type="submit" onclick="getForm()">Search</button>
+			  <li><a href="/">Home</a></li>
+			  <li><a href="/About_Us">About Us</a></li>
+			  <li><a href="/search">Search</a></li>
+			  <li><a href="/Adminlogin">Admin login</a></li>
+				  </ul>
+			<!-- search-box -->
+			<form action="/search" method="GET">
+			  <input type="text" id="search-box" placeholder="Search.."
+				name="search-box">
+			  <select id="criteria" name="criteria">
+				<option value="product-name">Product Name</option>
+				<option value="product-type">Product Type</option>
+				<option value="rating">Rating</option>
+			  </select>
+			  <button type="submit">Search</button>
 			</form>
-		</nav>
+		  </nav>
 	</header>
 	<!-- This is a search box that contains Product Name, Product Type, and Rating -->
 	<main>
