@@ -96,7 +96,7 @@ app.post('/authen', jsonParser, function (req, res, next) {
     res.json({ status: 'authen', decoded })
 });
 //get product by id
-app.get('/product/:id', function (req, res) {
+app.post('/product/:id', function (req, res) {
     const product_id = req.params.id;
     if (!product_id) {
         return res.status(400).send({ error: true, message: 'Please provide product id' });
@@ -182,6 +182,20 @@ app.get('/admin', function (req, res) {
         return res.send({ data: results });
     });
 });
+//get admin by id
+app.post('/admin/:id', function (req, res) {
+    const product_id = req.params.id;
+    if (!product_id) {
+        return res.status(400).send({ error: true, message: 'Please provide product id' });
+    }
+    connection.query('SELECT * FROM admin_login WHERE id = ?', product_id, function (error, results) {
+        if (error) throw error;
+        if (results.length === 0) {
+            return res.status(404).send({ error: true, message: 'product not found' });
+        }
+        return res.send({ data: results[0] });
+    });
+});
 //get admin info
 app.get('/admininfo', function (req, res) {
     connection.query('SELECT * FROM project.`administrator`', function (error, results) {
@@ -206,6 +220,17 @@ app.post('/add_admin', jsonParser, function (req, res, next) {
         }
     );
 })
+//edit admin
+app.put('/admin/:id', function(req, res) {
+    const ID = req.params.id;
+    if (!ID) {
+        return res.status(400).send({ error: true, message: 'Please provide student information' });
+    }
+    connection.query("UPDATE admin_login SET username=?,password=?,role=?,admin_id=? WHERE ID = ?",[req.body.username,req.body.password,req.body.role,req.body.admin_id,ID], function(error, results) {
+        if (error) throw error;
+        return res.send({ error: false, data: results.affectedRows, message: 'Student has been updated successfully.' });
+    });
+});
 //delete admin
 app.delete('/admin/:id', function (req, res) {
     const ID = req.params.id;

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit product</title>
+    <title>Edit User</title>
     <link rel="stylesheet" type="text/css" href="/public\Main.css">
     <link rel="stylesheet" type="text/css" href="/public\Guitar.css">
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
@@ -13,19 +13,10 @@
 <body>
     <script type="text/javascript">
         function getinfo(i){
-            console.log("start")
-			const name = document.querySelector('#product_name').value;
-            console.log(name)
-            const type = document.querySelector('#product_type').value;
-            const rating = document.querySelector('#rating').value;
-            const price = document.querySelector('#price').value;
-            const description = document.querySelector('#Description').value;
-            const product_series = document.querySelector('#series').value;
-            const product_shape = document.querySelector('#shape').value;
-            const neck_type = document.querySelector('#Neck').value;
-            const fingerboard_material = document.querySelector('#Fingerboard').value;
-            const num_of_frets = document.querySelector('#Number').value;
-            const picture = document.querySelector('#URL').value;
+			const username = document.querySelector('#username').value;
+            const password = document.querySelector('#password').value;
+            const role = document.querySelector('#role').value;
+            const admin_id = document.querySelector('#admin_id').value;
 			let rooturl='http://localhost:3030/products/'+i
 			fetch(rooturl, {
                 method: 'PUT',
@@ -33,17 +24,10 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "name": name,
-                    "type": type,
-                    "rating": rating,
-                    "price": price,
-                    "description": description,
-                    "product_series": product_series,
-                    "product_shape": product_shape,
-                    "neck_type": neck_type,
-                    "fingerboard_material": fingerboard_material,
-                    "num_of_frets": num_of_frets,
-                    "picture": picture
+                    "username": username,
+                    "password": password,
+                    "role": role,
+                    "admin_id": admin_id
                 })
                 
             })
@@ -51,7 +35,7 @@
     </script>
     <script type="text/javascript">
     function createSelectBox() {
-        fetch("http://localhost:3030/products")
+        fetch("http://localhost:3030/admin")
             .then(res => res.json())
             .then(data => {
                 // console.log(data.data);
@@ -74,7 +58,7 @@
         let fbody = {
             "data_id": ID
         }
-        fetch("http://localhost:3030/product/"+fbody.data_id, {
+        fetch("http://localhost:3030/admin/"+fbody.data_id, {
                 method: 'POST',
                 headers: {
         'Content-Type': 'application/json'
@@ -87,18 +71,12 @@
                 console.log(productinfo);
                 const SelectedPlace = document.querySelector("#editbox");
                 const card = `
-                    <p>Product ID: ${productinfo.id}</p>
-                    <input type="text" id="product_name" placeholder="product_name"value="${productinfo.product_name}" required> <br>
-                    <input type="text" id="product_type" placeholder="product_type"value="${productinfo.product_type}" required> <br>
-                    <input type="text" id="rating" placeholder="rating" value="${productinfo.rating}"required=""> <br>
-                    <input type="text" id="price" placeholder="price" value="${productinfo.price}"required=""> <br>
-                    <input type="text" id="Description" placeholder="Description" value="${productinfo.Description}"required=""> <br>
-                    <input type="text" id="series" placeholder="Product series"value="${productinfo.product_series}" required=""> <br>
-                    <input type="text" id="shape" placeholder="Product shape" value="${productinfo.product_shape}"required=""> <br>
-                    <input type="text" id="Neck" placeholder="Neck type" value="${productinfo.neck_type}"required=""> <br>
-                    <input type="text" id="Fingerboard" placeholder="Fingerboard material" value="${productinfo.fingerboard_material}"required=""> <br>
-                    <input type="text" id="Number" placeholder="Number of frets"value="${productinfo.num_of_frets}" required=""> <br>
-                    <input type="text" id="URL" placeholder="URL" value="${productinfo.picture}"required=""> <br>
+                    <p>User ID: ${productinfo.id}</p>
+                    <input type="text" id="username" placeholder="username"value="${productinfo.username}" required> <br>
+                    <input type="text" id="password" placeholder="password"value="${productinfo.password}" required> <br>
+                    <input type="text" id="role" placeholder="role" value="${productinfo.role}"required=""> <br>
+                    <input type="text" id="admin_id" placeholder="admin_id" value="${productinfo.admin_id}"required=""> <br>
+                    <p>Loin log: ${productinfo.login_log}</p>
                     <button onclick=getinfo(${productinfo.id}) type="click">EDIT</button> 
                 `
                 SelectedPlace.innerHTML += card;

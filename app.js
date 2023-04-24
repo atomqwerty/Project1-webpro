@@ -60,6 +60,9 @@ router.get('/Admin_profile', (req, res) => {
 router.get('/Adminlogin', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Adminlogin.html'));
 })
+router.get('/Edit_user', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/Edit_user.html'));
+})
 
 router.get('/Bass', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Bass.html'));
