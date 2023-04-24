@@ -29,10 +29,13 @@
 	<main>
 		<form class="search-sec">
 			<h1 class="search">Search</h1>
-			<input class="search" type="text" id="search_value" placeholder="Search.." name="search_choice">
-			<select class="search" id="search_choice" name="criteria">
-				<option value="name">Product Name</option>
-				<option value="type">Product Type</option>
+			<input class="search" type="text" id="name" placeholder="Product name" name="search_choice">
+			<input class="search" type="text" id="series" placeholder="Product series" name="search_choice">
+			<select class="search" id="Type" name="criteria">
+				<option value="">Product Type</option>
+				<option value="Electric">Electric Guitar</option>
+				<option value="Acoustic">Acoustic Guitar</option>
+				<option value="Bass">Bass Guitar</option>
 				<option value="ID">ID</option>
 			</select>
 			<!-- This is a "search button" "-->
@@ -43,9 +46,10 @@
 			<h1>Search Products</h1>
 			<script type="text/javascript">
 				function getForm(){
-					const search_choice = document.querySelector('#search_choice').value;
-					const search_value = document.querySelector('#search_value').value;
-					console.log(search_value,search_choice)
+					const name = document.querySelector('#name').value;
+					const series = document.querySelector('#series').value;
+					const Type = document.querySelector('#Type').value;
+					console.log(name,series,Type)
 					let rooturl='http://localhost:3030/form'
 					fetch(rooturl,{
 						method: 'POST',
@@ -53,15 +57,16 @@
 								'Content-Type': 'application/json'
 							},
 							body: JSON.stringify({ 
-								"search_choice": search_choice,
-								"search_value": search_value
+								"name": name,
+								"series": series,
+								"Type": Type
 							})
 					})
 					.then(response => response.json())
 					.then(data =>{
 						console.log(data)
 						document.querySelector("#admin").innerHTML = ''
-						if(data.length>1){
+						if(data.length>0){
 							for (i = 0; i < data.length; i++) {
 							// console.log(data.data[i])
 							document.querySelector("#admin").innerHTML += '<tr>' 

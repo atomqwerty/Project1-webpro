@@ -286,9 +286,23 @@ app.delete('/admin/:id', function (req, res) {
 //         });
 //     }
 // })
+//search 3 but why
 app.post('/form', function (req, res) {
-
-})
+        const Type = req.body.Type;
+        const name = req.body.name;
+        const series = req.body.series;
+        connection.query(`
+        SELECT * FROM products where product_type like ?"%" and product_name like ?"%" and product_series like ?"%"`, [Type,name,series], (err, rows, field) => {
+            console.log("x  "+rows)
+            if (rows.length > 0) {
+                console.log(`Search by 3\n${rows.length} rows returned`);
+                return res.send(rows)   
+            }
+            console.log(`Search by 3\n${rows.length} rows returned`);
+            return res.json({err:"NOT FOUND"})
+            
+        });
+});
 app.listen(port, function () {
     console.log('CORS-enabled web server listening on port ' + port)
 })
