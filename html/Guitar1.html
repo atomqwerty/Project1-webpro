@@ -36,11 +36,11 @@
         <div class="container" id="Guitar">
             <script type="text/javascript">
                 let rooturl5 ="http://localhost:3030/product/1"
-                fetch(rooturl5)  
+                fetch(rooturl5,{method: 'POST'})  
                 .then((res) => res.json()) // Get JSON from the response
                 .then((data) => {
                     console.log(data.data)
-                    document.querySelector("#Guitar").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'"alt="Guitar 1" width="200" height="400"></div>'+
+                    document.querySelector("#Guitar").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+' width="200" height="400"></div>'+
             '<div class="details">'+
                 '<div class="content" >'
                     +'<h2>'+data.data.product_name+'<br>'

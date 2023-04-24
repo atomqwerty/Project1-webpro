@@ -57,7 +57,7 @@
                 // console.log(data.data);
                 const SelecterList = document.querySelector("#selecter-box");
                 SelecterList.innerHTML = "";
-                SelecterList.innerHTML = `<option>Select User</option>`
+                SelecterList.innerHTML = `<option>Select Product ID</option>`
                 data.data.forEach((product) => {
                     const card = `<option value="${product.id}">${product.id}</option>`;
                     SelecterList.innerHTML += card;

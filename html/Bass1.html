@@ -34,20 +34,25 @@
 <div class="container" id="Bass">
     <script type="text/javascript">
         let rooturl5 ="http://localhost:3030/product/4"
-        fetch(rooturl5)  
+        fetch(rooturl5,{method: 'POST'})  
         .then((res) => res.json()) // Get JSON from the response
         .then((data) => {
             console.log(data.data)
-            document.querySelector("#Bass").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+'"alt="Bass 1" width="200" height="400"></div>'+
-    '<div class="details">'+
-        '<div class="content" >'
-            +'<h2>'+data.data.product_name+'<br>'
-                +'<span>Guitar Collection</span>'
-            +'</h2><ul><li>'+data.data.product_description+'</li>'
-            +'<li> rating: '+data.data.rating+'</li>'
-            +'<li>'+data.data.product_type+'</li></ul>'
-            +'<h3>'+data.data.price +'Bath</h3>'
-        +'</div>'
+            document.querySelector("#Bass").innerHTML ='<div class="imgBx"><img src="'+data.data.picture+' width="200" height="400"></div>'+
+            '<div class="details">'+
+                '<div class="content" >'
+                    +'<h2>'+data.data.product_name+'<br>'
+                        +'<span>Guitar Collection</span>'
+                    +'</h2><ul><li>'+data.data.product_description+'</li>'
+                    +'<li> Type'+data.data.product_type+'</li>'
+                    +'<li> Product series: '+data.data.product_series+'</li>'
+                    +'<li> Product shape: '+data.data.product_shape+'</li>'
+                    +'<li> Neck type: '+data.data.neck_type+'</li>'
+                    +'<li> Fingerboard material: '+data.data.fingerboard_material+'</li>'
+                    +'<li> Frets number: '+data.data.num_of_frets+'</li>'
+                    +'<li> Rating: '+data.data.rating+'</li></ul>'
+                    +'<h3>'+data.data.price +' Bath</h3>'
+                +'</div>'
             })   
     </script>
 </div>
