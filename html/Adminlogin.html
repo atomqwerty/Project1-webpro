@@ -21,29 +21,24 @@
 		}
 	</style>
 	<script type="text/javascript">
-		const loginForm = document.querySelector('form');
-
-		loginForm.addEventListener('submit', async (e) => {
-			e.preventDefault();
-
-			const email = document.querySelector('input[name="email"]').value;
-			const password = document.querySelector('input[name="pswd"]').value;
-
-			try {
-				const response = await fetch('http://localhost:3030/login-admin', {
-					method: 'POST',
+		function getLogin(){
+			const username = document.querySelector('#username').value;
+			const password = document.querySelector('#password').value;
+			let rooturl='http://localhost:3030/login-admin'
+			fetch(rooturl,{
+				method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
 					},
-					body: JSON.stringify({ email, password })
-				});
-
-				const data = await response.json();
-				console.log(data); // do something with the response data
-			} catch (error) {
-				console.error(error);
-			}
-		});
+					body: JSON.stringify({ 
+						"username":  username,
+						"password": password
+					})
+			})
+			.then(response => response.json())
+			.then(data => console.log(data))
+			.catch(error =>console.error())
+		}
 	</script>
 </head>
 
@@ -85,9 +80,9 @@
 					<!--The sign up form includes a text input field for Email and Password -->
 					<label for="chk" aria-hidden="true">Login</label>
 					<!--input field for Username ,Email and password and it must have filled before submit this form-->
-					<input class="in" type="text" name="text" placeholder="Username" required="">
-					<input class="in" type="password" name="pswd" placeholder="Password" required="">
-					<button class="sing" type="button" id="login-btn">Log in</button>
+					<input class="in" type="text" name="text" placeholder="Username" required="" id="username">
+					<input class="in" type="password" name="pswd" placeholder="Password" required="" id="password">
+					<button class="sing" type="button" id="login-btn" onclick="getLogin()">Log in</button>
 				</form>
 
 			</div>

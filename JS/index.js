@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-const { response } = require('express');
+const { response } = require('express')
 const express = require('express');
 const path = require('path')
 const mysql = require('mysql2');
@@ -25,7 +25,7 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log(`Connected DB: ${process.env.MYSQL_DATABASE}`);
 });
-
+app.use(express.json());
 app.use(cors())
 
 app.post('/register', jsonParser, function (req, res, next) {
@@ -137,19 +137,46 @@ app.delete('/admin/:id', function(req, res) {
         return res.send({ error: false, data: results.affectedRows, message: 'Student has been deleted successfully.' });
     });
 });
-// app.get('/product', function(req, res) {
-//         const searchVal = req.body.search-box;
-//         connection.query(`SELECT * FROM products WHERE product_name like ?"%"`, [searchVal], (err,rows,field)=>{
-//         if(rows.length > 0){
-//             console.log(`Search by Name\n${rows.length} rows returned`);
-//             return res.send(rows)
-//         }
-//     console.log(`Search by Name\n${rows.length} rows returned`);    
-//     return res.sendFile('notfound.html', {root: __dirname})
+app.post('/form', function(req, res){
+    if (req.body.search_choice === 'ID') {
+        const searchVal = req.body.search_value;
+        connection.query(`
+        SELECT * FROM products WHERE ID = ?`, [searchVal], (err,rows,field)=>{
+        if(rows.length > 0){
+            console.log(`Search by ID\n${rows.length} rows returned`);
+            return res.send(rows)
+        }
+    console.log(`Search by ID\n${rows.length} rows returned`);    
+    return null
         
-//     }); 
-    
-// });
+    }); 
+    }
+    else if(req.body.search_choice === 'type'){
+        const searchVal = req.body.search_value;
+        connection.query(`
+        SELECT * FROM products WHERE product_type like ?"%"`, [searchVal], (err,rows,field)=>{
+        if(rows.length > 0){
+            console.log(`Search by ID\n${rows.length} rows returned`);
+            return res.send(rows)
+        }
+    console.log(`Search by ID\n${rows.length} rows returned`);    
+    return null
+        
+    }); 
+    }
+    else{
+        const searchVal = req.body.search_value;
+        connection.query(`SELECT * FROM products WHERE product_name like ?"%"`, [searchVal], (err,rows,field)=>{
+        if(rows.length > 0){
+            console.log(`Search by Name\n${rows.length} rows returned`);
+            return res.send(rows)
+        }
+    console.log(`Search by Name\n${rows.length} rows returned`);    
+    return res.send("NOT FOUND")
+        
+    }); 
+    }
+})
 app.listen(port, function () {
     console.log('CORS-enabled web server listening on port ' + port)
 })

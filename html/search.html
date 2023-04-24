@@ -1,14 +1,17 @@
 <!-- Same nav bar format-->
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
 	<title>Search Products</title>
 	<link rel="stylesheet" type="text/css" href="/Main.css">
 	<link rel="stylesheet" type="text/css" href="/search.css">
 	<link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
-	<link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
-	
+	<link rel="icon" type="image/x-icon"
+		href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+
 </head>
+
 <body>
 	<header>
 		<h1>Guitar Shop</h1>
@@ -18,108 +21,128 @@
 				<li><a href="/About_Us">About Us</a></li>
 				<li><a href="/Login_signup">Login</a></li>
 				<li><a href="/search">Search</a></li>
-				  </ul>
-			<form action="/search" method="GET">
-				<input type="text" id="search-box"placeholder="Search.." name="search-box">
+			</ul>
+			<script type="text/javascript">
+				function getForm() {
+					const search_choice = document.querySelector('#criteria').value;
+					const search_value = document.querySelector('#search-box').value;
+					let rooturl = 'http://localhost:3030/form'
+					fetch(rooturl, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							"username": username,
+							"password": password
+						})
+					})
+						.then(response => response.json())
+						.then(data => console.log(data))
+						.catch(error => console.error())
+				}
+			</script>
+			<form>
+				<input type="text" id="search-box" placeholder="Search.." name="search_choice">
 				<select id="criteria" name="criteria">
-					<option value="product-name">Product Name</option>
-					<option value="product-type">Product Type</option>
-					<option value="rating">Rating</option>
+					<option value="name">Product Name</option>
+					<option value="type">Product Type</option>
+					<option value="ID">ID</option>
 				</select>
-				<button type="submit">Search</button>
+				<button class="search" type="submit" onclick="getForm()">Search</button>
 			</form>
 		</nav>
-	  </header>
+	</header>
 	<!-- This is a search box that contains Product Name, Product Type, and Rating -->
 	<main>
-			<form  class="search-sec"method="GET">
-				<h1 class="search">Search</h1>
-				<input class="search"type="text" id="search-box" name="search-box">
-				<select class="search"id="criteria" name="criteria">
-					<option value="product-name">Product Name</option>
-					<option value="product-type">Product Type</option>
-					<option value="rating">Rating</option>
-				</select>
-			<!-- This is a "search button" -->
-				<button class="search" type="submit" >Search</button>
-			</form>
+		<form class="search-sec">
+			<h1 class="search">Search</h1>
+			<input class="search" type="text" id="search-box" placeholder="Search.." name="search_choice">
+			<select class="search" id="criteria" name="criteria">
+				<option value="name">Product Name</option>
+				<option value="type">Product Type</option>
+				<option value="ID">ID</option>
+			</select>
+			<!-- This is a "search button" "-->
+			<button class="search" type="submit" onclick="getForm()">Search</button>
+		</form>
 		<!-- The code below is a container that shows every product details in "Search Products"(Product Name, Product Type, Rating, and Price) -->
-	<div class="container">
-		<h1>Search Products</h1>
-		
-		<table>
-			<thead>
-				<tr>
-					<th>Product Name</th>
-					<th>Product Type</th>
-					<th>Rating</th>
-					<th>Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="Guitar1.html">Semi Hollow Guitar</a></td>
-					<td>Electric guitar</td>
-					<td>4.5</td>
-					<td>12,800 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="Guitar2.html">Stratocaster</a></td>
-					<td>Electric guitar</td>
-					<td>4.2</td>
-					<td>12,800 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="Guitar3.html">Les Paul</a></td>
-					<td>Electric guitar</td>
-					<td>4.9</td>
-					<td>12,800 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="Bass1.html">Fret-less Bass</a></td>
-					<td>Bass guitar</td>
-					<td>3.5</td>
-					<td>12,800 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="Bass2.html">4-Strings Bass</a></td>
-					<td>Bass guitar</td>
-					<td>4.8</td>
-					<td>12,800 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="Bass3.html">5-Srings Bass</a></td>
-					<td>Bass guitar</td>
-					<td>4.8</td>
-					<td>12,800 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="acous1.html">CRAFTER HD-200 S.NT</a></td>
-					<td>Aoustic guitar</td>
-					<td>3.5</td>
-					<td>8,100 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="acous2.html">MARTIN DJR10-BURST</a></td>
-					<td>Aoustic guitar</td>
-					<td>4.8</td>
-					<td>7,200 Bath</td>
-				</tr>
-				<tr>
-					<td><a href="acous3.html">MARTIN D JR. A</a></td>
-					<td>Aoustic guitar</td>
-					<td>4.8</td>
-					<td>7,200 Bath</td>
-				</tr>
-			</tbody>
-		</table>
-		
-	</div>
+		<div class="container">
+			<h1>Search Products</h1>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Product Name</th>
+						<th>Product Type</th>
+						<th>Rating</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="Guitar1.html">Semi Hollow Guitar</a></td>
+						<td>Electric guitar</td>
+						<td>4.5</td>
+						<td>12,800 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="Guitar2.html">Stratocaster</a></td>
+						<td>Electric guitar</td>
+						<td>4.2</td>
+						<td>12,800 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="Guitar3.html">Les Paul</a></td>
+						<td>Electric guitar</td>
+						<td>4.9</td>
+						<td>12,800 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="Bass1.html">Fret-less Bass</a></td>
+						<td>Bass guitar</td>
+						<td>3.5</td>
+						<td>12,800 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="Bass2.html">4-Strings Bass</a></td>
+						<td>Bass guitar</td>
+						<td>4.8</td>
+						<td>12,800 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="Bass3.html">5-Srings Bass</a></td>
+						<td>Bass guitar</td>
+						<td>4.8</td>
+						<td>12,800 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="acous1.html">CRAFTER HD-200 S.NT</a></td>
+						<td>Aoustic guitar</td>
+						<td>3.5</td>
+						<td>8,100 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="acous2.html">MARTIN DJR10-BURST</a></td>
+						<td>Aoustic guitar</td>
+						<td>4.8</td>
+						<td>7,200 Bath</td>
+					</tr>
+					<tr>
+						<td><a href="acous3.html">MARTIN D JR. A</a></td>
+						<td>Aoustic guitar</td>
+						<td>4.8</td>
+						<td>7,200 Bath</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
 	</main>
 	<footer>
-		<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+		<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+			courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
 	</footer>
 </body>
+
 </html>
-
-
