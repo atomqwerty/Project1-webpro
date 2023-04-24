@@ -49,85 +49,78 @@
 	<main>
 		<form class="search-sec">
 			<h1 class="search">Search</h1>
-			<input class="search" type="text" id="search-box" placeholder="Search.." name="search_choice">
-			<select class="search" id="criteria" name="criteria">
+			<input class="search" type="text" id="search_value" placeholder="Search.." name="search_choice">
+			<select class="search" id="search_choice" name="criteria">
 				<option value="name">Product Name</option>
 				<option value="type">Product Type</option>
 				<option value="ID">ID</option>
 			</select>
 			<!-- This is a "search button" "-->
-			<button class="search" type="submit" onclick="getForm()">Search</button>
+			<button class="search" type="button" id="login-btn" onclick="getForm()">Search</button>
 		</form>
 		<!-- The code below is a container that shows every product details in "Search Products"(Product Name, Product Type, Rating, and Price) -->
 		<div class="container">
 			<h1>Search Products</h1>
-
+			<script type="text/javascript">
+				function getForm(){
+					const search_choice = document.querySelector('#search_choice').value;
+					const search_value = document.querySelector('#search_value').value;
+					console.log(search_value,search_choice)
+					let rooturl='http://localhost:3030/form'
+					fetch(rooturl,{
+						method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({ 
+								"search_choice": search_choice,
+								"search_value": search_value
+							})
+					})
+					.then(response => response.json())
+					.then(data =>{
+						// console.log(data)
+						document.querySelector("#admin").innerHTML = ''
+						for (i = 0; i < data.length; i++) {
+							// console.log(data.data[i])
+							document.querySelector("#admin").innerHTML += '<tr>' 
+								+ '<td>' + data[i].product_name + '</td>' 
+								+ '<td>' + data[i].product_type + '</td>' 
+								+ '<td>' + data[i].rating + '</td>' 
+								+ '<td>' + data[i].price + '</td>' 
+								+ '<td id="txt">' + data[i].product_description + '</td>' 
+								+ '<td>' + data[i].product_series + '</td>' 
+								+ '<td>' + data[i].product_shape + '</td>'
+								+ '<td>' + data[i].neck_type + '</td>'
+								+ '<td>' + data[i].fingerboard_material + '</td>'
+								+ '<td>' + data[i].num_of_frets + '</td>'
+								+ '</tr>'
+						}
+					})
+					.catch(error =>console.error())
+					
+				}
+			</script>
 			<table>
-				<thead>
-					<tr>
-						<th>Product Name</th>
-						<th>Product Type</th>
-						<th>Rating</th>
-						<th>Price</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><a href="Guitar1.html">Semi Hollow Guitar</a></td>
-						<td>Electric guitar</td>
-						<td>4.5</td>
-						<td>12,800 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="Guitar2.html">Stratocaster</a></td>
-						<td>Electric guitar</td>
-						<td>4.2</td>
-						<td>12,800 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="Guitar3.html">Les Paul</a></td>
-						<td>Electric guitar</td>
-						<td>4.9</td>
-						<td>12,800 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="Bass1.html">Fret-less Bass</a></td>
-						<td>Bass guitar</td>
-						<td>3.5</td>
-						<td>12,800 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="Bass2.html">4-Strings Bass</a></td>
-						<td>Bass guitar</td>
-						<td>4.8</td>
-						<td>12,800 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="Bass3.html">5-Srings Bass</a></td>
-						<td>Bass guitar</td>
-						<td>4.8</td>
-						<td>12,800 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="acous1.html">CRAFTER HD-200 S.NT</a></td>
-						<td>Aoustic guitar</td>
-						<td>3.5</td>
-						<td>8,100 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="acous2.html">MARTIN DJR10-BURST</a></td>
-						<td>Aoustic guitar</td>
-						<td>4.8</td>
-						<td>7,200 Bath</td>
-					</tr>
-					<tr>
-						<td><a href="acous3.html">MARTIN D JR. A</a></td>
-						<td>Aoustic guitar</td>
-						<td>4.8</td>
-						<td>7,200 Bath</td>
-					</tr>
-				</tbody>
-			</table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Type</th>
+                        <th>Rating</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Product series</th>
+                        <th>Product shape</th>
+                        <th>Neck type</th>
+                        <th>Fingerboard material</th>
+                        <th>Number of frets</th>
+                    </tr>
+                </thead>
+                <tbody id="admin">
+
+                </tbody>
+            </table>
+			
 
 		</div>
 	</main>
