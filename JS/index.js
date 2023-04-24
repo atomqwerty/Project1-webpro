@@ -134,7 +134,7 @@ app.get('/products', function(req, res) {
 });
 
 //add product
-app.post('/add_products', jsonParser, function (req, res, next) {
+app.post('/addproducts', jsonParser, function (req, res, next) {
     // execute will internally call prepare and query
     connection.execute(
         'INSERT INTO products (product_name,product_type,rating,price,product_description,product_series,product_shape,neck_type,fingerboard_material,num_of_frets,picture) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'  ,
@@ -148,7 +148,7 @@ app.post('/add_products', jsonParser, function (req, res, next) {
         }
     );
 })
-//delete admin
+//delete products
 app.delete('/products/:id', function(req, res) {
     const ID = req.params.id;
     if (!ID) {
@@ -156,7 +156,7 @@ app.delete('/products/:id', function(req, res) {
     }
     connection.query('DELETE FROM products WHERE ID = ?', ID, function(error, results) {
         if (error) throw error;
-        return res.send({ error: false, data: results.affectedRows, message: 'admin has been deleted successfully.' });
+        return res.send({ error: false, data: results.affectedRows, message: 'products has been deleted successfully.' });
     });
 });
 //get admin
