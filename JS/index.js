@@ -169,6 +169,16 @@ app.get('/admin', function (req, res) {
         return res.send({ data: results });
     });
 });
+//get admin info
+app.get('/admininfo', function (req, res) {
+    connection.query('SELECT * FROM project.`administrator`', function (error, results) {
+        if (error) throw error;
+        if (results.length === 0) {
+            return res.status(404).send({ error: true, message: 'user not found' });
+        }
+        return res.send({ data: results });
+    });
+});
 //add admin
 app.post('/add_admin', jsonParser, function (req, res, next) {
     connection.execute(

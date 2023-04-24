@@ -78,8 +78,9 @@
 							})
 					})
 					.then(response => response.json())
+					.then(data =>console.log(data))
 					.then(data =>{
-						// console.log(data)
+						console.log(data)
 						document.querySelector("#admin").innerHTML = ''
 						for (i = 0; i < data.length; i++) {
 							// console.log(data.data[i])
