@@ -54,59 +54,28 @@
   </header>
 
   <main>
-    <!-- The section element represents a standalone section of content -->
-    <section>
-      <!-- The div element creates a container for a group of related elements -->
-
-      <div class="product-container">
-				<div id="Acoustic1" class="product">
-					<script type="text/javascript">
-						let rooturl7 ="http://localhost:3030/product/7"
-						fetch(rooturl7)  
-						.then((res) => res.json()) // Get JSON from the response
-						.then((data) => {
-							console.log(data.data)
-							document.querySelector("#Acoustic1").innerHTML = '<a href="/Acoustic1"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
-							"<h3>"+data.data.product_name+"</h3>"
-							+'<form class="selectbox"> <button class="detail" type="submit" formaction="acous1.html">More details</button></form>'	
-							})   
-					</script>
-				</div>
-
-				<div id="Acoustic2" class="product">
-					<script type="text/javascript">
-						let rooturl8 ="http://localhost:3030/product/8"
-						fetch(rooturl8)  
-						.then((res) => res.json()) // Get JSON from the response
-						.then((data) => {
-							console.log(data.data)
-							document.querySelector("#Acoustic2").innerHTML = '<a href="/Acoustic2"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
-							"<h3>"+data.data.product_name+"</h3>"
-							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/acous2.html">More details</button></form>'	
-							})   
-					</script>
-				</div>
-
-				<div id="Acoustic3" class="product">
-					<script type="text/javascript">
-						let rooturl9 ="http://localhost:3030/product/9"
-						fetch(rooturl9)  
-						.then((res) => res.json()) // Get JSON from the response
-						.then((data) => {
-							console.log(data.data)
-							document.querySelector("#Acoustic3").innerHTML = '<a href="/Acoustic3"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
-							"<h3>"+data.data.product_name+"</h3>"
-							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/acous3.html">More details</button></form>'	
-							})   
-					</script>
-				</div>
+		<section>
+			<div class="product-container" id="product">
+                <script type="text/javascript">
+                    let rooturl ="http://localhost:3030/product_t/A"
+                    fetch(rooturl)  
+                    .then((res) => res.json()) // Get JSON from the response
+                    .then((data) => {
+                        console.log(data.data)
+                        document.querySelector("#product").innerHTML=''
+                        for(i=0;i<data.data.length;i++){
+                            document.querySelector("#product").innerHTML += '<div id="Bass1" class="product"> <a href="/Acoustic'+(i+1)+'"><img src="'+data.data[i].picture+'" alt="Product Image"></a>'+
+                        "<h3>"+data.data[i].product_name+"</h3>"
+                        +'<form class="selectbox"> <button class="detail" type="submit" formaction="/Acoustic'+(i+1)+'">More details</button></form> </div>'
+                        }
+                        })   
+                </script>
 			</div>
-      
 
-
-        
-
-          <!-- The form element creates an HTML form for user input -->
-          <form class="selectbox">
-            <!-- The button element creates a clickable button that links to another web page -->
-            <button class="detail" type="submit" formaction="acous
+		</section>
+	</main>
+  <footer>
+		<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+	</footer>
+</body>
+</html>

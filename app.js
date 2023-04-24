@@ -24,6 +24,10 @@ connection.connect(function (err) {
     console.log(`Connected DB: ${process.env.MYSQL_DATABASE}`);
 });
 
+router.get('/test', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/test.html'));
+})
+
 
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/home.html'));

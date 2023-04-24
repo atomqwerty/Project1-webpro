@@ -109,6 +109,19 @@ app.get('/product/:id', function(req, res) {
         return res.send({data: results[0]});
     });
 });
+app.get('/product_t/:type', function(req, res) {
+    const product_type = req.params.type;
+    if (!product_type) {
+        return res.status(400).send({ error: true});
+    }
+    connection.query('SELECT * FROM products WHERE product_type like ?"%"', product_type, function(error, results) {
+        if (error) throw error;
+        if (results.length === 0) {
+            return res.status(404).send({ error: true, message: 'product not found' });
+        }
+        return res.send({data: results});
+    });
+});
 //get products
 app.get('/products', function(req, res) {
     connection.query('SELECT * FROM project.products', function(error, results) {
@@ -119,6 +132,7 @@ app.get('/products', function(req, res) {
         return res.send({data: results});
     });
 });
+
 //add product
 app.post('/add_products', jsonParser, function (req, res, next) {
     // execute will internally call prepare and query
@@ -145,7 +159,7 @@ app.get('/admin', function(req, res) {
     });
 });
 //add admin
-app.post('/add_products', jsonParser, function (req, res, next) {
+app.post('/add_admin', jsonParser, function (req, res, next) {
     connection.execute(
         'INSERT INTO admin_login (username,password,role,admin_id)'  ,
         [req.body.name,req.body.type,req.body.rating,req.body.price,req.body.description,req.body.product_series,req.body.product_shape,req.body.neck_type,req.body.fingerboard_material,req.body.num_of_frets,req.body.picture],

@@ -33,50 +33,23 @@
 
 	<main>
 		<section>
-
-			<div class="product-container">
-				<div id="Guitar1" class="product">
-					<script type="text/javascript">
-						let rooturl1 ="http://localhost:3030/product/1"
-						fetch(rooturl1)  
-						.then((res) => res.json()) // Get JSON from the response
-						.then((data) => {
-							console.log(data.data)
-							document.querySelector("#Guitar1").innerHTML = '<a href="/Guitar1"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
-							"<h3>"+data.data.product_name+"</h3>"
-							+'<form class="selectbox"> <button class="detail" type="submit" formaction="Guitar1.html">More details</button></form>'	
-							})   
-					</script>
-				</div>
-
-				<div id="Guitar2" class="product">
-					<script type="text/javascript">
-						let rooturl2 ="http://localhost:3030/product/2"
-						fetch(rooturl2)  
-						.then((res) => res.json()) // Get JSON from the response
-						.then((data) => {
-							console.log(data.data)
-							document.querySelector("#Guitar2").innerHTML = '<a href="/Guitar2"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
-							"<h3>"+data.data.product_name+"</h3>"
-							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/Guitar2">More details</button></form>'	
-							})   
-					</script>
-				</div>
-
-				<div id="Guitar3" class="product">
-					<script type="text/javascript">
-						let rooturl3 ="http://localhost:3030/product/3"
-						fetch(rooturl3)  
-						.then((res) => res.json()) // Get JSON from the response
-						.then((data) => {
-							console.log(data.data)
-							document.querySelector("#Guitar3").innerHTML = '<a href="/Guitar3"><img src="'+data.data.picture+'" alt="Product Image"></a>'+
-							"<h3>"+data.data.product_name+"</h3>"
-							+'<form class="selectbox"> <button class="detail" type="submit" formaction="/Guitar3">More details</button></form>'	
-							})   
-					</script>
-				</div>
+			<div class="product-container" id="product">
+                <script type="text/javascript">
+                    let rooturl ="http://localhost:3030/product_t/E"
+                    fetch(rooturl)  
+                    .then((res) => res.json()) // Get JSON from the response
+                    .then((data) => {
+                        console.log(data.data)
+                        document.querySelector("#product").innerHTML=''
+                        for(i=0;i<data.data.length;i++){
+                            document.querySelector("#product").innerHTML += '<div class="product"> <a href="/Guitar'+(i+1)+'"><img src="'+data.data[i].picture+'" alt="Product Image"></a>'+
+                        "<h3>"+data.data[i].product_name+"</h3>"
+                        +'<form class="selectbox"> <button class="detail" type="submit" formaction="/Guitar'+(i+1)+'">More details</button></form> </div>'
+                        }
+                        })   
+                </script>
 			</div>
+
 		</section>
 	</main>
 
