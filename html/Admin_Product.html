@@ -1,68 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Edit Product</title>
     <link rel="stylesheet" type="text/css" href="/Main.css">
     <link rel="stylesheet" type="text/css" href="/search.css">
     <link rel="stylesheet" type="text/css" href="/Admin_product.css">
-    <link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+    <link rel="icon" type="image/x-icon"
+        href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
+    <style>
+        #txt {
+            font-size: 10px;
+        }
+        #url {
+            font-size: 5px;
+        }
+    </style>
 </head>
-    
+
 <body>
     <script type="text/javascript">
-        let rooturl ="http://localhost:3030/products"
-        fetch(rooturl)  
-        .then((res) => res.json()) // Get JSON from the response
-        .then((data) => {
-            document.querySelector("#admin").innerHTML =''
-            for(i=0;i<data.data.length;i++){
-                console.log(data.data[i])
-                document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].product_name+'</td>'+'<td>'+data.data[i].product_type+'</td>'+'<td>'+data.data[i].rating+'</td>'+'<td>'+data.data[i].price+'</td>'+'<th>'+data.data[i].picture+'</th>'+'<td><button action=del(i) type="onclick">Delete</button></td></tr>'
-            }
-            i++;
-            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="search-box" placeholder="product_name"required=""></td><td><input type="text" id="search-box" placeholder="product_type"required=""></td><td><input type="text" id="search-box" placeholder="rating"required=""></td><td><input type="text" id="search-box" placeholder="price"required=""></td><td><input type="text" id="search-box" placeholder="Picture_URL"required=""></td><td> <button type="submit"formaction="Admin_Product"class="add">Add</button></td></tr>'
+        var status
+        function getinfo() {
+            const name = document.querySelector('#product_name').value;
+            const type = document.querySelector('#product_type').value;
+            const rating = document.querySelector('#rating').value;
+            const price = document.querySelector('#price').value;
+            const description = document.querySelector('#Description').value;
+            const product_series = document.querySelector('#series').value;
+            const product_shape = document.querySelector('#shape').value;
+            const neck_type = document.querySelector('#Neck').value;
+            const fingerboard_material = document.querySelector('#Fingerboard').value;
+            const num_of_frets = document.querySelector('#Number').value;
+            const picture = document.querySelector('#URL').value;
+            let rooturl2 = 'http://localhost:3030/login-admin'
+            fetch(rooturl2, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "name": name,
+                    "type": type,
+                    "rating": rating,
+                    "price": price,
+                    "description": description,
+                    "product_series": product_series,
+                    "product_shape": product_shape,
+                    "neck_type": neck_type,
+                    "fingerboard_material": fingerboard_material,
+                    "num_of_frets": num_of_frets,
+                    "picture": picture
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // console.log(data.status)
+                    // if (data.status == 'login') {
+                    //     console.log('get in')
+                    //     location.replace("/Admin_home")
+                    // }
+                    // else {
+                    //     window.alert("Wrong username or Password");
+                    // }
+                })
+                .catch(error => console.error())
+
+        }
+    </script>
+    <script type="text/javascript">
+        let rooturl = "http://localhost:3030/products"
+        fetch(rooturl)
+            .then((res) => res.json()) // Get JSON from the response
+            .then((data) => {
+                document.querySelector("#admin").innerHTML = ''
+                for (i = 0; i < data.data.length; i++) {
+                    console.log(data.data[i])
+                    document.querySelector("#admin").innerHTML += '<tr><td>' 
+                        + data.data[i].id + '</td>' 
+                        + '<td>' + data.data[i].product_name + '</td>' 
+                        + '<td>' + data.data[i].product_type + '</td>' 
+                        + '<td>' + data.data[i].rating + '</td>' 
+                        + '<td>' + data.data[i].price + '</td>' 
+                        + '<td id="txt">' + data.data[i].product_description + '</td>' 
+                        + '<td>' + data.data[i].product_series + '</td>' 
+                        + '<td>' + data.data[i].product_shape + '</td>'
+                        + '<td>' + data.data[i].neck_type + '</td>'
+                        + '<td>' + data.data[i].fingerboard_material + '</td>'
+                        + '<td>' + data.data[i].num_of_frets + '</td>'
+                        +'<td id="url">' +data.data[i].picture + '</td>' 
+                        + '<td><button action=del(i) type="onclick">Delete</button></td></tr>'
+                }
+                i++;
+                document.querySelector("#admin").innerHTML += '<tr><td>' + i + '</td>'
+                    +'<td><input type="text" id="product_name" placeholder="product_name"required=""></td>'
+                    +'<td><input type="text" id="product_type" placeholder="product_type"required=""></td>'
+                    +'<td><input type="text" id="rating" placeholder="rating"required=""></td>'
+                    +'<td><input type="text" id="price" placeholder="price"required=""></td>'
+                    +'<td><input type="text" id="Description" placeholder="Description"required=""></td>'
+                    +'<td><input type="text" id="series" placeholder="Product series"required=""></td>'
+                    +'<td><input type="text" id="shape" placeholder="Product shape"required=""></td>'
+                    +'<td><input type="text" id="Neck" placeholder="Neck type"required=""></td>'
+                    +'<td><input type="text" id="Fingerboard" placeholder="Fingerboard material"required=""></td>'
+                    +'<td><input type="text" id="Number" placeholder="Number of frets"required=""></td>'
+                    +'<td><input type="text" id="URL" placeholder="URL"required=""></td>'
+                    +'<td> <button type="submit" onclick="getinfo()" class="add">Add</button></td></tr>'
             })  
     </script>
-<header>
-    <h1>Guitar Shop (for Admin)</h1>
-    <nav>
-        <ul>
-            <li><a href="Admin_home">Home</a></li>
-            <li><a href="Admin_Product">Product</a></li>
-            <li><a href="Admin_profile">User manage</a></li>
-            <li><a href="/">Log out</a></li>
-      </ul>
-    </nav>
-</header>
-<main>
-<!-- same as search but add delete button  -->
-<div class="container">
-<h1>Edit product</h1>
+    <header>
+        <h1>Guitar Shop (for Admin)</h1>
+        <nav>
+            <ul>
+                <li><a href="Admin_home">Home</a></li>
+                <li><a href="Admin_Product">Product</a></li>
+                <li><a href="Admin_profile">User manage</a></li>
+                <li><a href="/">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- same as search but add delete button  -->
+        <div class="container">
+            <h1>Edit product</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Product Name</th>
-            <th>Product Type</th>
-            <th>Rating</th>
-            <th>Price</th>
-            <th>URL</th>
-            <th>Edit</th>
-        </tr>
-    </thead>
-    <tbody id="admin">
-        
-    </tbody>
-</table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Product Name</th>
+                        <th>Product Type</th>
+                        <th>Rating</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Product series</th>
+                        <th>Product shape</th>
+                        <th>Neck type</th>
+                        <th>Fingerboard material</th>
+                        <th>Number of frets</th>
+                        <th>URL</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="admin">
 
-</div>
-</main>
-<footer>
-    <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
-</footer>
+                </tbody>
+            </table>
 
-    
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+            courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+    </footer>
+
+
 </body>
+
 </html>
