@@ -27,6 +27,9 @@
                     method: 'DELETE'
                 })  
                 .then((res) => res.json())
+                .then(data => {
+                    location.replace("/Admin_Product")
+			})
 			.then(response => response.json())
 			.catch(error =>console.error())
 		}
@@ -52,10 +55,10 @@
                         + '<td>' + data.data[i].fingerboard_material + '</td>'
                         + '<td>' + data.data[i].num_of_frets + '</td>'
                         +'<td id="url">' +data.data[i].picture + '</td>' 
-                        + '<td><button onclick = del(i-1) type="click">Delete</button></td></tr>'
+                        + '<td><button onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
                 }
                 i++;
-                document.querySelector("#admin").innerHTML += '<tr><td> <a href="Add_product">Product</a> </td></tr>'
+                document.querySelector("#admin").innerHTML += '<tr><td> <a href="Add_product">Add Product</a> </td></tr>'
             })  
     </script>
     <header>

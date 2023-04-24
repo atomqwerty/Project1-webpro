@@ -12,9 +12,10 @@
 
 <body>
     <script type="text/javascript">
-        var status
-        function getinfo() {
-            const name = document.querySelector('#product_name').value;
+		function getinfo(){
+            console.log("start")
+			const name = document.querySelector('#product_name').value;
+            
             const type = document.querySelector('#product_type').value;
             const rating = document.querySelector('#rating').value;
             const price = document.querySelector('#price').value;
@@ -25,8 +26,8 @@
             const fingerboard_material = document.querySelector('#Fingerboard').value;
             const num_of_frets = document.querySelector('#Number').value;
             const picture = document.querySelector('#URL').value;
-            let rooturl2 = 'http://localhost:3030/login-admin'
-            fetch(rooturl2, {
+			let rooturl='http://localhost:3030/addproducts'
+			fetch(rooturl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -44,43 +45,16 @@
                     "num_of_frets": num_of_frets,
                     "picture": picture
                 })
+                
             })
-                .then(response => response.json())
-                .then(data => {
-                    location.replace("/Admin_Product")
-                })
-                .catch(error => console.error())
-
-        }
-    </script>
-    <script type="text/javascript">
-		var status
-		function getLogin(){
-			const username = document.querySelector('#username').value;
-			const password = document.querySelector('#password').value;
-			let rooturl1='http://localhost:3030/login-admin'
-			fetch(rooturl1,{
-				method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({ 
-						"username":  username,
-						"password": password
-					})
-			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.status)
-				if(data.status =='login'){
-				console.log('get in')
-				location.replace("/Admin_home")
-				}
-				else{
-					window.alert("Wrong username or Password");
-				}
+                console.log(body)
+				// location.replace("/Admin_Product")
 			})
-			.catch(error =>console.error())
+			.catch(error =>{
+                window.alert("WRONG_VALUE_FOR_FIELD");
+            })
 			
 		}
 	</script>
@@ -100,7 +74,7 @@
         <div class="container">
             <div class="imgBx">
                 <!-- blank box for adding information -->
-                <form method="POST" action="http://localhost:3030/add_products">
+                <form>
                     <input type="text" id="product_name" placeholder="product_name" required> <br>
                     <input type="text" id="product_type" placeholder="product_type" required> <br>
                     <input type="text" id="rating" placeholder="rating" required=""> <br>
@@ -112,16 +86,9 @@
                     <input type="text" id="Fingerboard" placeholder="Fingerboard material" required=""> <br>
                     <input type="text" id="Number" placeholder="Number of frets" required=""> <br>
                     <input type="text" id="URL" placeholder="URL" required=""> <br>
-                    <button class="sing" type="button" id="login-btn" onclick="getinfo()">Log in</button> 
+                    <button onclick=getinfo() type="click">ADD</button> 
                 </form>
-                <form id="login-form" method="POST" action="http://localhost:3030/login-admin">
-					<!--The sign up form includes a text input field for Email and Password -->
-					<label for="chk" aria-hidden="true">Login</label>
-					<!--input field for Username ,Email and password and it must have filled before submit this form-->
-					<input class="in" type="text" name="text" placeholder="Username" required="" id="username">
-					<input class="in" type="password" name="pswd" placeholder="Password" required="" id="password">
-					<button class="sing" type="button" id="login-btn" onclick="getLogin()">Log in</button>
-				</form>
+                
             </div>
             <div class="details">
                 <div class="content">
