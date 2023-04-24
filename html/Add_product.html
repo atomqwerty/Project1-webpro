@@ -12,10 +12,13 @@
 
 <body>
     <script type="text/javascript">
+    document.querySelector('#product_name').value ="XXXXX"
+    </script>
+    <script type="text/javascript">
 		function getinfo(){
             console.log("start")
 			const name = document.querySelector('#product_name').value;
-            
+            console.log(name)
             const type = document.querySelector('#product_type').value;
             const rating = document.querySelector('#rating').value;
             const price = document.querySelector('#price').value;
@@ -47,15 +50,6 @@
                 })
                 
             })
-			.then(response => response.json())
-			.then(data => {
-                console.log(body)
-				// location.replace("/Admin_Product")
-			})
-			.catch(error =>{
-                window.alert("WRONG_VALUE_FOR_FIELD");
-            })
-			
 		}
 	</script>
     <header>
