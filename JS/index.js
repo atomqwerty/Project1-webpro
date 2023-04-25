@@ -157,7 +157,7 @@ app.put('/products/:id', function(req, res) {
     }
     connection.query("UPDATE products SET product_name=?,product_type=?,rating=?,price=?,product_description=?,product_series=?,product_shape=?,neck_type=?,fingerboard_material=?,num_of_frets=?,picture=?  WHERE ID = ?", [req.body.name, req.body.type, req.body.rating, req.body.price, req.body.description, req.body.product_series, req.body.product_shape, req.body.neck_type, req.body.fingerboard_material, req.body.num_of_frets, req.body.picture, ID], function(error, results) {
         if (error) res.status(404).send(error);
-        return res.send({ error: false, data: results.affectedRows, message: 'Student has been updated successfully.' });
+        return res.send({ error: false, data: results.affectedRows, message: 'Product has been updated successfully.' });
     });
 });
 
@@ -228,7 +228,7 @@ app.put('/admin/:id', function(req, res) {
     }
     connection.query("UPDATE admin_login SET username=?,password=?,role=?,admin_id=? WHERE ID = ?",[req.body.username,req.body.password,req.body.role,req.body.admin_id,ID], function(error, results) {
         if (error) res.status(404).send(error);
-        return res.send({ error: false, data: results.affectedRows, message: 'Student has been updated successfully.' });
+        return res.send({ error: false, data: results.affectedRows, message: 'Account has been updated successfully.' });
     });
 });
 //delete admin
