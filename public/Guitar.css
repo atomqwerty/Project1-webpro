@@ -24,17 +24,21 @@ main{
     margin: 20px;
 }
 
-.container#edit-pro{
-    position: relative;
+.container-1 {
+    
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    width: 900px;
+    position: relative;
+    align-items: baseline;
+    justify-content: center;
+    width: auto;
     min-height: 600px;
     height: auto;
     background: #fff;
     margin: 20px;
-    padding: auto;
+    padding: 10%;
+    border-radius: 10px;
+    border: #999;
 }
 
 .container .imgBx {
