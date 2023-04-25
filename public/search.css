@@ -33,7 +33,7 @@ table {
 	border-radius: 5px;
 }
 #admin{
-	background-color: #FF9179;
+	background-color: rgba(231, 213, 185, 0.8);
 }
 /* #admin:hover{
 	background-color: rgb(255, 255, 255);

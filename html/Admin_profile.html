@@ -68,7 +68,7 @@
 <div class="container">
 <h1>Edit Account</h1><br>
 <div class="detail">
-<table>
+<table class="tab">
     <!-- table header  -->
     <thead>
         <tr>
@@ -90,11 +90,11 @@
             for(i=0;i<data.data.length;i++){
                 console.log(data.data[i])
                 document.querySelector("#admin").innerHTML +='<tr><td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].username+'</td>'+'<td>'+data.data[i].password+'</td>'+'<td>'+data.data[i].role+'</td>'+'<td>'+data.data[i].login_log+'</td>'
-                    +'<td><button onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
+                    +'<td><button class="del" onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
             }
             i++;
-            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" class="in-text"  id="username" placeholder="New-user"></td><td><input type="text" class="in-text" id="password" placeholder="Password"></td><td><input type="text" class="in-text" id="type" placeholder="Type"></td><td>today</td><td> <button onclick = addprofile() type="click">ADD</td></tr>'
-                document.querySelector("#admin").innerHTML +=' <tr><td> <a href="Edit_User">Edit User</a> </td></tr>'
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" class="in-text"  id="username" placeholder="New-user"></td><td><input type="text" class="in-text" id="password" placeholder="Password"></td><td><input type="text" class="in-text" id="type" placeholder="Type"></td><td>today</td><td> <button class="add" onclick = addprofile() type="click">ADD</button></td></tr>'
+            document.querySelector("#admin").innerHTML +='<td><td><td><td><td><td><button class="add" onclick = location.href="/Edit_user" type="submit">Edit User</button>'
             })  
     </script>
     

@@ -55,10 +55,10 @@
                         + '<td>' + data.data[i].fingerboard_material + '</td>'
                         + '<td>' + data.data[i].num_of_frets + '</td>'
                         +'<td id="url">' +data.data[i].picture + '</td>' 
-                        + '<td><button onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
+                        + '<td><button class="del" onclick = del('+data.data[i].id+') type="click" >Delete</button></td></tr>'
                 }
                 i++;
-                document.querySelector("#admin").innerHTML += '<tr><td> <a href="Add_product">Add Product</a> </td><td> <a href="Edit_product">Edit Product</a> </td></tr>'
+                document.querySelector("#admin").innerHTML += '<tr><td><td><td><td><td><td><td><td><td><td><td><td> <button class="add" onclick = location.href="/Add_product" type="submit">Add product</button> </td><td> <button class="add" onclick = location.href="/Edit_product" type="submit">Edit product</button> </td></tr>'
             })  
     </script>
     <header>
