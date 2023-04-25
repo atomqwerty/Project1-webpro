@@ -38,7 +38,9 @@ main{
     margin: 20px;
     padding: 10%;
     border-radius: 10px;
-    border: #999;
+    border-width:2px ;
+    border: #705600;
+    
 }
 
 .container .imgBx {
