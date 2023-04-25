@@ -18,7 +18,8 @@ main{
     flex-wrap: wrap;
     justify-content: space-between;
     width: 900px;
-    height: 600px;
+    min-height: 600px;
+    height: auto;
     background: #fff;
     margin: 20px;
 }
