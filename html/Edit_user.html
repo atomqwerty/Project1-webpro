@@ -14,6 +14,7 @@
 <body>
     <script type="text/javascript">
         function getinfo(i){
+            console.log( document.querySelector('#username').value)
 			const username = document.querySelector('#username').value;
             const password = document.querySelector('#password').value;
             const role = document.querySelector('#role').value;
@@ -31,7 +32,7 @@
                     "admin_id": admin_id
                 })
                 
-            })
+            }).then(location.replace("/Admin_profile"))
 		}
     </script>
     <script type="text/javascript">
@@ -71,13 +72,13 @@
                 const productinfo = data.data;
                 console.log(productinfo);
                 const SelectedPlace = document.querySelector("#editbox");
-                const card = `
+                const card = `<br>
                     <p>User ID: ${productinfo.id}</p>
-                    <a>username: <input type="text" class="in-text id="username" placeholder="username"value="${productinfo.username}" required> </a>
-                    <a>password:<input type="text" class="in-text id="password" placeholder="password"value="${productinfo.password}" required> </a>
-                    <a>role:<input type="text" class="in-text id="role" placeholder="role" value="${productinfo.role}"required=""></a> <br>
-                    <a>admin_id:<input type="text" class="in-text id="admin_id" placeholder="admin_id" value="${productinfo.admin_id}"required=""> </a>
-                    <p>Loin log: ${productinfo.login_log}</p>
+                    <a>username: <input type="text" class="in-text" id="username" placeholder="username" value="${productinfo.username}" required> </a>
+                    <a>password:<input type="text" class="in-text "id="password" placeholder="password"value="${productinfo.password}" required> </a>
+                    <a>role:<input type="text" class="in-text "id="role" placeholder="role" value="${productinfo.role}"required=""></a> <br>
+                    <a>admin_id:<input type="text" class="in-text" id="admin_id" placeholder="admin_id" value="${productinfo.admin_id}"required=""> </a>
+                    <p>Loin log: ${productinfo.login_log}</p><br>
                     <button onclick=getinfo(${productinfo.id}) type="click">EDIT</button> 
                 `
                 SelectedPlace.innerHTML += card;
@@ -104,7 +105,7 @@
                 <!-- blank box for adding information -->
                 <form action="adduser" class="header-form" id="add-form">
                     <select class="in-text" id="selecter-box"></select><br>
-                    <button type="button" id="btn-adding-product" onclick="chagneinfo()">Select ID</button>
+                    <button class="center" type="button" id="btn-adding-product" onclick="chagneinfo()">Select ID</button>
                 </form> 
                 <form class="add-item-field" id='edituser'>
 

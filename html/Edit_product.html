@@ -47,7 +47,7 @@
                     "picture": picture
                 })
                 
-            })
+            }).then(location.replace("/Admin_Product"))
 		}
     </script>
     <script type="text/javascript">
@@ -100,7 +100,7 @@
                     <input type="text" class="in-text" id="Fingerboard" placeholder="Fingerboard material" value="${productinfo.fingerboard_material}"required=""> <br>
                     <input type="text" class="in-text" id="Number" placeholder="Number of frets"value="${productinfo.num_of_frets}" required=""> <br>
                     <input type="text" class="in-text" id="URL" placeholder="URL" value="${productinfo.picture}"required=""> <br>
-                    <button onclick=getinfo(${productinfo.id}) type="click">EDIT</button> 
+                    <button class="center" onclick=getinfo(${productinfo.id}) type="click">EDIT</button> 
                 `
                 SelectedPlace.innerHTML += card;
             })
@@ -126,7 +126,7 @@
                 <!-- blank box for adding information -->
                 <form action="adduser" class="header-form" id="add-form">
                     <select  class="in-text" id="selecter-box"></select><br>
-                    <button type="button" id="btn-adding-product" onclick="chagneinfo()">Select ID</button>
+                    <button class="center" type="button" id="btn-adding-product" onclick="chagneinfo()">Select ID</button>
                 </form> <br>
                 <form class="add-item-field" id='edituser'>
 
