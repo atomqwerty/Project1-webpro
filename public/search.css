@@ -35,9 +35,9 @@ table {
 #admin{
 	background-color: #FF9179;
 }
-#admin:hover{
+/* #admin:hover{
 	background-color: rgb(255, 255, 255);
-}
+} */
 
 thead {
     background-color: #ddd;
