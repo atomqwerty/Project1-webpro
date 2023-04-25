@@ -33,9 +33,9 @@
                         console.log(data.data)
                         document.querySelector("#product").innerHTML=''
                         for(i=0;i<data.data.length;i++){
-                            document.querySelector("#product").innerHTML += '<div class="product"> <a href="/Bass'+(data.data[i].id)+'"><img src="'+data.data[i].picture+'" alt="Product Image"></a>'+
+                            document.querySelector("#product").innerHTML += '<div class="product"> <a href="/Bass'+(data.data[i].id-3)+'"><img src="'+data.data[i].picture+'" alt="Product Image"></a>'+
                         "<h3>"+data.data[i].product_name+"</h3>"
-                        +'<form class="selectbox"> <button class="detail" type="submit" formaction="/Bass'+(data.data[i].id)+'">More details</button></form> </div>'
+                        +'<form class="selectbox"> <button class="detail" type="submit" formaction="/Bass'+(data.data[i].id-3)+'">More details</button></form> </div>'
                         }
                         })   
                 </script>
