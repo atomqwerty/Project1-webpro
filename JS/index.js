@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
     database: process.env.MYSQL_DATABASE
 });
 connection.connect(function (err) {
-    if (err) throw err;
+    if (err) res.status(404).send(err);
     console.log(`Connected DB: ${process.env.MYSQL_DATABASE}`);
 });
 app.use(express.json());
@@ -82,7 +82,7 @@ app.post('/login-admin', jsonParser, function (req, res, next) {
                 const token = jwt.sign({ username: results[0].username }, sec, { expiresIn: '10h' });
                 res.json({ status: 'login', token })
                 connection.query("UPDATE admin_login SET login_log= ? WHERE ID = ?", [value, results[0].id], function (error, results) {
-                    if (error) throw error;
+                    if (error) res.status(404).send(error);
                 });
             }
             else { res.json({ status: 'Login-Failed' }) }
@@ -102,7 +102,7 @@ app.post('/product/:id', function (req, res) {
         return res.status(400).send({ error: true, message: 'Please provide product id' });
     }
     connection.query('SELECT * FROM products WHERE id = ?', product_id, function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         if (results.length === 0) {
             return res.status(404).send({ error: true, message: 'product not found' });
         }
@@ -116,7 +116,7 @@ app.get('/product_t/:type', function (req, res) {
         return res.status(400).send({ error: true });
     }
     connection.query('SELECT * FROM products WHERE product_type like ?"%"', product_type, function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         if (results.length === 0) {
             return res.status(404).send({ error: true, message: 'product not found' });
         }
@@ -126,7 +126,7 @@ app.get('/product_t/:type', function (req, res) {
 //get products
 app.get('/products', function (req, res) {
     connection.query('SELECT * FROM project.products', function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         if (results.length === 0) {
             return res.status(404).send({ error: true, message: 'products not found' });
         }
@@ -156,7 +156,7 @@ app.put('/products/:id', function(req, res) {
         return res.status(400).send({ error: true, message: 'Please provide student information' });
     }
     connection.query("UPDATE products SET product_name=?,product_type=?,rating=?,price=?,product_description=?,product_series=?,product_shape=?,neck_type=?,fingerboard_material=?,num_of_frets=?,picture=?  WHERE ID = ?", [req.body.name, req.body.type, req.body.rating, req.body.price, req.body.description, req.body.product_series, req.body.product_shape, req.body.neck_type, req.body.fingerboard_material, req.body.num_of_frets, req.body.picture, ID], function(error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         return res.send({ error: false, data: results.affectedRows, message: 'Student has been updated successfully.' });
     });
 });
@@ -168,14 +168,14 @@ app.delete('/products/:id', function (req, res) {
         return res.status(400).send({ error: true, message: 'Wrong admin id' });
     }
     connection.query('DELETE FROM products WHERE ID = ?', ID, function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         return res.send({ error: false, data: results.affectedRows, message: 'products has been deleted successfully.' });
     });
 });
 //get admin
 app.get('/admin', function (req, res) {
     connection.query('SELECT * FROM project.admin_login', function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         if (results.length === 0) {
             return res.status(404).send({ error: true, message: 'user not found' });
         }
@@ -189,7 +189,7 @@ app.post('/admin/:id', function (req, res) {
         return res.status(400).send({ error: true, message: 'Please provide product id' });
     }
     connection.query('SELECT * FROM admin_login WHERE id = ?', product_id, function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         if (results.length === 0) {
             return res.status(404).send({ error: true, message: 'product not found' });
         }
@@ -199,7 +199,7 @@ app.post('/admin/:id', function (req, res) {
 //get admin info
 app.get('/admininfo', function (req, res) {
     connection.query('SELECT * FROM project.`administrator`', function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         if (results.length === 0) {
             return res.status(404).send({ error: true, message: 'user not found' });
         }
@@ -227,7 +227,7 @@ app.put('/admin/:id', function(req, res) {
         return res.status(400).send({ error: true, message: 'Please provide student information' });
     }
     connection.query("UPDATE admin_login SET username=?,password=?,role=?,admin_id=? WHERE ID = ?",[req.body.username,req.body.password,req.body.role,req.body.admin_id,ID], function(error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         return res.send({ error: false, data: results.affectedRows, message: 'Student has been updated successfully.' });
     });
 });
@@ -238,7 +238,7 @@ app.delete('/admin/:id', function (req, res) {
         return res.status(400).send({ error: true, message: 'Wrong admin id' });
     }
     connection.query('DELETE FROM admin_login WHERE ID = ?', ID, function (error, results) {
-        if (error) throw error;
+        if (error) res.status(404).send(error);
         return res.send({ error: false, data: results.affectedRows, message: 'admin has been deleted successfully.' });
     });
 });
