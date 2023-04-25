@@ -10,26 +10,10 @@
     
   </head>
   <body>
-    <script type="text/javascript">
-        let rooturl=' https://api.unsplash.com/photos/?client_id=pFvhdvBxg2RVjfXO2u1rufChOIvuMG9Y2Q608iR8ySs'
-        fetch(rooturl,{
-          method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data =>{
-            console.log(data[0].urls.raw)
-            document.querySelector("#api").innerHTML='<img src="'+data[0].urls.raw+' width="200" height="400">'
-        })
-        .catch(error =>console.error())
-        
-      
-    </script>
+    
    
     <header>
-      <h1 id="api"></h1>
+      
       <h1>Guitar Shop</h1>
       <!-- navigation bar -->
       <nav>

@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
     database: process.env.MYSQL_DATABASE
 });
 connection.connect(function (err) {
-    if (err) res.status(404).send(err);
+    if (err) res.throw (err);
     console.log(`Connected DB: ${process.env.MYSQL_DATABASE}`);
 });
 app.use(express.json());
