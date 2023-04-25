@@ -1,6 +1,7 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <!-- HTML5 doctype declaration -->
 <html lang="en">
+
 <head>
     <title>About Us</title>
     <!-- Link to the main CSS file -->
@@ -10,53 +11,70 @@
     <!-- Link to the Ubuntu font from Google Fonts -->
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
     <!-- Link to the website's favicon -->
-    <link rel="icon" type="image/x-icon" href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+    <link rel="icon" type="image/x-icon"
+        href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
 </head>
-    
-<body>
-<header>
-    <!-- Website header with a logo and navigation menu -->
-    <h1>About Us</h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/About_Us">About Us</a></li>
-            <li><a href="/search">Search</a></li>
-        </ul>
-        <!-- search-box -->
-        <li><a href="/Adminlogin">Admin login</a></li>
-      </nav>
-</header>
-<main>
-    <!-- Main content of the webpage -->
-<div class="container">
-    <section>
-        <!-- Section about the website's purpose and the team behind it -->
-        <h2>Who We Are</h2>
-        <p> We are guitar selling platforms by using website that provides users purchasing convenience and shipping products. Our team consists of passionate guitar players who are dedicated to providing the best resources, tools, and products for our community.</p>
-    </section>
-    <section >
-        <!-- Section introducing the team members with their photos and names -->
-        <h2>Team Members</h2>
-        <div class="members">
-            <div class="im"><img src="https://lh3.googleusercontent.com/A125KdGXwBvmYeFBvYev_KqbfyBcXQLf4mhHXIog5vDCGT7iDw_UJDdN0fPOFcj_iG8=w2400" alt="Pun"id="Pun"><br>Krittin Kumthornthip 6488036</div>
-            <div class="im"><img src="https://lh4.googleusercontent.com/HTP65dP-Xu0oFkFCUUGytL2rDnAwKZigxIlLi_sWlGKWDxDK90RFAh07FBu2us99HOU=w2400" alt="Atom"id="atom"><br>Khasidech Jiwyam 6488041</div>
-            <div class="im"><img src="https://lh6.googleusercontent.com/Gxk9tdyBgnN8n5cpOWF0ETaZ-jbAooYV54htrCyuM0dz0xTvcfI4nH2o1zmfbRx-IYk=w2400" alt="Kong"><br>Pongphat Mitrathanun 6488043</div>
-            <div class="im"><img src="https://lh4.googleusercontent.com/JquGLke2ydR6SSHFSaBNZ8GEa98pdt_1A_q8gQV4zA8SjZwVFNuHPhc0l6UndED6zIA=w2400" alt="Zil"><br>Jirayu Sae-Jiam 6488075</div>
-            <div class="im"><img src="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400" alt="Pan" id="Pan"><br>Pearavich Charsiriwattana 6488119</div>
-        </div>
-        
-    <section > 
-			<h2>Our Goals</h2>
-			<p class="goal">Our mission is to provide high-quality products and services to our customers, while maintaining a strong commitment to sustainable business practices to create a bond for the long term relationship between us and the customers.</p>
-	</section>
-</div>
-</main>
-<!-- footer  -->
-<footer>
-    <p>&copy; 2023 Guitar Shop *** This "About Us" webpage is for the used of "Educational Purposes", is part of the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
-</footer>
 
+<body>
+        <script type="text/javascript">
+            let rooturl = "http://localhost:3030/admininfo"
+            fetch(rooturl)
+                .then((res) => res.json()) // Get JSON from the response
+                .then((data) => {
+                    console.log(data.data)
+                    document.querySelector("#box").innerHTML = ''
+                    for (i = 0; i < data.data.length; i++) {
+                        document.querySelector("#box").innerHTML += `<div class="im"> <img src="${data.data[i].img}" id="${data.data[i].first_name}"></a>
+                            <h3>${data.data[i].first_name} ${data.data[i].last_name}</h3> <h5>Email: ${data.data[i].email}</h5>`
+                    }
+                })   
+        </script>
+        <header>
+            <!-- Website header with a logo and navigation menu -->
+            <h1>About Us</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/About_Us">About Us</a></li>
+                    <li><a href="/search">Search</a></li>
+                </ul>
+                <!-- search-box -->
+                <li><a href="/Adminlogin">Admin login</a></li>
+            </nav>
+        </header>
+        <main>
+            <!-- Main content of the webpage -->
+            <div class="container">
+                <section>
+                    <!-- Section about the website's purpose and the team behind it -->
+                    <h2>Who We Are</h2>
+                    <p> We are guitar selling platforms by using website that provides users purchasing convenience and
+                        shipping products. Our team consists of passionate guitar players who are dedicated to providing
+                        the best resources, tools, and products for our community.</p>
+                </section>
+                <section>
+                    <!-- Section introducing the team members with their photos and names -->
+                    <h2>Team Members</h2>
+                        <div id="box"class="members">
     
+                        </div>
+
+                    <section>
+                        <h2>Our Goals</h2>
+                        <p class="goal">Our mission is to provide high-quality products and services to our customers,
+                            while maintaining a strong commitment to sustainable business practices to create a bond for
+                            the long term relationship between us and the customers.</p>
+                    </section>
+            </div>
+        </main>
+        <!-- footer  -->
+        <footer>
+            <p>&copy; 2023 Guitar Shop *** This "About Us" webpage is for the used of "Educational Purposes", is part of
+                the learning courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***
+            </p>
+        </footer>
+
+
 </body>
+
 </html>
