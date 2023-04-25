@@ -9,17 +9,23 @@
 	<link rel="stylesheet" href="/Login_signup.css">
 	<link rel="icon" type="image/x-icon"
 		href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
-	<style>
-		#User {
-			color: white;
-			background-color: #4CAF50;
-		}
-
-		#Admin {
-			color: #4CAF50;
-			background-color: white;
-		}
-	</style>
+	<script type="text/javascript">
+        let rooturl=' https://api.unsplash.com/photos/?client_id=pFvhdvBxg2RVjfXO2u1rufChOIvuMG9Y2Q608iR8ySs'
+        fetch(rooturl,{
+          method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data =>{
+            console.log(data[0].urls.raw)
+			document.getElementById('api2').style.backgroundImage = `url(${data[0].urls.full})`;
+        })
+        .catch(error =>console.error())
+        
+      
+    </script>
 	<script type="text/javascript">
 		function getLogin(){
 			const username = document.querySelector('#username').value;
@@ -67,7 +73,8 @@
 	</header>
 	<main>
 		<!--Create two form one for sign up and the other for log in-->
-		<div class="boxpage">
+		<div class="boxpage" id="api2">
+			
 			<!--Toggling between sign-up and Log-in-->
 			<input type="checkbox" id="chk"
 				aria-hidden="true"><!--aria-hidden = "True" its mean the checkbox will be hidden from screen-->

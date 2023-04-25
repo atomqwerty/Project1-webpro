@@ -25,7 +25,7 @@ img{
     margin-bottom: 10%;
 }
 
-#Pan{
+#Pearavich{
     animation-name:Rotate ;
     animation-duration: 5s;
     animation-delay: 0.1s;
@@ -35,7 +35,7 @@ img{
     animation-timing-function: linear;
 
 }
-#atom{
+#Khasidech{
     animation-name:Flip ;
     animation-duration: 5s;
     animation-delay: 0.1s;
@@ -45,7 +45,7 @@ img{
     animation-timing-function: linear;
 
 }
-#Pun{
+#Krittin{
     animation-name:Rotate;
     animation-duration: 5s;
     animation-delay: 0.1s;
