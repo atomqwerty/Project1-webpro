@@ -88,17 +88,17 @@
                 const SelectedPlace = document.querySelector("#editbox");
                 const card = `
                     <p>Product ID: ${productinfo.id}</p>
-                    <input type="text" id="product_name" placeholder="product_name"value="${productinfo.product_name}" required> <br>
-                    <input type="text" id="product_type" placeholder="product_type"value="${productinfo.product_type}" required> <br>
-                    <input type="text" id="rating" placeholder="rating" value="${productinfo.rating}"required=""> <br>
-                    <input type="text" id="price" placeholder="price" value="${productinfo.price}"required=""> <br>
-                    <input type="text" id="Description" placeholder="Description" value="${productinfo.Description}"required=""> <br>
-                    <input type="text" id="series" placeholder="Product series"value="${productinfo.product_series}" required=""> <br>
-                    <input type="text" id="shape" placeholder="Product shape" value="${productinfo.product_shape}"required=""> <br>
-                    <input type="text" id="Neck" placeholder="Neck type" value="${productinfo.neck_type}"required=""> <br>
-                    <input type="text" id="Fingerboard" placeholder="Fingerboard material" value="${productinfo.fingerboard_material}"required=""> <br>
-                    <input type="text" id="Number" placeholder="Number of frets"value="${productinfo.num_of_frets}" required=""> <br>
-                    <input type="text" id="URL" placeholder="URL" value="${productinfo.picture}"required=""> <br>
+                    <input type="text" class="in-text" id="product_name" placeholder="product_name"value="${productinfo.product_name}" required> <br>
+                    <input type="text" class="in-text" id="product_type" placeholder="product_type"value="${productinfo.product_type}" required> <br>
+                    <input type="text" class="in-text" id="rating" placeholder="rating" value="${productinfo.rating}"required=""> <br>
+                    <input type="text" class="in-text" id="price" placeholder="price" value="${productinfo.price}"required=""> <br>
+                    <input type="text" class="in-text" id="Description" placeholder="Description" value="${productinfo.Description}"required=""> <br>
+                    <input type="text" class="in-text" id="series" placeholder="Product series"value="${productinfo.product_series}" required=""> <br>
+                    <input type="text" class="in-text" id="shape" placeholder="Product shape" value="${productinfo.product_shape}"required=""> <br>
+                    <input type="text" class="in-text" id="Neck" placeholder="Neck type" value="${productinfo.neck_type}"required=""> <br>
+                    <input type="text" class="in-text" id="Fingerboard" placeholder="Fingerboard material" value="${productinfo.fingerboard_material}"required=""> <br>
+                    <input type="text" class="in-text" id="Number" placeholder="Number of frets"value="${productinfo.num_of_frets}" required=""> <br>
+                    <input type="text" class="in-text" id="URL" placeholder="URL" value="${productinfo.picture}"required=""> <br>
                     <button onclick=getinfo(${productinfo.id}) type="click">EDIT</button> 
                 `
                 SelectedPlace.innerHTML += card;
@@ -120,8 +120,8 @@
     </header>
     <main>
         <!-- same structor as product details  -->
-        <div class="container">
-            <div class="imgBx">
+        <div class="container" id="edit-pro">
+            
                 <!-- blank box for adding information -->
                 <form action="adduser" class="header-form" id="add-form">
                     <select id="selecter-box"></select>
@@ -134,13 +134,8 @@
                 <form id="editbox" onsubmit="return false">
                 </form>
                 
-            </div>
-            <div class="details">
-                <div class="content">
-
-                </div>
-            </div>
-        </div>
+            
+        
         </div>
     </main>
     <footer>
