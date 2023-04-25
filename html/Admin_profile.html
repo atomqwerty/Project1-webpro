@@ -66,8 +66,8 @@
 <main>
 
 <div class="container">
-<h1>Edit Account</h1>
-
+<h1>Edit Account</h1><br>
+<div class="detail">
 <table>
     <!-- table header  -->
     <thead>
@@ -93,14 +93,16 @@
                     +'<td><button onclick = del('+data.data[i].id+') type="click">Delete</button></td></tr>'
             }
             i++;
-            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="username" placeholder="New-user"></td><td><input type="text" id="password" placeholder="Password"></td><td><input type="text" id="type" placeholder="Type"></td><td>today</td><td> <button onclick = addprofile() type="click"></td></tr>'
+            document.querySelector("#admin").innerHTML +='<tr><td>'+i+'</td><td><input type="text" id="username" placeholder="New-user"></td><td><input type="text" id="password" placeholder="Password"></td><td><input type="text" id="type" placeholder="Type"></td><td>today</td><td> <button onclick = addprofile() type="click">ADD</td></tr>'
                 document.querySelector("#admin").innerHTML +=' <tr><td> <a href="Edit_User">Edit User</a> </td></tr>'
             })  
     </script>
+    
     <tbody id="admin">
         <!-- table content  -->
     </tbody>
 </table>
+</div>
 </div>
 </main>
 <footer>
