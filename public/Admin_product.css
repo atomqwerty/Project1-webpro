@@ -1,5 +1,15 @@
 button{
-  background-color: #ff0404f6;
+  
+  animation-iteration-count: infinite;
+  background: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button#add{
+  background-color: #03f803f6;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -23,4 +33,8 @@ td,th{
   max-width: 1px;
   min-height: 5px;
   text-overflow: clip;
+}
+
+#id{
+  text-align: center;
 }

@@ -9,17 +9,45 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+.container#detail{
+	align-items: center;
+	max-width: 75%;
+  	margin-top: 5%;
+  	margin-bottom: 10%;
+ 	padding: 10px;
+  	border: 1px solid #ccc;
+  	background-color: rgba(150, 111, 51, 0.8);
+  	border-radius: 0.5rem;
+  	border-radius: 5mm;
+}
 table {
+	
+	table-layout:auto ;width:20%;
+	text-align: center;
     width: 100%;
     border-collapse: collapse;
+	
+}
+.detail{
+	border: 0.1px solid #ccc;
+	border-radius: 5px;
+}
+#admin{
+	background-color: #FF9179;
+}
+#admin:hover{
+	background-color: rgb(255, 255, 255);
 }
 
 thead {
     background-color: #ddd;
+	padding:20px;
+	border: 10px;
+	border-radius: 5px;
+
 }
 
-th,td {
+th,td,tr {
     padding: 10px;
     text-align: left;
 }
@@ -29,11 +57,16 @@ th {
 }
 
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: rgb(255, 255, 255);
 }
 
 a {
-    color: rgb(255, 255, 255);
+	
+    color: #4736e0;
+    text-decoration: none;
+}
+a:hover{
+	color: #36e082;
     text-decoration: none;
 }
 
@@ -81,3 +114,4 @@ button[type="submit"] {
 button[type="submit"]:hover {
 	background-color: #3e8e41;
 }
+

@@ -42,8 +42,9 @@
 			<button class="search" type="button" id="login-btn" onclick="getForm()">Search</button>
 		</form>
 		<!-- The code below is a container that shows every product details in "Search Products"(Product Name, Product Type, Rating, and Price) -->
-		<div class="container">
-			<h1>Search Products</h1>
+		<div class="container" >
+			<h1>Search Products</h1><br>
+			<div class="detail">
 			<script type="text/javascript">
 				function getForm(){
 					const name = document.querySelector('#name').value;
@@ -69,6 +70,7 @@
 						if(data.length>0){
 							for (i = 0; i < data.length; i++) {
 							// console.log(data.data[i])
+							
 							document.querySelector("#admin").innerHTML += '<tr>' 
 								+ '<td>' + data[i].product_name + '</td>' 
 								+ '<td>' + data[i].product_type + '</td>' 
@@ -90,6 +92,7 @@
 					
 				}
 			</script>
+			</div>
 			<table>
                 <thead>
                     <tr>
