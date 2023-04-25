@@ -72,11 +72,11 @@
                 const SelectedPlace = document.querySelector("#editbox");
                 const card = `
                     <p>User ID: ${productinfo.id}</p>
-                    <input type="text" id="username" placeholder="username"value="${productinfo.username}" required> <br>
-                    <input type="text" id="password" placeholder="password"value="${productinfo.password}" required> <br>
-                    <input type="text" id="role" placeholder="role" value="${productinfo.role}"required=""> <br>
-                    <input type="text" id="admin_id" placeholder="admin_id" value="${productinfo.admin_id}"required=""> <br>
-                    <p>Loin log: ${productinfo.login_log}</p>
+                    <input type="text" class="in-text id="username" placeholder="username"value="${productinfo.username}" required> <br>
+                    <input type="text" class="in-text id="password" placeholder="password"value="${productinfo.password}" required> <br>
+                    <input type="text" class="in-text id="role" placeholder="role" value="${productinfo.role}"required=""> <br>
+                    <input type="text" class="in-text id="admin_id" placeholder="admin_id" value="${productinfo.admin_id}"required=""> <br>
+                    <p>Loin log: ${productinfo.login_log}</p>,br.
                     <button onclick=getinfo(${productinfo.id}) type="click">EDIT</button> 
                 `
                 SelectedPlace.innerHTML += card;
@@ -85,7 +85,7 @@
     chagneinfo();
 	</script>
     <header>
-        <h1>Edit product</h1>
+        <h1>Edit User</h1>
         <nav>
             <ul>
                 <li><a href="/Admin_home">Home</a></li>
