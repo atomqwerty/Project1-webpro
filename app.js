@@ -41,6 +41,9 @@ router.get('/Login_signup', (req, res) => {
 router.get('/search', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/search.html'));
 })
+router.get('/searchadmin', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Project1-webpro/html/search admin.html'));
+})
 
 router.get('/Add_product', (req, res) => {
     res.sendFile(path.join(__dirname, '../Project1-webpro/html/Add_product.html'));

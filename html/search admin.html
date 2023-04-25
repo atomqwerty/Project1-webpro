@@ -1,0 +1,110 @@
+<!-- Same nav bar format-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Search Products</title>
+	<link rel="stylesheet" type="text/css" href="/public\Main.css">
+	<link rel="stylesheet" type="text/css" href="/public\search.css">
+	<link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu">
+	<link rel="icon" type="image/x-icon"
+		href="https://lh4.googleusercontent.com/AuyVYAsUNczh28zZ4qySFNfIS2uyb0SQwxzKCuxlwjJpiq2mWNts9cuMZZDMQjEuxCU=w2400">
+
+</head>
+
+<body>
+	<header>
+		<h1>Guitar Shop</h1>
+		<nav>
+			<ul>
+				<li><a href="/html\home.html">Home</a></li>
+				<li><a href="/html\About_Us.html">About Us</a></li>
+				<li><a href="/html\search.html">Search</a></li>
+			</ul>
+			<!-- search-box -->
+			<li><a href="/html\Adminlogin.html">Admin login</a></li>
+		  </nav>
+	</header>
+	<!-- This is a search box that contains Product Name, Product Type, and Rating -->
+	<main>
+		<form class="search-sec">
+			<h1 class="search">Search</h1>
+			<input class="search" type="text" id="name" placeholder="First name" name="search_choice">
+			<input class="search" type="text" id="series" placeholder="Address" name="search_choice">
+			<input class="search" type="Type" id="Type" placeholder="preferences" name="search_choice">
+			<!-- This is a "search button" "-->
+			<button class="search" type="button" id="login-btn" onclick="getForm()">Search</button>
+		</form>
+		<!-- The code below is a container that shows every product details in "Search Products"(Product Name, Product Type, Rating, and Price) -->
+		<div class="container">
+			<h1>Search Products</h1>
+			<script type="text/javascript">
+				function getForm(){
+					const name = document.querySelector('#name').value;
+					const series = document.querySelector('#series').value;
+					const Type = document.querySelector('#Type').value;
+					console.log(name,series,Type)
+					let rooturl='http://localhost:3030/formadmin'
+					fetch(rooturl,{
+						method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({ 
+								"name": name,
+								"series": series,
+								"Type": Type
+							})
+					})
+					.then(response => response.json())
+					.then(data =>{
+						console.log(data)
+						document.querySelector("#admin").innerHTML = ''
+						if(data.length>0){
+							for (i = 0; i < data.length; i++) {
+							// console.log(data.data[i])
+							document.querySelector("#admin").innerHTML += '<tr>' 
+								+ '<td>' + data[i].id + '</td>' 
+								+ '<td>' + data[i].first_name + '</td>' 
+								+ '<td>' + data[i].last_name + '</td>' 
+								+ '<td>' + data[i].address + '</td>' 
+								+ '<td>' + data[i].age + '</td>' 
+								+ '<td id="txt">' + data[i].preferences + '</td>' 
+								+ '<td>' + data[i].email + '</td>' 
+								+ '</tr>'
+						}
+						}else{
+							document.querySelector("#admin").innerHTML += '<tr>Not found</tr>'
+						}
+					})
+					.catch(error =>console.error())
+					
+				}
+			</script>
+			<table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Address</th>
+                        <th>Age</th>
+                        <th>Preferences</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="admin">
+
+                </tbody>
+            </table>
+			
+
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2023 Guitar Shop *** This webpage for the used of "Educational Purposes", is part of the learning
+			courses in the<br> ITCS212 Web Programming class of ICT student at Mahidol University. ***</p>
+	</footer>
+</body>
+
+</html>

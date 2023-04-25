@@ -303,6 +303,22 @@ app.post('/form', function (req, res) {
             
         });
 });
+app.post('/formadmin', function (req, res) {
+    const Type = req.body.Type;
+    const name = req.body.name;
+    const series = req.body.series;
+    connection.query(`
+    SELECT * FROM administrator where first_name like ?"%" and address like ?"%" and preferences like ?"%"`, [name,series,Type], (err, rows, field) => {
+        console.log(Type,name,series)
+        if (rows.length > 0) {
+            console.log(`Search by 3\n${rows.length} rows returned`);
+            return res.send(rows)   
+        }
+        console.log(`Search by 3\n${rows.length} rows returned`);
+        return res.json({err:"NOT FOUND"})
+        
+    });
+});
 app.listen(port, function () {
     console.log('CORS-enabled web server listening on port ' + port)
 })
